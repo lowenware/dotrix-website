@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from "../button";
 import dotrix from "src/interfaces/dotrix";
 import Link from "next/link";
 import React from "react";
