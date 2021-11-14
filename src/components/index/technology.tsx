@@ -16,6 +16,7 @@ const H2 = styled.h2`
 
 const H3 = styled.h3`
   font-size: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const Card = styled.div`
@@ -70,24 +71,24 @@ const Technology: React.FC = () => {
         <H2>Technology</H2>
         <div className="flex wrap">
           <Card>
-            <Image src="/img/technology/rust.png" alt="rustacean" />
+            <Image src="/img/technology/3d.png" alt="3D" />
             <H3>3D</H3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh <a>see more</a></p>
+            <p>Focused to provide various 3D features</p>
           </Card>
           <Card>
             <Image src="/img/technology/rust.png" alt="rustacean" />
             <H3>Rust</H3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh <a>see more</a></p>
+            <p>Writen in <a href="https://rust-lang.org">Rust</a> to be safe and scalable</p>
           </Card>
           <Card>
-            <Image src="/img/technology/rust.png" alt="rustacean" />
+            <Image src="/img/technology/ecs.png" alt="ECS" />
             <H3>ECS</H3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh <a>see more</a></p>
+            <p>Follows Entity Component System programming pattern</p>
           </Card>
           <Card>
             <Image src="/img/technology/wgpu.png" alt="wgpu" style={{ top: 10 }} />
             <H3>WGPU</H3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce nibh <a>see more</a></p>
+            <p>Uses <a href="https://wgpu.rs">WGPU</a> as Renderer</p>
           </Card>
         </div>
       </Container>
