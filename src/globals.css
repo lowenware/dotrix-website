@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, Jura;
+  background-color: #1a1c22;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+h1{
+  font-size: 1.6em;
+  line-height: 1.6em;
+  color: #fff;
+}
+
+pre{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  background-color: #11131A;
+  padding: 16px 16px;
+  border-left: #4CC900 2px solid;
+}
+
+
+
+@tailwind components;
+.home__image{
+  background-image: url('../public/Images/top-slide-image.png')
+}
+.flex__items{
+  flex-flow: row wrap;
+}
+.trans_menu{
+  width: 100%;
+  position: absolute;
+  transition: all 0.8s ease;
+  transform: translateY(-125%);
+  z-index: 10;
+
+}
+.active_trans{
+  transform: translateY(20%);
+}
+.line{
+ height: 0;
+ transition: all 1.2s ease;
+}
+.active_line{
+  height: 18px;
+}
+.active_link{
+  color: #4CC900;
+}
+.menu_link{
+  opacity: 0%;
+  transition: opacity 3.8s;
+}
+.active_menu_link{
+  opacity: 100;
+}
+.menu_sublink{
+transform: translateY(-100px);
+opacity: 0%;
+transition: opacity 3s,transform 1.2s ease-out;
+}
+.active_menu_sublink{
+transform: translateY(0px);
+opacity: 100%;
+}
+
+
+@tailwind utilities;
