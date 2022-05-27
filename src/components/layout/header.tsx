@@ -21,9 +21,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
     <>
       <nav className="h-80 flex justify-between bg-black w-full z-40 absolute">
         <Link href={HOME_URL_ROOT}>
-          <div className="ml-32 flex items-center text-white hover:text-green duration-700 cursor-pointer">
-            <DotrixIcon />
-            <p className="ml-32 text-24 font-bold py-32 ">DOTRIX</p>
+          <div className="ml-32 flex items-center text-white duration-700 cursor-pointer">
+            <span className="">
+              <DotrixIcon className="" />
+            </span>
+            <p className="hover:text-green ml-16 text-24 font-bold py-32 ">
+              DOTRIX
+            </p>
           </div>
         </Link>
         <div className="navbar mr-32 flex">

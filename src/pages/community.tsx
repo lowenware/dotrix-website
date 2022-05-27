@@ -5,15 +5,20 @@ import Patreon from "icons/logo-patreon.svg";
 import Discord from "icons/logo-discord.svg";
 import Twitter from "icons/logo-twitter.svg";
 import YouTube from "icons/logo-youtube.svg";
+import Head from "next/head";
+import { PAGES } from "utils/pages";
 
 interface CommunityProps {}
 
 const Community: NextPage<CommunityProps> = () => {
   return (
     <>
+      <Head>
+        <title>{PAGES.COMMUNITY.title}</title>
+      </Head>
       <PageLayout currentPage="COMMUNITY" joinUsComponent={false}>
-        <div className="home__image w-full h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top">
-          <div className="bg-opacity-70 flex flex-col bg-black-100 h-40vh bg-fixed w-full">
+        <div className="home__image w-full h-60vh sm:h-screen lg:h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top">
+          <div className="bg-opacity-70 flex flex-col bg-black-100 h-60vh sm:h-screen lg:h-40vh bg-fixed w-full">
             <p className="text-white text-48 lg:text-72 self-center my-auto">
               Community
             </p>

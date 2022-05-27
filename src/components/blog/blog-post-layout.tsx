@@ -38,12 +38,6 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               )}
               {meta.tags && <span className="text-pink">#{meta.tags}</span>}
             </div>
-            {/* <Image
-            layout="responsive"
-            height={150}
-            className="w-full h-40vh"
-            alt="mountains"
-          /> */}
             {content && (
               <div
                 className="text-black-gray text-14"

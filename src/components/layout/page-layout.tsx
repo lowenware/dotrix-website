@@ -3,11 +3,12 @@ import { Header } from "./header";
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import { JoinUs } from "./join-us";
+import { PageEnum } from "utils/pages";
 
 interface PageProps {
   joinUsComponent?: boolean;
   children: ReactNode;
-  currentPage: string;
+  currentPage: PageEnum;
 }
 
 export const PageLayout: NextPage<PageProps> = ({

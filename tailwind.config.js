@@ -6,6 +6,7 @@ const sizes = {
   24: "24px",
   28: "28px",
   32: "32px",
+  36: "36px",
   48: "48px",
   54: "54px",
   60: "60px",
@@ -78,6 +79,7 @@ module.exports = {
       black: {
         DEFAULT: "#11131A",
         100: "#00101C",
+        700: "#60717E",
         full: "#000",
         gray: "#B8CBD0",
       },

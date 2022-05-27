@@ -1,16 +1,28 @@
 import { BlogLayout } from "components/blog";
 import { NextPage } from "next";
+import Head from "next/head";
 import { Blog, BlogStaticProps, mapBlogPostRawToMeta } from "utils/blog";
+import { PAGES } from "utils/pages";
 
-const BlogPage: NextPage<BlogStaticProps> = ({posts, tags, page, totalPages}) => {
+const BlogPage: NextPage<BlogStaticProps> = ({
+  posts,
+  tags,
+  page,
+  totalPages,
+}) => {
   return (
-    <BlogLayout 
-      posts={posts.map(mapBlogPostRawToMeta)}
-      tags={tags}
-      page={page}
-      totalPages={totalPages}
-    />
-  )
+    <>
+      <Head>
+        <title>{PAGES.BLOG.title}</title>
+      </Head>
+      <BlogLayout
+        posts={posts.map(mapBlogPostRawToMeta)}
+        tags={tags}
+        page={page}
+        totalPages={totalPages}
+      />
+    </>
+  );
 };
 
 export const getStaticProps = async () => {

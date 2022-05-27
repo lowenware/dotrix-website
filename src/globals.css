@@ -135,6 +135,17 @@ opacity: 100%;
   opacity: 100;
 }
 }
+.button{
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75rem;
+  color: #fff;
+  font-weight: 700;
+  transition-duration:700ms;
+  text-align: center; 
+}
 
 
 @tailwind utilities;

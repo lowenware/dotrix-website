@@ -1,8 +1,10 @@
 import { NextPage } from "next";
-import Link from "next/link";
-import { PageLayout, BlogPosts } from "../components";
+import Head from "next/head";
+import { PageLayout, BlogPosts, Button } from "components";
 import GitHubIcon from "icons/logo-github.svg";
 import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "utils/blog";
+import { DOCS_URL_ROOT } from "utils/docs";
+import { PAGES } from "utils/pages";
 
 interface HomepageProps {
   posts: BlogPostRaw[];
@@ -11,37 +13,36 @@ const MAX_BLOG_POSTS = 8;
 const Home: NextPage<HomepageProps> = ({ posts }) => {
   return (
     <>
+      <Head>
+        <title>{PAGES.HOME.title}</title>
+      </Head>
       <PageLayout currentPage="HOME">
         <div className="flex flex-col">
-          <div className="home__image w-full h-60vh sm:h-80vh bg-fixed items-center justify-center bg-no-repeat bg-cover">
-            <div className="bg-opacity-70 flex flex-col bg-black-100 h-60vh sm:h-80vh bg-fixed w-full">
+          <div className="home__image w-full h-screen  lg:h-60vh bg-fixed items-center justify-center bg-no-repeat">
+            <div className="bg-opacity-70 flex flex-col bg-black-100 h-screen lg:h-60vh bg-fixed w-full">
               <section className="my-auto">
-                <div className="">
-                  <p className="text-white text-48 md:text-72 mb-24 text-center">
+                <div>
+                  <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
                     Program your world
                   </p>
-                  <p className="text-white text-18 md:text-24 mb-70 text-center">
+                  <p className="text-white text-18 md:text-24 mb-64 text-center">
                     OpenSource 3D engine for Rust developers
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center">
-                  <Link href="">
-                    <p
-                      className="flex mb-16 sm:mb-0 justify-center sm:ml-32 lg:ml-0 lg:mr-4 items-center
-                     text-white py-8 sm:px-16 sm:py-8 md:py-16 md:px-24 font-bold
-                     cursor-pointer text-18 lg:text-24 bg-blue-light hover:bg-black-200 hover:bg-opacity-25 duration-500 rounded-xl"
-                    >
-                      GET STARTED
+                <div className="flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center mb-64">
+                  <Button
+                    href={`${DOCS_URL_ROOT}/get-started`}
+                    className="mb-4 sm:mb-0 sm:mr-36"
+                    variant="primary"
+                  >
+                    GET STARTED
+                  </Button>
+                  <Button href="/" variant="outline" className="mb-10 sm:mb-0">
+                    <GitHubIcon className="mr-32" />
+                    <p className="text-white text-18 sm:text-24 font-bold">
+                      GITHUB
                     </p>
-                  </Link>
-                  <Link href="">
-                    <div className="sm:ml-32 lg:ml-24 flex justify-center items-center py-8 pr-8 sm:py-16 sm:pl-24 sm:pr-32 border hover:bg-black-100 hover:bg-opacity-40 duration-500 cursor-pointer border-white rounded-xl">
-                      <GitHubIcon className="mr-8 sm:mr-32" />
-                      <p className="text-white text-18 sm:text-24 font-bold">
-                        GITHUB
-                      </p>
-                    </div>
-                  </Link>
+                  </Button>
                 </div>
               </section>
             </div>
