@@ -34,7 +34,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
         className="my-16"
         page={page}
         totalPages={totalPages}
-        root={BLOG_URL_ROOT}
+        root={tag ? `${BLOG_URL_ROOT}/${tag}` : BLOG_URL_ROOT}
       />
     </PageLayout>
   );

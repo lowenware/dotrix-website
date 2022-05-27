@@ -1,5 +1,6 @@
 import { BlogPostLayout, BlogLayout } from "components";
 import { GetStaticProps, NextPage } from "next";
+import { isArrayBuffer } from "util/types";
 import {
   BlogPostStaticProps,
   BlogStaticProps,
@@ -44,7 +45,8 @@ const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = (props) =>
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = `${params?.slug || "1"}`;
+  const slug = (params?.slug && Array.isArray(params.slug)) ? params.slug : ["1"];
+
   const blog = new Blog();
   return {
     props: blog.getBlogStaticProps(slug)

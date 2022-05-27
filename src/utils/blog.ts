@@ -3,11 +3,11 @@ import matter from "gray-matter";
 
 export const BLOG_POSTS_PER_PAGE = 16;
 export const BLOG_FILES_EXTENSION = ".md";
-export const BLOG_POSTS_ROOT = "blog"
-export const BLOG_URL_ROOT = "/blog"
+export const BLOG_POSTS_ROOT = "blog";
+export const BLOG_URL_ROOT = "/blog";
 
 export interface BlogPostRaw {
-  slug: string,
+  slug: string;
   title: string;
   summary: string;
   date: string;
@@ -30,24 +30,24 @@ export interface Tag {
 }
 
 export interface BlogPost {
-  meta: BlogPostMeta,
-  content: string,
+  meta: BlogPostMeta;
+  content: string;
 }
 
 export interface BlogStaticProps {
-  mode: 'PAGE' | 'TAG',
-  tag?: string,
-  posts: BlogPostRaw[],
-  tags: Tag[],
+  mode: "PAGE" | "TAG";
+  tag?: string;
+  posts: BlogPostRaw[];
+  tags: Tag[];
   page: number;
   totalPages: number;
 }
 
 export interface BlogPostStaticProps {
-  mode: 'POST',
+  mode: "POST";
   meta: BlogPostRaw;
   content: string;
-  tags: Tag[],
+  tags: Tag[];
   prevPost: BlogPostRaw | null;
   nextPost: BlogPostRaw | null;
 }
@@ -55,7 +55,7 @@ export interface BlogPostStaticProps {
 export class Blog {
   posts: BlogPostMeta[];
   tags: Tag[];
-  
+
   constructor() {
     const posts = this.getBlogPosts();
     this.posts = posts;
@@ -64,13 +64,14 @@ export class Blog {
 
   getStaticPaths() {
     const pagesCount = this.countPages(this.posts.length, BLOG_POSTS_PER_PAGE);
-    return [{
+    return [
+      {
         params: {
-          slug: []
-        }
+          slug: [],
+        },
       },
       // posts
-      ...this.posts.map(post => ({
+      ...this.posts.map((post) => ({
         params: {
           slug: [post.slug],
         },
@@ -82,11 +83,20 @@ export class Blog {
         },
       })),
       // tags
-      ...this.tags.map(tag => ({
-        params: {
-          slug: [tag.label],
+      ...this.tags.flatMap((tag) => [
+        ...Array.from(
+          Array(this.countPages(tag.count, BLOG_POSTS_PER_PAGE)).keys()
+        ).map((pageNum) => ({
+          params: {
+            slug: [tag.label, `${pageNum + 1}`],
+          },
+        })),
+        {
+          params: {
+            slug: [tag.label],
+          },
         },
-      })),
+      ]),
     ];
   }
 
@@ -96,41 +106,32 @@ export class Blog {
       pageNumber,
       BLOG_POSTS_PER_PAGE
     );
-  
+
     return {
-      mode: 'PAGE',
-      posts: posts.map(
-        mapBlogPostMetaToRaw
-      ),
+      mode: "PAGE",
+      posts: posts.map(mapBlogPostMetaToRaw),
       tags: this.tags,
       totalPages,
-      page
+      page,
     };
-  };
+  }
 
-  getBlogTagStaticProps(tag: string, pageNumber?: number): BlogStaticProps {
-    const taggedPosts = this.posts.filter(p => p.tags.includes(tag));
-    const { posts, totalPages, page } = pageNumber !== undefined ? this.paginate(
-      taggedPosts,
+  getBlogTagStaticProps(tag: string, pageNumber: number): BlogStaticProps {
+    const { posts, totalPages, page } = this.paginate(
+      this.posts.filter((p) => p.tags.includes(tag)),
       pageNumber,
       BLOG_POSTS_PER_PAGE
-    ) : {
-      posts: taggedPosts,
-      totalPages: 1,
-      page: 1
-    };
+    );
 
     return {
-      mode: 'TAG',
+      mode: "TAG",
       tag,
-      posts: posts.map(
-        mapBlogPostMetaToRaw
-      ),
+      posts: posts.map(mapBlogPostMetaToRaw),
       tags: this.tags,
       totalPages,
-      page
+      page,
     };
-  };
+  }
 
   private paginate<T>(posts: T[], page: number, perPage: number) {
     const totalPages = this.countPages(posts.length, perPage);
@@ -143,7 +144,7 @@ export class Blog {
       posts: posts.slice(offsetFrom, offsetTo),
       totalPages,
       page,
-    }
+    };
   }
 
   private countPages(itemsCount: number, perPage: number) {
@@ -151,10 +152,11 @@ export class Blog {
   }
 
   getBlogPostStaticProps(slug: string): BlogPostStaticProps {
-    const {meta, content} = this.readBlogPost(`${slug}.md`);
+    const { meta, content } = this.readBlogPost(`${slug}.md`);
     const index = this.posts.findIndex((p) => p.slug === slug)!;
 
-    let prevPost = null, nextPost = null;
+    let prevPost = null,
+      nextPost = null;
 
     if (index > 0) {
       prevPost = mapBlogPostMetaToRaw(this.posts[index - 1]);
@@ -162,42 +164,43 @@ export class Blog {
     if (index < this.posts.length - 1) {
       nextPost = mapBlogPostMetaToRaw(this.posts[index + 1]);
     }
- 
+
     return {
-      mode: 'POST',
+      mode: "POST",
       meta: mapBlogPostMetaToRaw(meta),
       content,
       prevPost,
       nextPost,
-      tags: this.tags
+      tags: this.tags,
     };
-  };
+  }
 
-  getBlogStaticProps(slug: string): BlogStaticProps | BlogPostStaticProps {
-    const page = parseInt(slug);
-    const slugIsPageNumber = !isNaN(page) && `${page}` === slug;
-    
-    if (slugIsPageNumber) {
-      return this.getBlogPageStaticProps(page)
+  getBlogStaticProps(slugs: string[]): BlogStaticProps | BlogPostStaticProps {
+    let [slug, page] = slugs;
+    const re = /^\d+$/;
+
+    // slug is tag
+    if (this.tags.find((t) => t.label === slug)) {
+      return this.getBlogTagStaticProps(
+        slug,
+        re.test(page) ? parseInt(page) : 1
+      );
     }
 
-    const slugIsTag = this.tags.find(t => t.label === slug);
-
-    if (slugIsTag) {
-      return this.getBlogTagStaticProps(slug, 1);
+    // slug is page number
+    if (re.test(slug)) {
+      return this.getBlogPageStaticProps(parseInt(slug));
     }
 
     return this.getBlogPostStaticProps(slug);
-  };
+  }
 
   getBlogPosts(): BlogPostMeta[] {
-    return fs.readdirSync(BLOG_POSTS_ROOT).filter(
-      fileName => fileName.endsWith(BLOG_FILES_EXTENSION)
-    ).map(
-      fileName => this.readBlogPost(fileName).meta
-    ).sort(
-      (post1, post2) => post1.date.getTime() - post2.date.getTime()
-    );
+    return fs
+      .readdirSync(BLOG_POSTS_ROOT)
+      .filter((fileName) => fileName.endsWith(BLOG_FILES_EXTENSION))
+      .map((fileName) => this.readBlogPost(fileName).meta)
+      .sort((post1, post2) => post1.date.getTime() - post2.date.getTime());
   }
 
   getRawBlogPosts(sliceTo: number): BlogPostRaw[] {
@@ -206,19 +209,15 @@ export class Blog {
 
   private readBlogPost(fileName: string): BlogPost {
     const filePath = `${BLOG_POSTS_ROOT}/${fileName}`;
-    const { data, content } = matter(
-      fs.readFileSync(filePath)
-    );
-    ['title', 'summary', 'date'].forEach(
-      field => {
-        if (!data[field]) {
-          throw `File '${fileName}' has not '${field}' meta data`;
-        }
+    const { data, content } = matter(fs.readFileSync(filePath));
+    ["title", "summary", "date"].forEach((field) => {
+      if (!data[field]) {
+        throw `File '${fileName}' has not '${field}' meta data`;
       }
-    );
-  
+    });
+
     const { title, summary, date, tags, image } = data;
-  
+
     return {
       meta: mapBlogPostRawToMeta({
         slug: fileName.replace(BLOG_FILES_EXTENSION, ""),
@@ -226,42 +225,41 @@ export class Blog {
         summary,
         date,
         tags,
-        image
+        image,
       }),
       content,
     };
-  } 
+  }
 
   private getTagsFromPosts(posts: BlogPostMeta[]) {
     const tags: Tag[] = [];
-    posts.forEach(
-      post => post.tags.forEach(
-        t => {
-          const label = t.trim();
-          const tag = tags.find(t => t.label === label);
-          if (tag) {
-            tag.count += 1;
-          } else {
-            tags.push({
-              label,
-              count: 1
-            });
-          }
+    posts.forEach((post) =>
+      post.tags.forEach((t) => {
+        const label = t.trim();
+        const tag = tags.find((t) => t.label === label);
+        if (tag) {
+          tag.count += 1;
+        } else {
+          tags.push({
+            label,
+            count: 1,
+          });
         }
-      ));
+      })
+    );
     return tags;
   }
 }
 
 export const mapBlogPostMetaToRaw = (meta: BlogPostMeta): BlogPostRaw => ({
   ...meta,
-  tags: meta.tags.join(','),
+  tags: meta.tags.join(","),
   date: meta.date.toISOString(),
 });
 
 export const mapBlogPostRawToMeta = (raw: BlogPostRaw): BlogPostMeta => ({
   ...raw,
   date: new Date(raw.date),
-  tags: raw.tags ? `${raw.tags}`.split(',').map(t => t.trim()) : [],
+  tags: raw.tags ? `${raw.tags}`.split(",").map((t) => t.trim()) : [],
   image: raw.image || null,
 });
