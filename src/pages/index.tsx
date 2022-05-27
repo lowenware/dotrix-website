@@ -3,7 +3,7 @@ import Head from "next/head";
 import { PageLayout, BlogPosts, Button } from "components";
 import GitHubIcon from "icons/logo-github.svg";
 import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "utils/blog";
-import { HANDBOOK_URL_ROOT } from "utils/docs";
+import { HANDBOOK_URL_ROOT } from "utils/handbook";
 import { PAGES } from "utils/pages";
 
 interface HomepageProps {
