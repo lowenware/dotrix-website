@@ -11,7 +11,7 @@ const MAX_BLOG_POSTS = 8;
 const Home: NextPage<HomepageProps> = ({ posts }) => {
   return (
     <>
-      <PageLayout>
+      <PageLayout currentPage="Home">
         <div className="flex flex-col">
           <div className="home__image w-full h-60vh sm:h-80vh bg-fixed items-center justify-center bg-no-repeat bg-cover">
             <div className="bg-opacity-70 flex flex-col bg-black-100 h-60vh sm:h-80vh bg-fixed w-full">

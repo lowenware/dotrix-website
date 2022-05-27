@@ -24,7 +24,7 @@ export const DocsLayout: NextPage<DocsPageProps> = ({
 
   return (
     <>
-      <PageLayout>
+      <PageLayout currentPage="Docs">
         <section className="bg-black-800 flex-col sm:flex-row flex justify-center py-128 px-32 min-h-screen">
           <div className="bg-black w-3/4 sm:w-min min-h-max h-450">
             <div className="text-white text-18 flex flex-col text-left font-bold p-32">

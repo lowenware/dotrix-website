@@ -2,33 +2,19 @@ import Link from "next/link";
 import DotrixIcon from "src/icons/dotrix-icon.svg";
 import Menu from "src/icons/menu.svg";
 import React, { useState } from "react";
+import classNames from "classnames";
 
-export const Header: React.FC = ({}) => {
+interface HeaderProps {
+  currentPage: string;
+}
+export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
     setActive(!active);
-    document.querySelector(".trans_menu")?.classList.toggle("active_trans");
+    document.querySelector(".navbar")?.classList.toggle("active_menu");
+    return;
   };
-
-  React.useEffect(() => {
-    if (window.location.pathname === "/") {
-      document.querySelector(".home")?.classList.add("active_link");
-      document.querySelector(".line")?.classList.add("active_line");
-    }
-    if (window.location.pathname.startsWith("/community")) {
-      document.querySelector(".community")?.classList.add("active_link");
-      document.querySelector(".line_community")?.classList.add("active_line");
-    }
-    if (window.location.pathname.startsWith("/news")) {
-      document.querySelector(".news")?.classList.add("active_link");
-      document.querySelector(".line_news")?.classList.add("active_line");
-    }
-    if (window.location.pathname.startsWith("/docs")) {
-      document.querySelector(".docs")?.classList.add("active_link");
-      document.querySelector(".line_docs")?.classList.add("active_line");
-    }
-  }, []);
   return (
     <>
       <nav className="h-80 flex justify-between bg-black w-full z-40 absolute">
@@ -38,7 +24,69 @@ export const Header: React.FC = ({}) => {
             <p className="ml-32 text-24 font-bold py-32 ">DOTRIX</p>
           </div>
         </Link>
-        <ul className="hidden sm:flex items-center text-white">
+        <div className="navbar mr-32 flex">
+          <Link href="/">
+            <a
+              id="home"
+              className={classNames(
+                "navbar-link",
+                currentPage === "Home" ? "active_link" : ""
+              )}
+              href="#"
+            >
+              Home
+            </a>
+          </Link>
+          <Link href="/news">
+            <a
+              id="news"
+              className={classNames(
+                "navbar-link",
+                currentPage === "News" ? "active_link" : ""
+              )}
+              href="#"
+            >
+              News
+            </a>
+          </Link>
+          <Link href="/docs/index">
+            <a
+              id="docs"
+              className={classNames(
+                "navbar-link",
+                currentPage === "Docs" ? "active_link" : ""
+              )}
+              href="#"
+            >
+              DOCS
+            </a>
+          </Link>
+          <Link href="/community">
+            <a
+              id="community"
+              className={classNames(
+                "navbar-link",
+                currentPage === "Community" ? "active_link" : ""
+              )}
+              href="#"
+            >
+              COMMUNITY
+            </a>
+          </Link>
+        </div>
+        <button
+          onClick={handleClick}
+          id="menu"
+          className="block sm:hidden mr-32"
+        >
+          <Menu />
+        </button>
+      </nav>
+    </>
+  );
+};
+{
+  /* <ul className="hidden sm:flex items-center text-white">
           <li className="flex flex-col home text-20 px-16 uppercase font-bold hover:text-green transition duration-500">
             <Link href="/">Home</Link>
           </li>
@@ -58,8 +106,6 @@ export const Header: React.FC = ({}) => {
         <button className="sm:hidden block" onClick={handleClick}>
           <Menu className="mr-32 self-center fill-white cursor-pointer" />
         </button>
-      </nav>
-
       <ul className="flex flex-col sm:hidden bg-black items-center text-white trans_menu">
         <li className="py-32 text-20 px-16 text-center uppercase font-bold hover:text-green transition duration-500">
           <Link href="/">Home</Link>
@@ -73,7 +119,5 @@ export const Header: React.FC = ({}) => {
         <li className="py-32 px-16 text-20 text-center uppercase font-bold hover:text-green transition duration-500">
           <Link href="/community">COMMUNITY</Link>
         </li>
-      </ul>
-    </>
-  );
-};
+      </ul> */
+}

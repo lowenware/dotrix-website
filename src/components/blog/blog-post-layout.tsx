@@ -23,7 +23,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <PageLayout>
+      <PageLayout currentPage="News">
         <section
           className={classNames("w-full h-screen mt-80 bg-black", className)}
         >
@@ -32,7 +32,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             <div className="flex justify-between mb-16">
               {meta.date && (
                 <span className="text-black-700">
-                  {formatDateTime(meta.date)}
+                  {formatDateTime(meta.date, false)}
                 </span>
               )}
               {meta.tags && <span className="text-pink">#{meta.tags}</span>}

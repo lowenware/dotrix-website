@@ -7,15 +7,17 @@ import { JoinUs } from "./join-us";
 interface PageProps {
   joinUsComponent?: boolean;
   children: ReactNode;
+  currentPage: string;
 }
 
 export const PageLayout: NextPage<PageProps> = ({
   joinUsComponent = true,
   children,
+  currentPage,
 }) => {
   return (
     <>
-      <Header />
+      <Header currentPage={currentPage} />
       {children}
       {joinUsComponent && <JoinUs />}
       <Footer />
