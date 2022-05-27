@@ -1,5 +1,7 @@
 import LowenIcon from "../../icons/lowenware-logo.svg";
+
 interface FooterProps {}
+
 export const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <section className="w-full text-gray flex flex-col text-12 sm:text-18 sm:flex-row items-center justify-evenly py-32 px-64 bg-black-800">

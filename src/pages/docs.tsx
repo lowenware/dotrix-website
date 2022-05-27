@@ -1,6 +1,6 @@
 import { DocsLayout } from "components";
 import { NextPage } from "next";
-import { DocsPageProps } from "types/docs";
+import { DocsPageProps } from "utils/docs";
 export { getStaticProps } from "utils/docs";
 
 const DocsPage: NextPage<DocsPageProps> = ({

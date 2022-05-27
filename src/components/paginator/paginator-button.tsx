@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+
 const paginatorButtonStyle: CSSProperties = {
   padding: "8px 15px",
   textAlign: "center",

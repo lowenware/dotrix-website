@@ -1,13 +1,15 @@
 import Link from "next/link";
-import GitHub from "../../icons/github-icon.svg";
-import Patreon from "../../icons/patreon.svg";
-import Discord from "../../icons/discord.svg";
-import Twitter from "../../icons/twitter.svg";
-import YouTube from "../../icons/youtube.svg";
+import GitHub from "icons/logo-github.svg";
+import Patreon from "icons/logo-patreon.svg";
+import Discord from "icons/logo-discord.svg";
+import Twitter from "icons/logo-twitter.svg";
+import YouTube from "icons/logo-youtube.svg";
 import classNames from "classnames";
+
 interface JoinUsProps {
   className?: string;
 }
+
 export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
   return (
     <section
@@ -18,7 +20,14 @@ export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
     >
       <div className="flex flex-col lg:flex-row">
         <Link href={"/community"}>
-          <span className="flex px-16 py-4 scale-150 sm:scale-100 justify-center self-center mt-32 lg:my-0 mb-32 text-center w-120 sm:w-auto sm:px-32 sm:py-8 lg:px-64 lg:py-16 text-white font-bold text-14 lg:text-24 bg-green rounded-md hover:bg-white hover:bg-opacity-30 duration-500 cursor-pointer">
+          <span
+            className="flex
+            px-16 py-4 scale-150 sm:scale-100
+            justify-center self-center mt-32 lg:my-0 mb-32 text-center
+            w-120 sm:w-auto sm:px-32 sm:py-16 lg:px-64 lg:py-16 text-white
+            font-bold text-18 sm:text-24 bg-green rounded-md hover:bg-white
+            hover:bg-opacity-30 duration-500 cursor-pointer"
+          >
             JOIN US
           </span>
         </Link>

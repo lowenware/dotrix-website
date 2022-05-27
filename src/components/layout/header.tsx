@@ -1,13 +1,9 @@
 import Link from "next/link";
 import DotrixIcon from "src/icons/dotrix-icon.svg";
-import Bars from "src/icons/bars.svg";
-import React, { useState, useEffect } from "react";
-import Line from "src/icons/line_top.svg";
-interface TopBarProps {
-  isHome?: boolean;
-  isCommunity?: boolean;
-}
-export const TopBar: React.FC<TopBarProps> = ({}) => {
+import Menu from "src/icons/menu.svg";
+import React, { useState } from "react";
+
+export const Header: React.FC = ({}) => {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
@@ -45,26 +41,22 @@ export const TopBar: React.FC<TopBarProps> = ({}) => {
         <ul className="hidden sm:flex items-center text-white">
           <li className="flex flex-col home text-20 px-16 uppercase font-bold hover:text-green transition duration-500">
             <Link href="/">Home</Link>
-            <Line className="line self-center absolute top-0 scale-150" />
           </li>
           <li className="news flex flex-col px-16 text-20 uppercase font-bold hover:text-green transition duration-500">
             <Link href="/news">News</Link>
-            <Line className="line_news line self-center absolute top-0 scale-150" />
           </li>
           <li className="docs flex flex-col px-16 text-20 uppercase font-bold hover:text-green transition duration-500">
             <Link href="/docs/index">DOCS</Link>
-            <Line className="line line_docs self-center absolute top-0 scale-150" />
           </li>
           <li className="flex flex-col community px-16 text-20 mr-24 uppercase font-bold hover:text-green transition duration-500">
             <Link href="/community" className="">
               COMMUNITY
             </Link>
-            <Line className="line line_community self-center absolute top-0 scale-150" />
           </li>
         </ul>
 
         <button className="sm:hidden block" onClick={handleClick}>
-          <Bars className="mr-32 self-center fill-white cursor-pointer" />
+          <Menu className="mr-32 self-center fill-white cursor-pointer" />
         </button>
       </nav>
 

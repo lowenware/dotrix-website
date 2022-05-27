@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
 import { NewsMeta, NEWS_FILES_ROOT } from "utils/news";
 import { Card } from "../card/card";
 import Image from "next/image";
 import { formatDateTime } from "utils/format";
+
 interface NewsCardProps {
   className?: string;
   meta: NewsMeta;
@@ -28,7 +28,9 @@ export const NewsCard: React.FC<NewsCardProps> = ({ className, meta }) => {
             </p>
           </div>
           <div className="flex mt-auto justify-between m-16 flex-0">
-            <p className="text-gray text-14">{formatDateTime(meta.date)}</p>
+            <p className="text-gray text-14">
+              {formatDateTime(meta.date, true)}
+            </p>
             {meta.tags && (
               <p className="text-14 text-pink mr-8">{"#" + meta.tags}</p>
             )}
