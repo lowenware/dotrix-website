@@ -1,16 +1,14 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { PageLayout, NewsList } from "../components";
+import { PageLayout, BlogPosts } from "../components";
 import GitHubIcon from "icons/logo-github.svg";
-import { getNewsItems, NewsListItem } from "utils/news";
-
-const MAX_NEWS_ITEMS = 8;
+import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "utils/blog";
 
 interface HomepageProps {
-  items: NewsListItem[];
+  posts: BlogPostRaw[];
 }
-
-const Home: NextPage<HomepageProps> = ({ items }) => {
+const MAX_BLOG_POSTS = 8;
+const Home: NextPage<HomepageProps> = ({ posts }) => {
   return (
     <>
       <PageLayout>
@@ -49,7 +47,7 @@ const Home: NextPage<HomepageProps> = ({ items }) => {
             </div>
           </div>
         </div>
-        <NewsList items={items} className="bg-black-800 w-full px-32 -mt-32" />
+        <BlogPosts posts={posts.map(mapBlogPostRawToMeta)} className="bg-black-800 w-full px-32 -mt-32" />
         <section className="w-full bg-black-800 flex justify-center">
           <div className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64">
             <div className="flex flex-col pt-64 px-32 sm:pl-32">
@@ -109,7 +107,7 @@ const Home: NextPage<HomepageProps> = ({ items }) => {
 
 export const getStaticProps = async () => ({
   props: {
-    items: getNewsItems().slice(0, MAX_NEWS_ITEMS),
+    posts: (new Blog()).getRawBlogPosts(MAX_BLOG_POSTS),
   },
 });
 

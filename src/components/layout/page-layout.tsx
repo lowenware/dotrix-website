@@ -1,4 +1,5 @@
-import { Footer, Header } from "components";
+import { Footer } from "./footer";
+import { Header } from "./header";
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import { JoinUs } from "./join-us";

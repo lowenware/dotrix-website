@@ -1,5 +1,4 @@
 export * from "./card";
-export * from "./news";
-export * from "./layout/header";
+export * from "./blog";
 export * from "./layout";
 export * from "./docs";

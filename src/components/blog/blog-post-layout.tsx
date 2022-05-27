@@ -4,20 +4,23 @@ import md from "markdown-it";
 import { formatDateTime } from "utils/format";
 import Left from "icons/arrow-left.svg";
 import Right from "icons/arrow-right.svg";
-import { ArticleData } from "utils/news";
-import { PageLayout } from "components/layout";
+import { BlogPostMeta, BlogPostRaw, BLOG_URL_ROOT } from "utils/blog";
 
-interface ArticleLayoutProps {
+interface BlogPostLayoutProps {
   className?: string;
-  article: ArticleData;
+  meta: BlogPostMeta;
+  content: string;
+  prevPost: BlogPostRaw | null;
+  nextPost: BlogPostRaw | null;
 }
 
-export const ArticleLayout: React.FC<ArticleLayoutProps> = ({
+export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
   className,
-  article,
+  meta,
+  content,
+  prevPost,
+  nextPost,
 }) => {
-  const { meta, content, nextNewsItem, prevNewsItem } = article;
-
   return (
     <div className="flex flex-col">
       <PageLayout>
@@ -47,23 +50,23 @@ export const ArticleLayout: React.FC<ArticleLayoutProps> = ({
               />
             )}
             <div className="flex justify-between mt-32">
-              {prevNewsItem && (
-                <Link href={`/news/${prevNewsItem.slug}`}>
-                  <a className="flex gap-8 text-blue-light">
-                    <Left />
-                    {prevNewsItem?.meta.title}
-                  </a>
-                </Link>
-              )}
-              <span></span>
-              {nextNewsItem?.meta.title && (
-                <Link href={`/news/${nextNewsItem.slug}`}>
-                  <a className="flex gap-8 justify-self-end text-blue-light">
-                    {nextNewsItem.meta.title}
-                    <Right />
-                  </a>
-                </Link>
-              )}
+              {prevPost && (
+              <Link href={`${BLOG_URL_ROOT}/${prevPost.slug}`}>
+                <a className="flex gap-8 text-blue-light">
+                  <Left />
+                  {prevPost.title}
+                </a>
+              </Link>
+            )}
+            <span></span>
+            {nextPost && (
+              <Link href={`${BLOG_URL_ROOT}/${nextPost.slug}`}>
+                <a className="flex gap-8 justify-self-end text-blue-light">
+                  {nextPost.title}
+                  <Right />
+                </a>
+              </Link>
+            )}
             </div>
           </div>
         </section>
