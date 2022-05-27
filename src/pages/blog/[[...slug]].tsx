@@ -9,9 +9,10 @@ import {
 
 export async function getStaticPaths() {
   const blog = new Blog();
+  const paths = blog.getStaticPaths();
 
   return {
-    paths: blog.getStaticPaths(),
+    paths,
     fallback: false,
   };
 }
@@ -43,7 +44,7 @@ const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = (props) =>
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = `${params?.slug}`;
+  const slug = `${params?.slug || "1"}`;
   const blog = new Blog();
   return {
     props: blog.getBlogStaticProps(slug)

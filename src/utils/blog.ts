@@ -64,23 +64,27 @@ export class Blog {
 
   getStaticPaths() {
     const pagesCount = this.countPages(this.posts.length, BLOG_POSTS_PER_PAGE);
-    return [
+    return [{
+        params: {
+          slug: []
+        }
+      },
       // posts
       ...this.posts.map(post => ({
         params: {
-          slug: post.slug,
+          slug: [post.slug],
         },
       })),
       // pages
       ...Array.from(Array(pagesCount).keys()).map((pageNum) => ({
         params: {
-          slug: `${pageNum + 1}`,
+          slug: [`${pageNum + 1}`],
         },
       })),
       // tags
       ...this.tags.map(tag => ({
         params: {
-          slug: tag.label,
+          slug: [tag.label],
         },
       })),
     ];
