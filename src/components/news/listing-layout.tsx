@@ -1,5 +1,5 @@
 import { Footer, JoinUs, TopBar, NewsList } from "components";
-import { Paginator } from "components/Paginator";
+import { Paginator } from "components/paginator";
 import { ListingData, NEWS_URLS_ROOT, NEWS_ITEMS_PER_PAGE } from "utils/news";
 import { useState } from "react";
 interface ListingLayoutProps {

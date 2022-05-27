@@ -3,7 +3,7 @@ import { Footer, JoinUs, TopBar } from "components";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect } from "react";
-import { DocsPageProps } from "types/docs";
+import { DocsPageProps } from "utils/docs";
 import md from "markdown-it";
 
 export const DocsLayout: NextPage<DocsPageProps> = ({

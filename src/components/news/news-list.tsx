@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { NewsListItem, NEWS_URLS_ROOT } from "utils/news";
-import { NewsCard } from "./NewsCard";
+import { NewsCard } from "./news-card";
 
 interface NewsListProps {
   className?: string;

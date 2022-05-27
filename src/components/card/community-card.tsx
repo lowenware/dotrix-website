@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { Card } from "./Card";
+import { Card } from "./card";
+
 interface CommunityCardProps {
   className?: string;
   title?: string;
@@ -9,6 +10,7 @@ interface CommunityCardProps {
   description?: string;
   link: string;
 }
+
 export const CommunityCard: React.FC<CommunityCardProps> = ({
   className,
   title,

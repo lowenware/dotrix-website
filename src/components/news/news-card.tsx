@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { NewsMeta, NEWS_FILES_ROOT } from "utils/news";
-import { Card } from "../Card/Card";
+import { Card } from "../card/card";
 import Image from "next/image";
 import { formatDateTime } from "utils/format";
 interface NewsCardProps {

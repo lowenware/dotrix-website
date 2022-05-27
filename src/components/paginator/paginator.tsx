@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { PaginatorButton } from "./PaginatorButton";
+import { PaginatorButton } from "./paginator-button";
 
 interface PaginatorProps {
   page: number;
