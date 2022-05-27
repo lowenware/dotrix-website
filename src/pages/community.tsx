@@ -11,7 +11,7 @@ interface CommunityProps {}
 const Community: NextPage<CommunityProps> = () => {
   return (
     <>
-      <PageLayout currentPage="Community" joinUsComponent={false}>
+      <PageLayout currentPage="COMMUNITY" joinUsComponent={false}>
         <div className="home__image w-full h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top">
           <div className="bg-opacity-70 flex flex-col bg-black-100 h-40vh bg-fixed w-full">
             <p className="text-white text-48 lg:text-72 self-center my-auto">

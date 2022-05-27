@@ -2,8 +2,8 @@ import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticProps } from "next/types";
 
-const docsFilesRoot = "docs"
-const docsUrlRoot = "/docs"
+const DOCS_FILES_ROOT = "docs"
+export const DOCS_URL_ROOT = "/docs"
 export const DOCS_FILES_EXTENSION = ".md";
 
 export interface DocsItem {
@@ -32,7 +32,7 @@ export interface DocsPageProps {
 
 export const getStaticCategoryPaths = async () => {
   const paths = fs
-    .readdirSync(docsFilesRoot)
+    .readdirSync(DOCS_FILES_ROOT)
     .filter((name) => name.endsWith(DOCS_FILES_EXTENSION))
     .map((name) => ({
       params: {
@@ -47,10 +47,10 @@ export const getStaticCategoryPaths = async () => {
 
 export const getStaticSlugPaths = async () => {
   const paths = fs
-    .readdirSync(docsFilesRoot)
+    .readdirSync(DOCS_FILES_ROOT)
     .filter((name) => !name.endsWith(DOCS_FILES_EXTENSION))
     .flatMap((folder) =>
-      fs.readdirSync(`${docsFilesRoot}/${folder}`).map((name) => ({
+      fs.readdirSync(`${DOCS_FILES_ROOT}/${folder}`).map((name) => ({
         params: {
           category: folder,
           slug: name.replace(DOCS_FILES_EXTENSION, ""),
@@ -91,10 +91,10 @@ const getCurrentSection = (fsRoot: string, urlRoot: string) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug;
   const category = params?.category || "index";
-  const categories = getStructure(docsFilesRoot, docsUrlRoot);
-  const currentSection = getCurrentSection(`${docsFilesRoot}/${category}`,`${docsUrlRoot}/${category}`);
+  const categories = getStructure(DOCS_FILES_ROOT, DOCS_URL_ROOT);
+  const currentSection = getCurrentSection(`${DOCS_FILES_ROOT}/${category}`,`${DOCS_URL_ROOT}/${category}`);
   const menu ={categories,currentSection}
-  const filePath = slug ? `${docsFilesRoot}/${category}/${slug}.md` : `${docsFilesRoot}/${category}.md`;
+  const filePath = slug ? `${DOCS_FILES_ROOT}/${category}/${slug}.md` : `${DOCS_FILES_ROOT}/${category}.md`;
   const { data: meta, content } = matter(
     fs.readFileSync(filePath, "utf-8")
   );
@@ -104,8 +104,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       meta,
       content,
       menu,
-      category: params?.category ? `${docsUrlRoot}/${category}` : docsUrlRoot,
-      page: slug?`${docsUrlRoot}/${category}/${slug}`:`${docsUrlRoot}/${category}`
+      category: params?.category ? `${DOCS_URL_ROOT}/${category}` : DOCS_URL_ROOT,
+      page: slug?`${DOCS_URL_ROOT}/${category}/${slug}`:`${DOCS_URL_ROOT}/${category}`
 
     },
   };

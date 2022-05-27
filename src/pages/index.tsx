@@ -11,7 +11,7 @@ const MAX_BLOG_POSTS = 8;
 const Home: NextPage<HomepageProps> = ({ posts }) => {
   return (
     <>
-      <PageLayout currentPage="Home">
+      <PageLayout currentPage="HOME">
         <div className="flex flex-col">
           <div className="home__image w-full h-60vh sm:h-80vh bg-fixed items-center justify-center bg-no-repeat bg-cover">
             <div className="bg-opacity-70 flex flex-col bg-black-100 h-60vh sm:h-80vh bg-fixed w-full">
@@ -47,7 +47,10 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
             </div>
           </div>
         </div>
-        <BlogPosts posts={posts.map(mapBlogPostRawToMeta)} className="bg-black-800 w-full px-32 -mt-32" />
+        <BlogPosts
+          posts={posts.map(mapBlogPostRawToMeta)}
+          className="bg-black-800 w-full px-32 -mt-32"
+        />
         <section className="w-full bg-black-800 flex justify-center">
           <div className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64">
             <div className="flex flex-col pt-64 px-32 sm:pl-32">
@@ -107,7 +110,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
 
 export const getStaticProps = async () => ({
   props: {
-    posts: (new Blog()).getRawBlogPosts(MAX_BLOG_POSTS),
+    posts: new Blog().getRawBlogPosts(MAX_BLOG_POSTS),
   },
 });
 
