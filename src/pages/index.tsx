@@ -3,7 +3,7 @@ import Head from "next/head";
 import { PageLayout, BlogPosts, Button } from "components";
 import GitHubIcon from "icons/logo-github.svg";
 import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "utils/blog";
-import { DOCS_URL_ROOT } from "utils/docs";
+import { HANDBOOK_URL_ROOT } from "utils/docs";
 import { PAGES } from "utils/pages";
 
 interface HomepageProps {
@@ -31,7 +31,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
                 </div>
                 <div className="flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center mb-64">
                   <Button
-                    href={`${DOCS_URL_ROOT}/get-started`}
+                    href={`${HANDBOOK_URL_ROOT}/get-started`}
                     className="mb-4 sm:mb-0 sm:mr-36"
                     variant="primary"
                   >

@@ -1,9 +1,5 @@
 ---
-name: GG
-route: /Hello
-title: GG
-date: "2022-05-22T15:50:00"
-order: 5
+title: World
 ---
 
 Hello, I'm a mdx file!

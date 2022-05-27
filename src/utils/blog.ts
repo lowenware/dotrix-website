@@ -212,7 +212,7 @@ export class Blog {
     const { data, content } = matter(fs.readFileSync(filePath));
     ["title", "summary", "date"].forEach((field) => {
       if (!data[field]) {
-        throw `File '${fileName}' has not '${field}' meta data`;
+        throw `File '${filePath}' has not '${field}' meta data`;
       }
     });
 

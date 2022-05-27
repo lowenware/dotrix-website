@@ -1,11 +1,11 @@
 import { BLOG_URL_ROOT } from "./blog";
-import { DOCS_URL_ROOT } from "./docs";
+import { HANDBOOK_URL_ROOT } from "./handbook";
 
 export const HOME_URL_ROOT = "/";
 export const COMMUNITY_URL_ROOT = "/community";
 
 
-export type PageEnum = "HOME" | "BLOG" | "COMMUNITY" | "DOCS";
+export type PageEnum = "HOME" | "BLOG" | "COMMUNITY" | "HANDBOOK";
 export const PAGES = {
   "HOME": {
     url: HOME_URL_ROOT,
@@ -17,9 +17,9 @@ export const PAGES = {
     menu: "Blog",
     title: "Blog :: Dotrix 3D Engine"
   },
-  "DOCS": {
-    url: DOCS_URL_ROOT,
-    menu: "Docs",
+  "HANDBOOK": {
+    url: HANDBOOK_URL_ROOT,
+    menu: "Handbook",
     title: "Handbook :: Dotrix 3D Engine"
   },
   "COMMUNITY": {
@@ -27,4 +27,8 @@ export const PAGES = {
     menu: "Community",
     title: "Community :: Dotrix 3D Engine"
   },
+}
+
+export const getTitleForPage = (page: PageEnum) => {
+  return PAGES[page].title
 }
