@@ -18,9 +18,9 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
       </Head>
       <PageLayout currentPage="HOME">
         <div className="flex flex-col">
-          <div className="home__image w-full h-screen  lg:h-60vh bg-fixed items-center justify-center bg-no-repeat">
-            <div className="bg-opacity-70 flex flex-col bg-black-100 h-screen lg:h-60vh bg-fixed w-full">
-              <section className="my-auto">
+          <div className="home__image w-full h-80vh sm:h-screen lg:h-60vh bg-fixed items-center justify-center bg-no-repeat ">
+            <div className="bg-opacity-70 flex flex-col bg-black-100 h-80vh sm:h-screen lg:h-60vh bg-fixed w-full">
+              <section className="mt-auto">
                 <div>
                   <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
                     Program your world
