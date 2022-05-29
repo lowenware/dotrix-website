@@ -1,26 +1,30 @@
-const path = require("path");
+const optimizedImages = require("next-optimized-images");
+const withPlugins = require("next-compose-plugins");
+
 /** @type {import('next').NextConfig} */
 
-module.exports = {
-  webpack: (config, options) => {
-    config.resolve.fallback = { fs: false };
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: "@svgr/webpack",
-          options: {
-            titleProp: true,
-            svgoConfig: {
-              plugins: [
-                /*{ removeViewBox: false }*/
-              ],
-            },
-          },
-        },
-      ],
-      include: path.resolve(__dirname, "./assets"),
-    });
-    return config;
-  },
-};
+module.exports = withPlugins(
+  [
+    [
+      optimizedImages,
+      {
+        imagesFolder: "assets",
+        imagesName: "[name]-[hash].[ext]",
+        handleImages: ["svg"],
+        optimizeImages: true,
+
+      },
+    ],
+  ],
+  {
+    webpack: (config, options) => {
+      config.resolve.fallback = { fs: false };
+
+      return config;
+    },
+    images: {
+      loader: 'akamai',
+      path: ''
+    },
+  }
+);

@@ -27,7 +27,7 @@
     "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "eol-last": "error",
-        "max-len": ["error", { "code": 100 }],
+        "max-len": ["warn", { "code": 100 }],
         "no-multi-spaces": "error",
         "no-multiple-empty-lines":"error",
         "no-trailing-spaces": [2],
@@ -53,6 +53,7 @@
         "no-restricted-imports": ["error", {
             "patterns": ["../*", "assets/*"]
         }],
+        "object-curly-spacing": ["error", "never"],
         "padding-line-between-statements": [
             "error",
             { "blankLine": "always", "prev": "import", "next": "const" },

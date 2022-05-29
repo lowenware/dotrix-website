@@ -1,6 +1,6 @@
-import { GetStaticProps, NextPage } from "next";
+import {GetStaticProps, NextPage} from "next";
 
-import { BlogLayout, BlogPostLayout } from "~/components/blog";
+import {BlogLayout, BlogPostLayout} from "~/components/blog";
 import {
   Blog,
   BlogPostStaticProps,
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
   if (props.mode === "POST") {
-    const { meta, content, prevPost, nextPost } = props;
+    const {meta, content, prevPost, nextPost} = props;
     return (
       <BlogPostLayout
         meta={mapBlogPostRawToMeta(meta)}
@@ -31,7 +31,7 @@ const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
     );
   }
 
-  const { posts, tag, tags, page, totalPages } = props;
+  const {posts, tag, tags, page, totalPages} = props;
 
   return (
     <BlogLayout
@@ -44,7 +44,7 @@ const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = (params?.slug && Array.isArray(params.slug)) ? params.slug : ["1"];
 
   const blog = new Blog();

@@ -1,20 +1,21 @@
-import { NextPage } from "next";
+import classNames from "classnames";
+import {NextPage} from "next";
 import Head from "next/head";
 
-import { Logo } from "~/assets";
-import { BlogPosts } from "~/components/blog";
-import { Button } from "~/components/button";
-import { PageLayout } from "~/components/layout";
-import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "~/utils/blog";
-import { HANDBOOK_URL_ROOT } from "~/utils/handbook";
-import { PAGES } from "~/utils/pages";
+import {Logo} from "~/assets";
+import {BlogPosts} from "~/components/blog";
+import {Button} from "~/components/button";
+import {PageLayout} from "~/components/layout";
+import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/utils/blog";
+import {HANDBOOK_URL_ROOT} from "~/utils/handbook";
+import {PAGES} from "~/utils/pages";
 
 interface HomepageProps {
   posts: BlogPostRaw[],
 }
 const MAX_BLOG_POSTS = 8;
 
-const Home: NextPage<HomepageProps> = ({ posts }) => {
+const Home: NextPage<HomepageProps> = ({posts}) => {
   return (
     <>
       <Head>
@@ -22,8 +23,14 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
       </Head>
       <PageLayout currentPage="HOME">
         <div className="flex flex-col">
-          <div className="home__image w-full h-80vh sm:h-screen lg:h-60vh bg-fixed items-center justify-center bg-no-repeat ">
-            <div className="bg-opacity-70 flex flex-col bg-black-100 h-80vh sm:h-screen lg:h-60vh bg-fixed w-full">
+          <div
+            className={
+                "home__image h-80vh sm:h-screen lg:h-60vh bg-fixed items-center justify-center bg-no-repeat"
+            }>
+            <div
+              className={
+                "bg-opacity-70 flex flex-col bg-black-100 h-80vh sm:h-screen lg:h-60vh bg-fixed"
+              }>
               <section className="mt-auto">
                 <div>
                   <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
@@ -33,7 +40,9 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
                     OpenSource 3D engine for Rust developers
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center mb-64">
+                <div className={
+                  "flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center mb-64"
+                }>
                   <Button
                     href={`${HANDBOOK_URL_ROOT}/get-started`}
                     className="mb-4 sm:mb-0 sm:mr-36"
@@ -42,8 +51,8 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
                     GET STARTED
                   </Button>
                   <Button href="/" variant="outline" className="mb-10 sm:mb-0">
-                    <Logo.Github className="mr-32" />
-                    <p className="text-white text-18 sm:text-24 font-bold">
+                    <Logo.Github />
+                    <p className="text-white text-18 ml-16 sm:text-24 font-bold">
                       GITHUB
                     </p>
                   </Button>
@@ -57,7 +66,9 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
           className="bg-black-800 w-full px-32 -mt-32"
         />
         <section className="w-full bg-black-800 flex justify-center">
-          <div className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64">
+          <div
+            className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64"
+          >
             <div className="flex flex-col pt-64 px-32 sm:pl-32">
               <p className="text-white font-bold text-24 mb-12">
                 Performance and Safety

@@ -1,15 +1,15 @@
 import classNames from "classnames";
 
-import { BLOG_URL_ROOT, BlogPostMeta } from "~/utils/blog";
+import {BLOG_URL_ROOT, BlogPostMeta} from "~/utils/blog";
 
-import { BlogCard } from "./blog-card";
+import {BlogCard} from "./blog-card";
 
 interface BlogPostsProps {
   className?: string,
   posts: BlogPostMeta[],
 }
 
-export const BlogPosts: React.FC<BlogPostsProps> = ({ className, posts }) => {
+export const BlogPosts: React.FC<BlogPostsProps> = ({className, posts}) => {
   return (
     <section
       className={classNames(

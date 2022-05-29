@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { PaginatorButton } from "./paginator-button";
+import {PaginatorButton} from "./paginator-button";
 
 interface PaginatorProps {
   page: number,
@@ -34,11 +34,11 @@ export const Paginator: React.FC<PaginatorProps> = ({
   }
 
   if (totalPages > 0) {
-    pageLinks.push({ linkType: PaginatorButtonType.Normal, pageNumber: 1 });
+    pageLinks.push({linkType: PaginatorButtonType.Normal, pageNumber: 1});
   }
 
   if (page > 4) {
-    pageLinks.push({ linkType: PaginatorButtonType.Placeholder });
+    pageLinks.push({linkType: PaginatorButtonType.Placeholder});
   }
 
   let from = 2;
@@ -63,7 +63,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
       });
   }
   if (page < totalPages - 3) {
-    pageLinks.push({ linkType: PaginatorButtonType.Placeholder });
+    pageLinks.push({linkType: PaginatorButtonType.Placeholder});
   }
 
   if (totalPages > 1) {

@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import Link from "next/link";
 
-import {Logo } from "~/assets";
-import { Button } from "~/components/button";
+import {Logo} from "~/assets";
+import {Button} from "~/components/button";
 
 interface JoinUsProps {
   className?: string,
 }
 
-export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
+export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
   return (
     <section
       className={classNames(
@@ -28,27 +28,27 @@ export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
       <div className="flex gap-16 mb-16 lg:mb-0">
         <Link href={"/"}>
           <span>
-            <Logo.Github className="cursor-pointer" />
+            <Logo.Github />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Logo.Patreon className="cursor-pointer" />
+            <Logo.Patreon />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Logo.Discord className="cursor-pointer" />
+            <Logo.Discord />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Logo.Youtube className="cursor-pointer" />
+            <Logo.Youtube />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Logo.Twitter className="cursor-pointer" />
+            <Logo.Twitter />
           </span>
         </Link>
       </div>
