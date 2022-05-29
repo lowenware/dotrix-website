@@ -3,9 +3,9 @@ import md from "markdown-it";
 import Link from "next/link";
 
 import {Arrow} from "~/assets";
-import { PageLayout } from "~/components/layout";
-import { BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw } from "~/utils/blog";
-import { formatDateTime } from "~/utils/format";
+import {PageLayout} from "~/components/layout";
+import {BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw} from "~/utils/blog";
+import {formatDateTime} from "~/utils/format";
 
 interface BlogPostLayoutProps {
   className?: string,
@@ -41,7 +41,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             {content && (
               <div
                 className="text-black-gray text-14"
-                dangerouslySetInnerHTML={{ __html: md().render(content) }}
+                dangerouslySetInnerHTML={{__html: md().render(content)}}
               />
             )}
             <div className="flex justify-between mt-32">

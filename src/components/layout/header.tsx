@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-import { Icon, Logo } from "~/assets";
-import { HOME_URL_ROOT, PageEnum,PAGES } from "~/utils/pages";
+import {Icon, Logo} from "~/assets";
+import {HOME_URL_ROOT, PageEnum,PAGES} from "~/utils/pages";
 
 interface HeaderProps {
   currentPage: PageEnum,
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
+export const Header: React.FC<HeaderProps> = ({currentPage}) => {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
         </Link>
         <div className="navbar mr-32 flex">
           {Object.keys(PAGES)
-            .map(id => ({ ...PAGES[id as PageEnum], id }))
+            .map(id => ({...PAGES[id as PageEnum], id}))
             .map(page => (
               <Link key={page.id} href={page.url}>
                 <a

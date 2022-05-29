@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { ReactNode } from "react";
+import {ReactNode} from "react";
 
 type ButtonVariantEnum = "primary" | "secondary" | "outline";
 

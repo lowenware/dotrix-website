@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { ReactNode } from "react";
+import {ReactNode} from "react";
 
-import { Card } from "./card";
+import {Card} from "./card";
 
 interface CommunityCardProps {
   className?: string,
   title?: string,
   icon?: ReactNode,
-  description?: string,
+  children?: ReactNode,
   link: string,
 }
 
@@ -16,7 +16,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
   className,
   title,
   icon,
-  description,
+  children,
   link,
 }) => {
   return (
@@ -26,9 +26,9 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
           {title}
         </p>
         <div className="self-center mt-64 scale-400"> {icon}</div>
-        <p className="text-white text-14 self-center text-left mt-64">
-          {description}
-        </p>
+        <div className="text-white text-14 self-center text-left mt-64">
+          {children}
+        </div>
         <Link href={link}>
           <div className="mt-64 flex text-white md:text-24 text-center px-4 py-16 text-18 uppercase bg-blue-light font-bold justify-center cursor-pointer rounded-xl hover:bg-black-200 hover:bg-opacity-25 duration-500">
             Open {title}

@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import Link from "next/link";
 
-import {Logo } from "~/assets";
-import { Button } from "~/components/button";
+import {Logo} from "~/assets";
+import {Button} from "~/components/button";
 
 interface JoinUsProps {
   className?: string,
 }
 
-export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
+export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
   return (
     <section
       className={classNames(
