@@ -26,5 +26,6 @@ module.exports = withPlugins(
       loader: 'akamai',
       path: ''
     },
+    trailingSlash: true,
   }
 );
