@@ -1,10 +1,10 @@
 import classNames from "classnames";
-import { PageLayout } from "components";
 import Left from "icons/arrow-left.svg";
 import Right from "icons/arrow-right.svg";
 import md from "markdown-it";
 import Link from "next/link";
 
+import { PageLayout } from "~/components/layout";
 import { BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw } from "~/utils/blog";
 import { formatDateTime } from "~/utils/format";
 

@@ -1,6 +1,6 @@
-import { BlogLayout, BlogPostLayout } from "components";
 import { GetStaticProps, NextPage } from "next";
 
+import { BlogLayout, BlogPostLayout } from "~/components/blog";
 import {
   Blog,
   BlogPostStaticProps,
