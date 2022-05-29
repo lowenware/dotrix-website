@@ -1,12 +1,10 @@
-import { CommunityCard, PageLayout } from "components";
-import Discord from "icons/logo-discord.svg";
-import GitHub from "icons/logo-github.svg";
-import Patreon from "icons/logo-patreon.svg";
-import Twitter from "icons/logo-twitter.svg";
-import YouTube from "icons/logo-youtube.svg";
 import { NextPage } from "next";
 import Head from "next/head";
-import { PAGES } from "utils/pages";
+
+import {Logo } from "~/assets";
+import { CommunityCard } from "~/components/card";
+import { PageLayout } from "~/components/layout";
+import { PAGES } from "~/utils/pages";
 
 interface CommunityProps {}
 
@@ -28,35 +26,35 @@ const Community: NextPage<CommunityProps> = () => {
           <CommunityCard
             className="-top-32 relative"
             title="GitHub"
-            icon={<GitHub />}
+            icon={<Logo.Github />}
             description="Ask a question, share your success, discuss anything about 3D development with our community"
             link=""
           />
           <CommunityCard
             className="-top-32 relative"
             title="Twitter"
-            icon={<Twitter />}
+            icon={<Logo.Twitter />}
             description="Ask a question, share your success, discuss anything about 3D development with our community"
             link=""
           />
           <CommunityCard
             className="-top-32 relative"
             title="Patreon"
-            icon={<Patreon />}
+            icon={<Logo.Patreon />}
             description="Ask a question, share your success, discuss anything about 3D development with our community"
             link=""
           />
           <CommunityCard
             className="-top-32 relative"
             title="YouTube"
-            icon={<YouTube />}
+            icon={<Logo.Youtube />}
             description="Ask a question, share your success, discuss anything about 3D development with our community"
             link=""
           />
 
           <CommunityCard
             title="Discord"
-            icon={<Discord />}
+            icon={<Logo.Discord />}
             description="Ask a question, share your success, discuss anything about 3D development with our community"
             link=""
           />

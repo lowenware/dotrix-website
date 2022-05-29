@@ -37,6 +37,7 @@
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
         "no-console": "error",
+        "arrow-parens": ["error", "as-needed"],
         "@typescript-eslint/member-delimiter-style": ["error", {
             "multiline": {
               "delimiter": "comma",    // 'none' or 'semi' or 'comma'
@@ -49,13 +50,9 @@
         }],
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
-//        "sort-imports": ["error", {
-//            "ignoreCase": false,
-//            "ignoreDeclarationSort": false,
-//            "ignoreMemberSort": false,
-//            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"],
-//            "allowSeparatedGroups": false
-//        }],
+        "no-restricted-imports": ["error", {
+            "patterns": ["../*", "assets/*"]
+        }],
         "padding-line-between-statements": [
             "error",
             { "blankLine": "always", "prev": "import", "next": "const" },

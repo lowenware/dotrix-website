@@ -19,7 +19,7 @@ module.exports = {
           },
         },
       ],
-      include: path.resolve(__dirname, "./src/icons"),
+      include: path.resolve(__dirname, "./assets"),
     });
     return config;
   },

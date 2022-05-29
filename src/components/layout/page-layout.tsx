@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { ReactNode } from "react";
-import { PageEnum } from "utils/pages";
+
+import { PageEnum } from "~/utils/pages";
 
 import { Footer } from "./footer";
 import { Header } from "./header";
