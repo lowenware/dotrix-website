@@ -31,5 +31,5 @@ jobs:
     - run: npm ci
     - run: npm run build:export
     - name: Deploy
-      run: rsync -avz ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/dotrix/${{ github.head_ref }}/
+      run: rsync -avz ./out/ ${{ secrets.DOTRIX_SSH_USER }}@${{ secrets.DOTRIX_SSH_HOST }}:/srv/dotrix/${{ github.head_ref }}/
 
