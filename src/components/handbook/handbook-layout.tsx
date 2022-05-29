@@ -1,22 +1,20 @@
-import classNames from "classnames";
 import { PageLayout } from "components";
+import md from "markdown-it";
 import { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import md from "markdown-it";
-import { HandbookProps, HANDBOOK_URL_ROOT } from "utils/handbook";
+import { HANDBOOK_URL_ROOT, HandbookProps } from "utils/handbook";
 
 export const HandbookLayout: NextPage<HandbookProps> = ({
   menu,
   page,
 }) => {
-  const getLink = (slug: string[]) => `${HANDBOOK_URL_ROOT}/${slug.join('/')}`;
+  const getLink = (slug: string[]) => `${HANDBOOK_URL_ROOT}/${slug.join("/")}`;
   const isActive = (slug: string[]) => page.meta.slug[0] === slug[0];
 
   return (
     <>
       <PageLayout currentPage="HANDBOOK">
-        <div className="bg-black-800 flex-col sm:flex-row flex justify-center py-128 px-32 min-h-screen">
+        <div className="flex flex-col sm:flex-row justify-center py-128 px-32 min-h-screen">
           <div className="bg-black w-3/4 sm:w-min min-h-max h-450">
             <div className="text-white text-18 flex flex-col text-left font-bold p-32">
               <p className="text-32 mb-32">Handbook</p>

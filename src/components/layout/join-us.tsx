@@ -1,14 +1,14 @@
-import Link from "next/link";
-import GitHub from "icons/logo-github.svg";
-import Patreon from "icons/logo-patreon.svg";
-import Discord from "icons/logo-discord.svg";
-import Twitter from "icons/logo-twitter.svg";
-import YouTube from "icons/logo-youtube.svg";
 import classNames from "classnames";
 import { Button } from "components/button";
+import Discord from "icons/logo-discord.svg";
+import GitHub from "icons/logo-github.svg";
+import Patreon from "icons/logo-patreon.svg";
+import Twitter from "icons/logo-twitter.svg";
+import YouTube from "icons/logo-youtube.svg";
+import Link from "next/link";
 
 interface JoinUsProps {
-  className?: string;
+  className?: string,
 }
 
 export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {

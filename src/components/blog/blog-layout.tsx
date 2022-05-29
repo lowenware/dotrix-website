@@ -1,14 +1,15 @@
 import { PageLayout } from "components/layout";
 import { Paginator } from "components/paginator";
 import { BLOG_URL_ROOT, BlogPostMeta, Tag } from "utils/blog";
+
 import { BlogPosts } from "./blog-posts";
 
 interface BlogLayoutProps {
-  posts: BlogPostMeta[];
-  totalPages: number;
-  page: number;
-  tags: Tag[];
-  tag?: string;
+  posts: BlogPostMeta[],
+  totalPages: number,
+  page: number,
+  tags: Tag[],
+  tag?: string,
 }
 
 export const BlogLayout: React.FC<BlogLayoutProps> = ({

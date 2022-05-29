@@ -5,10 +5,10 @@ import { ReactNode } from "react";
 type ButtonVariantEnum = "primary" | "secondary" | "outline";
 
 interface ButtonProps {
-  variant?: ButtonVariantEnum;
-  children: ReactNode;
-  className?: string;
-  href: string;
+  variant?: ButtonVariantEnum,
+  children: ReactNode,
+  className?: string,
+  href: string,
 }
 
 export const Button: React.FC<ButtonProps> = ({

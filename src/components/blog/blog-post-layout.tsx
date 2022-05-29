@@ -1,18 +1,18 @@
 import classNames from "classnames";
-import Link from "next/link";
-import md from "markdown-it";
-import { formatDateTime } from "utils/format";
+import { PageLayout } from "components";
 import Left from "icons/arrow-left.svg";
 import Right from "icons/arrow-right.svg";
-import { BlogPostMeta, BlogPostRaw, BLOG_URL_ROOT } from "utils/blog";
-import { PageLayout } from "components";
+import md from "markdown-it";
+import Link from "next/link";
+import { BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw } from "utils/blog";
+import { formatDateTime } from "utils/format";
 
 interface BlogPostLayoutProps {
-  className?: string;
-  meta: BlogPostMeta;
-  content: string;
-  prevPost: BlogPostRaw | null;
-  nextPost: BlogPostRaw | null;
+  className?: string,
+  meta: BlogPostMeta,
+  content: string,
+  prevPost: BlogPostRaw | null,
+  nextPost: BlogPostRaw | null,
 }
 
 export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({

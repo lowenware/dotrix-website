@@ -1,11 +1,12 @@
 import classNames from "classnames";
+
 import { PaginatorButton } from "./paginator-button";
 
 interface PaginatorProps {
-  page: number;
-  totalPages: number;
-  root: string;
-  className?: string;
+  page: number,
+  totalPages: number,
+  root: string,
+  className?: string,
 }
 enum PaginatorButtonType {
   Normal,
@@ -24,6 +25,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
   const hasPreviousPage = page > 1;
 
   const pageLinks = [];
+
   if (hasPreviousPage) {
     pageLinks.push({
       linkType: PaginatorButtonType.PrevPage,
@@ -47,7 +49,9 @@ export const Paginator: React.FC<PaginatorProps> = ({
   if (to > totalPages) {
     to = totalPages;
   }
+
   const linksCount = to - from;
+
   if (linksCount > 0) {
     Array(linksCount)
       .fill(0)

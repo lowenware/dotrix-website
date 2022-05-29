@@ -1,11 +1,12 @@
-import { BlogPostMeta, BLOG_POSTS_ROOT } from "utils/blog";
-import { Card } from "../card/card";
 import Image from "next/image";
+import { BLOG_POSTS_ROOT, BlogPostMeta } from "utils/blog";
 import { formatDate } from "utils/format";
 
+import { Card } from "../card/card";
+
 interface BlogCardProps {
-  className?: string;
-  post: BlogPostMeta;
+  className?: string,
+  post: BlogPostMeta,
 }
 
 export const BlogCard: React.FC<BlogCardProps> = ({ className, post }) => {

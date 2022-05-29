@@ -1,14 +1,15 @@
-import { Footer } from "./footer";
-import { Header } from "./header";
 import { NextPage } from "next";
 import { ReactNode } from "react";
-import { JoinUs } from "./join-us";
 import { PageEnum } from "utils/pages";
 
+import { Footer } from "./footer";
+import { Header } from "./header";
+import { JoinUs } from "./join-us";
+
 interface PageProps {
-  joinUsComponent?: boolean;
-  children: ReactNode;
-  currentPage: PageEnum;
+  joinUsComponent?: boolean,
+  children: ReactNode,
+  currentPage: PageEnum,
 }
 
 export const PageLayout: NextPage<PageProps> = ({
