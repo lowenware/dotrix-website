@@ -30,6 +30,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build:export
+    - name: Test
+      run: ssh ${{ secrets.DOTRIX_SSH_USER }}@${{ secrets.DOTRIX_SSH_HOST }} "touch /srv/dotrix/staging/123"
     - name: Deploy
-      run: rsync -avz ./out/ ${{ secrets.DOTRIX_SSH_USER }}@${{ secrets.DOTRIX_SSH_HOST }}:/srv/dotrix/${{ github.head_ref }}/
+      run: rsync -avz ./out/ ${{ secrets.DOTRIX_SSH_USER }}@${{ secrets.DOTRIX_SSH_HOST }}:/srv/dotrix/staging/
 
