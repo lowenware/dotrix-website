@@ -2,8 +2,10 @@ import md from "markdown-it";
 import { NextPage } from "next";
 import Link from "next/link";
 
-import { Card, PageLayout } from "~/components";
+import { PageLayout } from "~/components/layout";
 import { HANDBOOK_URL_ROOT, HandbookProps } from "~/utils/handbook";
+
+import { Card } from "../card";
 
 export const HandbookLayout: NextPage<HandbookProps> = ({
   menu,
