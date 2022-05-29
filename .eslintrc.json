@@ -49,13 +49,9 @@
         }],
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
-//        "sort-imports": ["error", {
-//            "ignoreCase": false,
-//            "ignoreDeclarationSort": false,
-//            "ignoreMemberSort": false,
-//            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"],
-//            "allowSeparatedGroups": false
-//        }],
+        "no-restricted-imports": ["error", {
+            "patterns": ["../*"]
+        }],
         "padding-line-between-statements": [
             "error",
             { "blankLine": "always", "prev": "import", "next": "const" },
