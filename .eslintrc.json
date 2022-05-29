@@ -37,6 +37,7 @@
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
         "no-console": "error",
+        "arrow-parens": ["error", "as-needed"],
         "@typescript-eslint/member-delimiter-style": ["error", {
             "multiline": {
               "delimiter": "comma",    // 'none' or 'semi' or 'comma'

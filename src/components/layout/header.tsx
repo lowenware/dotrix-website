@@ -32,8 +32,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
         </Link>
         <div className="navbar mr-32 flex">
           {Object.keys(PAGES)
-            .map((id) => ({ ...PAGES[id as PageEnum], id }))
-            .map((page) => (
+            .map(id => ({ ...PAGES[id as PageEnum], id }))
+            .map(page => (
               <Link key={page.id} href={page.url}>
                 <a
                   id={page.id.toLowerCase()}

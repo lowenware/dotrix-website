@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   };
 }
 
-const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = (props) => {
+const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
   if (props.mode === "POST") {
     const { meta, content, prevPost, nextPost } = props;
     return (
