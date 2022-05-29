@@ -15,7 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "jsx": "preserve",
     "paths": {
-      "*": ["src/*"]
+      "~/*": ["src/*"],
     },
     "baseUrl": ".",
     "incremental": true
