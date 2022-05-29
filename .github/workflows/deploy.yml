@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Install SSH Key
-      uses: lowenware/dotrix-website@v2
+      uses: lowenware/ssh-key-action@v2
       with:
         key: ${{ secrets.DOTRIX_WEBSITE_SSH }}
         known_hosts: 'dotrix-host'
