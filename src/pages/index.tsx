@@ -26,7 +26,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
           <div
             className={
                 "home__image h-80vh sm:h-screen lg:h-60vh bg-fixed items-center justify-center bg-no-repeat"
-              )>
+            }>
             <div
               className={
                 "bg-opacity-70 flex flex-col bg-black-100 h-80vh sm:h-screen lg:h-60vh bg-fixed"
