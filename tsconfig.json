@@ -16,6 +16,7 @@
     "jsx": "preserve",
     "paths": {
       "~/*": ["src/*"],
+      "assets/*": ["assets/*"]
     },
     "baseUrl": ".",
     "incremental": true

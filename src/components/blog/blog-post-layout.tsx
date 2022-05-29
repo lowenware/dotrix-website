@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import Left from "icons/arrow-left.svg";
-import Right from "icons/arrow-right.svg";
 import md from "markdown-it";
 import Link from "next/link";
 
+import {Arrow} from "~/assets";
 import { PageLayout } from "~/components/layout";
 import { BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw } from "~/utils/blog";
 import { formatDateTime } from "~/utils/format";
@@ -49,7 +48,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               {prevPost && (
                 <Link href={`${BLOG_URL_ROOT}/${prevPost.slug}`}>
                   <a className="flex gap-8 text-blue-light">
-                    <Left />
+                    <Arrow.Left />
                     {prevPost.title}
                   </a>
                 </Link>
@@ -59,7 +58,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
                 <Link href={`${BLOG_URL_ROOT}/${nextPost.slug}`}>
                   <a className="flex gap-8 justify-self-end text-blue-light">
                     {nextPost.title}
-                    <Right />
+                    <Arrow.Right />
                   </a>
                 </Link>
               )}

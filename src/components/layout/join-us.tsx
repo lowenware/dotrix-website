@@ -1,11 +1,8 @@
 import classNames from "classnames";
-import { Button } from "components/button";
-import Discord from "icons/logo-discord.svg";
-import GitHub from "icons/logo-github.svg";
-import Patreon from "icons/logo-patreon.svg";
-import Twitter from "icons/logo-twitter.svg";
-import YouTube from "icons/logo-youtube.svg";
 import Link from "next/link";
+
+import {Logo } from "~/assets";
+import { Button } from "~/components/button";
 
 interface JoinUsProps {
   className?: string,
@@ -31,27 +28,27 @@ export const JoinUs: React.FC<JoinUsProps> = ({ className }) => {
       <div className="flex gap-16 mb-16 lg:mb-0">
         <Link href={"/"}>
           <span>
-            <GitHub className="cursor-pointer" />
+            <Logo.Github className="cursor-pointer" />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Patreon className="cursor-pointer" />
+            <Logo.Patreon className="cursor-pointer" />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Discord className="cursor-pointer" />
+            <Logo.Discord className="cursor-pointer" />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <YouTube className="cursor-pointer" />
+            <Logo.Youtube className="cursor-pointer" />
           </span>
         </Link>
         <Link href={"/"}>
           <span>
-            <Twitter className="cursor-pointer" />
+            <Logo.Twitter className="cursor-pointer" />
           </span>
         </Link>
       </div>

@@ -50,7 +50,7 @@
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
         "no-restricted-imports": ["error", {
-            "patterns": ["../*"]
+            "patterns": ["../*", "assets/*"]
         }],
         "padding-line-between-statements": [
             "error",

@@ -1,7 +1,7 @@
-import GitHubIcon from "icons/logo-github.svg";
 import { NextPage } from "next";
 import Head from "next/head";
 
+import { Logo } from "~/assets";
 import { BlogPosts } from "~/components/blog";
 import { Button } from "~/components/button";
 import { PageLayout } from "~/components/layout";
@@ -42,7 +42,7 @@ const Home: NextPage<HomepageProps> = ({ posts }) => {
                     GET STARTED
                   </Button>
                   <Button href="/" variant="outline" className="mb-10 sm:mb-0">
-                    <GitHubIcon className="mr-32" />
+                    <Logo.Github className="mr-32" />
                     <p className="text-white text-18 sm:text-24 font-bold">
                       GITHUB
                     </p>

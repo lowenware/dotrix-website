@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import Link from "next/link";
 import React, { useState } from "react";
-import DotrixIcon from "src/icons/dotrix-icon.svg";
-import Menu from "src/icons/menu.svg";
 
+import { Icon, Logo } from "~/assets";
 import { HOME_URL_ROOT, PageEnum,PAGES } from "~/utils/pages";
 
 interface HeaderProps {
@@ -24,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
         <Link href={HOME_URL_ROOT}>
           <div className="ml-32 flex items-center text-white duration-700 cursor-pointer">
             <span className="">
-              <DotrixIcon className="" />
+              <Logo.Dotrix className="" />
             </span>
             <p className="hover:text-green ml-16 text-24 font-bold py-32 ">
               DOTRIX
@@ -54,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage }) => {
           id="menu"
           className="block sm:hidden mr-32"
         >
-          <Menu />
+          <Icon.Menu />
         </button>
       </nav>
     </>

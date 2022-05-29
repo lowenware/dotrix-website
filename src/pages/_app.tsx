@@ -1,14 +1,17 @@
-import "../globals.css";
+import "~/globals.css";
 
+import { AppProps } from "next/app";
 import Head from "next/head";
 
-function MyApp({ Component, pageProps }) {
+const website = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>PAGES.HOME.title</title>
+      </Head>
       <Component {...pageProps} />;
     </>
   );
-}
+};
 
-export default MyApp;
+export default website;

@@ -1,6 +1,5 @@
-import { PageLayout } from "components/layout";
-import { Paginator } from "components/paginator";
-
+import { PageLayout } from "~/components/layout";
+import { Paginator } from "~/components/paginator";
 import { BLOG_URL_ROOT, BlogPostMeta, Tag } from "~/utils/blog";
 
 import { BlogPosts } from "./blog-posts";
