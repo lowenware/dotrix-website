@@ -6,7 +6,8 @@ import Twitter from "icons/logo-twitter.svg";
 import YouTube from "icons/logo-youtube.svg";
 import { NextPage } from "next";
 import Head from "next/head";
-import { PAGES } from "utils/pages";
+
+import { PAGES } from "~/utils/pages";
 
 interface CommunityProps {}
 

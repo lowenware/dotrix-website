@@ -1,11 +1,12 @@
 import { BlogLayout, BlogPostLayout } from "components";
 import { GetStaticProps, NextPage } from "next";
+
 import {
   Blog,
   BlogPostStaticProps,
   BlogStaticProps,
   mapBlogPostRawToMeta,
-} from "utils/blog";
+} from "~/utils/blog";
 
 export async function getStaticPaths() {
   const blog = new Blog();

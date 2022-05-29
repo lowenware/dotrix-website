@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { BLOG_URL_ROOT, BlogPostMeta } from "utils/blog";
+
+import { BLOG_URL_ROOT, BlogPostMeta } from "~/utils/blog";
 
 import { BlogCard } from "./blog-card";
 

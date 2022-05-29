@@ -2,8 +2,9 @@
 import { HandbookLayout } from "components/handbook";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { Handbook, HandbookProps } from "utils/handbook";
-import { PAGES } from "utils/pages";
+
+import { Handbook, HandbookProps } from "~/utils/handbook";
+import { PAGES } from "~/utils/pages";
 
 const DocsPage: NextPage<HandbookProps> = ({
   menu,

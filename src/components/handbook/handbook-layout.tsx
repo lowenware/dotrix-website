@@ -1,8 +1,9 @@
-import { PageLayout } from "components";
 import md from "markdown-it";
 import { NextPage } from "next";
 import Link from "next/link";
-import { HANDBOOK_URL_ROOT, HandbookProps } from "utils/handbook";
+
+import { Card, PageLayout } from "~/components";
+import { HANDBOOK_URL_ROOT, HandbookProps } from "~/utils/handbook";
 
 export const HandbookLayout: NextPage<HandbookProps> = ({
   menu,
@@ -14,10 +15,9 @@ export const HandbookLayout: NextPage<HandbookProps> = ({
   return (
     <>
       <PageLayout currentPage="HANDBOOK">
-        <div className="flex flex-col sm:flex-row justify-center py-128 px-32 min-h-screen">
-          <div className="bg-black w-3/4 sm:w-min min-h-max h-450">
-            <div className="text-white text-18 flex flex-col text-left font-bold p-32">
-              <p className="text-32 mb-32">Handbook</p>
+        <div className="flex flex-col sm:flex-row justify-center">
+          <Card>
+              <div className="text-32 mb-32">Handbook</div>
               <ul className="">
                 {menu.map((chapter, key) => (
                   <li key={key} className={isActive(chapter.meta.slug) ? "active" : undefined}>
@@ -40,8 +40,8 @@ export const HandbookLayout: NextPage<HandbookProps> = ({
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+
+          </Card>
           <div className="w-3/4 mb-32">
             <article className="w-10/12 ml-32">
               <h1 className="text-72 text-white">{page.meta.title}</h1>

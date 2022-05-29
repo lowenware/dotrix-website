@@ -3,7 +3,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import DotrixIcon from "src/icons/dotrix-icon.svg";
 import Menu from "src/icons/menu.svg";
-import { HOME_URL_ROOT, PageEnum,PAGES } from "utils/pages";
+
+import { HOME_URL_ROOT, PageEnum,PAGES } from "~/utils/pages";
 
 interface HeaderProps {
   currentPage: PageEnum,
