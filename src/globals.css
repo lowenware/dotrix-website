@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family:  Jura;
+  background-color: #1a1c22;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+h1{
+  font-size: 1.6em;
+  line-height: 1.6em;
+  color: #fff;
+}
+
+pre{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  background-color: #11131A;
+  padding: 16px 16px;
+  border-left: #4CC900 2px solid;
+}
+
+
+
+@tailwind components;
+.home__image{
+  background-image: url('../public/Images/top-slide-image.png')
+}
+.flex__items{
+  flex-flow: row wrap;
+}
+.trans_menu{
+  width: 100%;
+  position: absolute;
+  transition: all 0.8s ease;
+  transform: translateY(-125%);
+  z-index: 10;
+
+}
+.active_trans{
+  transform: translateY(20%);
+}
+.navbar-link{
+  display: flex;
+  padding: 16px;
+  font-size: 20px;
+  font-weight:700;
+  color: #fff;
+  align-self: center;
+  text-transform: uppercase;
+}
+.navbar-link:hover{
+  color: #4CC900;
+  transition-duration: 500ms;
+}
+
+nav div a {
+  position: relative;
+}
+
+nav div a::before {
+  top: -10px;
+  left: 50%;
+  margin-left: -1px;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 2px;
+  height: 0px;
+  background-color: #fff;
+  transition: height 0.8s ease;
+}
+
+nav div a:hover::before,
+nav div a.active_link::before {
+  height: 20px;
+}
+
+nav div a.active_link::before {
+  background-color: #4CC900;
+}
+
+.active_link{
+  color: #4CC900;
+}
+.menu_link{
+  opacity: 0%;
+  transition: opacity 3.8s ease;
+}
+.active_menu_link{
+  opacity: 100;
+}
+.menu_sublink{
+transform: translateY(-100px);
+opacity: 0%;
+transition: opacity 3s,transform 1.2s ease-out;
+}
+.active_menu_sublink{
+transform: translateY(0px);
+opacity: 100%;
+}
+
+@media (max-width:670px) {
+  .navbar{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-250px);
+    transition: all 1.2s ease;
+    width: 100%;
+    height: 250px;
+    opacity: 0;
+  }
+.active_menu{
+  position: absolute;
+  transform: translateY(80px);
+  display: flex;
+  flex-direction: column;
+  background-color: #11131A;
+  width: 100%;
+  height: 250px;
+  z-index: 10;
+  opacity: 100;
+}
+}
+.button{
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75rem;
+  color: #fff;
+  font-weight: 700;
+  transition-duration:700ms;
+  text-align: center; 
+}
+
+
+@tailwind utilities;
