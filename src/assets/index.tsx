@@ -10,20 +10,20 @@ import LogoYoutube from "assets/logo-youtube.svg"
 import MenuIcon from "assets/menu-icon.svg"
 
 export const Arrow = {
-  Left: ArrowLeft,
-  Right: ArrowRight,
+  Left: () => <img src={ArrowLeft} />,
+  Right: () => <img src={ArrowRight} />,
 };
 
 export const Logo = {
-  Discord: LogoDiscord,
-  Dotrix: LogoDotrix,
-  Github: LogoGithub,
-  Lowenware: LogoLowenware,
-  Patreon: LogoPatreon,
-  Twitter: LogoTwitter,
-  Youtube: LogoYoutube,
+  Discord: () => <img src={LogoDiscord} />,
+  Dotrix: () => <img src={LogoDotrix} />,
+  Github: () => <img src={LogoGithub} />,
+  Lowenware: () => <img src={LogoLowenware} />,
+  Patreon: () => <img src={LogoPatreon} />,
+  Twitter: () => <img src={LogoTwitter} />,
+  Youtube: () => <img src={LogoYoutube} />,
 };
 
 export const Icon = {
-  Menu: MenuIcon
+  Menu: () => <img src={MenuIcon} />,
 };

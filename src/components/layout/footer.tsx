@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
         © 2022 Löwenware s.r.o. All rights reserved
       </div>
       <div className="w-1/3 justify-center hidden sm:flex">
-        <Logo.Lowenware className="" />
+        <Logo.Lowenware />
       </div>
 
       <div className="w-1/3 text-right text-12 sm:text-18 hidden sm:block">
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
         © 2022 Löwenware s.r.o. All rights reserved
       </div>
       <div className="w-1/3 ml-8 justify-center flex sm:hidden">
-        <Logo.Lowenware className="" />
+        <Logo.Lowenware />
       </div>
     </section>
   );

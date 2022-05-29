@@ -51,8 +51,8 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
                     GET STARTED
                   </Button>
                   <Button href="/" variant="outline" className="mb-10 sm:mb-0">
-                    <Logo.Github className="mr-32" />
-                    <p className="text-white text-18 sm:text-24 font-bold">
+                    <Logo.Github />
+                    <p className="text-white text-18 ml-16 sm:text-24 font-bold">
                       GITHUB
                     </p>
                   </Button>

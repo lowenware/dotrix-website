@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
         <Link href={HOME_URL_ROOT}>
           <div className="ml-32 flex items-center text-white duration-700 cursor-pointer">
             <span className="">
-              <Logo.Dotrix className="" />
+              <Logo.Dotrix />
             </span>
             <p className="hover:text-green ml-16 text-24 font-bold py-32 ">
               DOTRIX
