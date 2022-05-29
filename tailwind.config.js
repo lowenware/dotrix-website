@@ -78,10 +78,8 @@ module.exports = {
       },
       black: {
         DEFAULT: "#11131A",
-        100: "#00101C",
-        700: "#60717E",
-        full: "#000",
-        gray: "#B8CBD0",
+        darker: "#00101C",
+        dark: "#60717E",
       },
       gray: {
         DEFAULT: "#919191",

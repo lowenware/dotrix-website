@@ -1,18 +1,12 @@
 import classNames from "classnames";
 
-import {PaginatorButton} from "./paginator-button";
+import {PaginatorButton, PaginatorButtonType} from "./paginator-button";
 
 interface PaginatorProps {
   page: number,
   totalPages: number,
   root: string,
   className?: string,
-}
-enum PaginatorButtonType {
-  Normal,
-  PrevPage,
-  NextPage,
-  Placeholder,
 }
 
 export const Paginator: React.FC<PaginatorProps> = ({

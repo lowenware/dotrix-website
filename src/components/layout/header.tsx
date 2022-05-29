@@ -19,9 +19,9 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
   };
   return (
     <>
-      <nav className="h-80 flex justify-between bg-black w-full z-40 absolute">
+      <nav className="flex w-full px-32 h-80 justify-between bg-black fixed z-50">
         <Link href={HOME_URL_ROOT}>
-          <div className="ml-32 flex items-center text-white duration-700 cursor-pointer">
+          <div className="flex items-center text-white duration-700 cursor-pointer">
             <span className="">
               <Logo.Dotrix />
             </span>
@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
             </p>
           </div>
         </Link>
-        <div className="navbar mr-32 flex">
+        <div className="navbar flex">
           {Object.keys(PAGES)
             .map(id => ({...PAGES[id as PageEnum], id}))
             .map(page => (

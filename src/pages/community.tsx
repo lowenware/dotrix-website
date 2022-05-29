@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import {NextPage} from "next";
 import Head from "next/head";
 
@@ -13,7 +12,7 @@ const Community: NextPage = () => {
       <Head>
         <title>{PAGES.COMMUNITY.title}</title>
       </Head>
-      <PageLayout currentPage="COMMUNITY" joinUsComponent={false}>
+      <PageLayout currentPage="COMMUNITY">
         <div
           className={
             "home__image w-full h-60vh sm:h-screen lg:h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top"

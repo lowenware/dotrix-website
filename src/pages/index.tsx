@@ -1,11 +1,10 @@
-import classNames from "classnames";
 import {NextPage} from "next";
 import Head from "next/head";
 
 import {Logo} from "~/assets";
 import {BlogPosts} from "~/components/blog";
 import {Button} from "~/components/button";
-import {PageLayout} from "~/components/layout";
+import {PageLayout, Slide} from "~/components/layout";
 import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/utils/blog";
 import {HANDBOOK_URL_ROOT} from "~/utils/handbook";
 import {PAGES} from "~/utils/pages";
@@ -22,16 +21,8 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
         <title>{PAGES.HOME.title}</title>
       </Head>
       <PageLayout currentPage="HOME">
-        <div className="flex flex-col">
-          <div
-            className={
-                "home__image h-80vh sm:h-screen lg:h-60vh bg-fixed items-center justify-center bg-no-repeat"
-            }>
-            <div
-              className={
-                "bg-opacity-70 flex flex-col bg-black-100 h-80vh sm:h-screen lg:h-60vh bg-fixed"
-              }>
-              <section className="mt-auto">
+        <Slide image="images/low-poly-mountain.png">
+        <section>
                 <div>
                   <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
                     Program your world
@@ -58,12 +49,11 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
                   </Button>
                 </div>
               </section>
-            </div>
-          </div>
-        </div>
+        </Slide>
+
         <BlogPosts
           posts={posts.map(mapBlogPostRawToMeta)}
-          className="bg-black-800 w-full px-32 -mt-32"
+          className="bg-black-800 w-full px-32"
         />
         <section className="w-full bg-black-800 flex justify-center">
           <div

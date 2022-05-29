@@ -14,7 +14,7 @@ const currentPaginatorButton = {
   background: "#11131A",
   color: "#0FB7FF",
 };
-enum PaginatorButtonType {
+export enum PaginatorButtonType {
   Normal,
   PrevPage,
   NextPage,
