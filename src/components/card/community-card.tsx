@@ -1,14 +1,15 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { ReactNode } from "react";
+
 import { Card } from "./card";
 
 interface CommunityCardProps {
-  className?: string;
-  title?: string;
-  icon?: ReactNode;
-  description?: string;
-  link: string;
+  className?: string,
+  title?: string,
+  icon?: ReactNode,
+  description?: string,
+  link: string,
 }
 
 export const CommunityCard: React.FC<CommunityCardProps> = ({

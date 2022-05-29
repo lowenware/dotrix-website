@@ -7,49 +7,49 @@ export const BLOG_POSTS_ROOT = "blog";
 export const BLOG_URL_ROOT = "/blog";
 
 export interface BlogPostRaw {
-  slug: string;
-  title: string;
-  summary: string;
-  date: string;
-  tags: string;
-  image: string | null;
+  slug: string,
+  title: string,
+  summary: string,
+  date: string,
+  tags: string,
+  image: string | null,
 }
 
 export interface BlogPostMeta {
-  slug: string;
-  title: string;
-  summary: string;
-  date: Date;
-  tags: string[];
-  image: string | null;
+  slug: string,
+  title: string,
+  summary: string,
+  date: Date,
+  tags: string[],
+  image: string | null,
 }
 
 export interface Tag {
-  label: string;
-  count: number;
+  label: string,
+  count: number,
 }
 
 export interface BlogPost {
-  meta: BlogPostMeta;
-  content: string;
+  meta: BlogPostMeta,
+  content: string,
 }
 
 export interface BlogStaticProps {
-  mode: "PAGE" | "TAG";
-  tag?: string;
-  posts: BlogPostRaw[];
-  tags: Tag[];
-  page: number;
-  totalPages: number;
+  mode: "PAGE" | "TAG",
+  tag?: string,
+  posts: BlogPostRaw[],
+  tags: Tag[],
+  page: number,
+  totalPages: number,
 }
 
 export interface BlogPostStaticProps {
-  mode: "POST";
-  meta: BlogPostRaw;
-  content: string;
-  tags: Tag[];
-  prevPost: BlogPostRaw | null;
-  nextPost: BlogPostRaw | null;
+  mode: "POST",
+  meta: BlogPostRaw,
+  content: string,
+  tags: Tag[],
+  prevPost: BlogPostRaw | null,
+  nextPost: BlogPostRaw | null,
 }
 
 export class Blog {
@@ -135,9 +135,11 @@ export class Blog {
 
   private paginate<T>(posts: T[], page: number, perPage: number) {
     const totalPages = this.countPages(posts.length, perPage);
+
     if (page > totalPages) {
       page = 0;
     }
+
     const offsetFrom = (page - 1) * perPage;
     const offsetTo = offsetFrom + perPage;
     return {
@@ -176,7 +178,7 @@ export class Blog {
   }
 
   getBlogStaticProps(slugs: string[]): BlogStaticProps | BlogPostStaticProps {
-    let [slug, page] = slugs;
+    const [slug, page] = slugs;
     const re = /^\d+$/;
 
     // slug is tag
@@ -237,6 +239,7 @@ export class Blog {
       post.tags.forEach((t) => {
         const label = t.trim();
         const tag = tags.find((t) => t.label === label);
+
         if (tag) {
           tag.count += 1;
         } else {

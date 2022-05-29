@@ -1,25 +1,25 @@
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
+import path from "path";
 
 export const HANDBOOK_FILES_ROOT = "handbook";
 export const HANDBOOK_URL_ROOT = "/handbook";
 export const HANDBOOK_FILES_EXTENSION = ".md";
 
 export interface HandbookMeta {
-  slug: string[];
-  title: string;
-  order: number;
+  slug: string[],
+  title: string,
+  order: number,
 }
 
 export interface HandbookPage {
-  meta: HandbookMeta;
-  content: string;
+  meta: HandbookMeta,
+  content: string,
 }
 
 export interface HandbookChapter {
-  meta: HandbookMeta;
-  sections: HandbookMeta[];
+  meta: HandbookMeta,
+  sections: HandbookMeta[],
 }
 
 export interface HandbookProps {
@@ -64,7 +64,7 @@ export class Handbook {
     return {
       menu: this.pages,
       page: this.getPage(slug),
-    }
+    };
   }
 
   private getPage(slug: string[]): HandbookPage {
@@ -75,7 +75,7 @@ export class Handbook {
       section => section.slug[1] === slug[1]
     )!.order : chapter.meta.order;
     const page = slug.pop();
-    return this.readPage([...slug, `${String(order).padStart(2, '0')}_${page}${this.extension}`]);
+    return this.readPage([...slug, `${String(order).padStart(2, "0")}_${page}${this.extension}`]);
   }
 
   private getPages(): HandbookChapter[] {
@@ -87,6 +87,7 @@ export class Handbook {
 
   private readFolder(paths: string[]): HandbookMeta[] {
     const folder = path.join(this.root, ...paths);
+
     if (!fs.existsSync(folder) || !fs.lstatSync(folder).isDirectory()) {
       return [];
     }
@@ -99,7 +100,6 @@ export class Handbook {
   }
 
   private readPage(paths: string[]): HandbookPage {
-    console.log(paths)
     const filePath = path.join(this.root, ...paths);
     const { data, content } = matter(fs.readFileSync(filePath, "utf-8"));
     this.metaFields.forEach((field) => {
@@ -108,7 +108,7 @@ export class Handbook {
       }
     });
     const { title } = data;
-    const [order, slug] = paths.pop()!.split('_', 2);
+    const [order, slug] = paths.pop()!.split("_", 2);
 
     return {
       meta: {

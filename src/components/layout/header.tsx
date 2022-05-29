@@ -1,12 +1,12 @@
+import classNames from "classnames";
 import Link from "next/link";
+import React, { useState } from "react";
 import DotrixIcon from "src/icons/dotrix-icon.svg";
 import Menu from "src/icons/menu.svg";
-import React, { useState } from "react";
-import classNames from "classnames";
-import { PAGES, PageEnum, HOME_URL_ROOT } from "utils/pages";
+import { HOME_URL_ROOT, PageEnum,PAGES } from "utils/pages";
 
 interface HeaderProps {
-  currentPage: PageEnum;
+  currentPage: PageEnum,
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentPage }) => {

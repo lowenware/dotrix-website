@@ -27,8 +27,8 @@ export const PAGES = {
     menu: "Community",
     title: "Community :: Dotrix 3D Engine"
   },
-}
+};
 
 export const getTitleForPage = (page: PageEnum) => {
-  return PAGES[page].title
-}
+  return PAGES[page].title;
+};

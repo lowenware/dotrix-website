@@ -21,10 +21,10 @@ enum PaginatorButtonType {
   Placeholder,
 }
 interface PaginatorButtonProps {
-  linkType: PaginatorButtonType;
-  pageNumber?: number;
-  link: string;
-  isCurrent: boolean;
+  linkType: PaginatorButtonType,
+  pageNumber?: number,
+  link: string,
+  isCurrent: boolean,
 }
 export const PaginatorButton: React.FC<PaginatorButtonProps> = ({
   linkType,

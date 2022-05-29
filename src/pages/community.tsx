@@ -1,10 +1,10 @@
 import { CommunityCard, PageLayout } from "components";
-import { NextPage } from "next";
+import Discord from "icons/logo-discord.svg";
 import GitHub from "icons/logo-github.svg";
 import Patreon from "icons/logo-patreon.svg";
-import Discord from "icons/logo-discord.svg";
 import Twitter from "icons/logo-twitter.svg";
 import YouTube from "icons/logo-youtube.svg";
+import { NextPage } from "next";
 import Head from "next/head";
 import { PAGES } from "utils/pages";
 

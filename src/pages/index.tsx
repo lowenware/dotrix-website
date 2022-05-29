@@ -1,15 +1,16 @@
+import { BlogPosts, Button, PageLayout } from "components";
+import GitHubIcon from "icons/logo-github.svg";
 import { NextPage } from "next";
 import Head from "next/head";
-import { PageLayout, BlogPosts, Button } from "components";
-import GitHubIcon from "icons/logo-github.svg";
 import { Blog, BlogPostRaw, mapBlogPostRawToMeta } from "utils/blog";
 import { HANDBOOK_URL_ROOT } from "utils/handbook";
 import { PAGES } from "utils/pages";
 
 interface HomepageProps {
-  posts: BlogPostRaw[];
+  posts: BlogPostRaw[],
 }
 const MAX_BLOG_POSTS = 8;
+
 const Home: NextPage<HomepageProps> = ({ posts }) => {
   return (
     <>
