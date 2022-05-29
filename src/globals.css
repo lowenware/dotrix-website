@@ -37,7 +37,7 @@ pre{
 
 @tailwind components;
 .home__image{
-  background-image: url('../public/Images/top-slide-image.png')
+  background-image: url('../public/images/top-slide-image.png')
 }
 .flex__items{
   flex-flow: row wrap;
