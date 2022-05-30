@@ -21,13 +21,11 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
 }) => {
   return (
     <PageLayout currentPage={"BLOG"}>
-      <div className="home__image w-full h-60vh sm:h-screen lg:h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top">
-        <div className="bg-opacity-70 flex flex-col h-60vh sm:h-screen lg:h-40vh bg-fixed w-full">
-          <p className="text-white text-48 lg:text-72 self-center my-auto">
+     <Slide image="/images/low-poly-mountain.png" size="small">
+       <p className="text-48 text-white font-bold">
             Blog {tag && <span className="text-14">{tag}</span>}
           </p>
-        </div>
-      </div>
+      </Slide>
 
       <BlogPosts posts={posts} className="w-full min-h-min -mt-32" />
 

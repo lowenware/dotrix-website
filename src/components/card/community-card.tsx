@@ -1,15 +1,16 @@
 import classNames from "classnames";
-import Link from "next/link";
 import {ReactNode} from "react";
+
+import {Button} from "~/components/button";
 
 import {Card} from "./card";
 
 interface CommunityCardProps {
-  className?: string,
+  className?: string;
   title?: string,
-  icon?: ReactNode,
-  children?: ReactNode,
-  link: string,
+  icon?: ReactNode;
+  children?: ReactNode;
+  link: string;
 }
 
 export const CommunityCard: React.FC<CommunityCardProps> = ({
@@ -26,7 +27,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
           {title}
         </p>
         <div className="self-center mt-64 scale-400"> {icon}</div>
-        <div className="text-white text-14 self-center text-left mt-64">
+        <div className="text-white text-14 self-center text-left mt-64 mb-16">
           {children}
         </div>
           <Button className=""  href={""}>

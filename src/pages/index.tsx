@@ -21,7 +21,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
         <title>{PAGES.HOME.title}</title>
       </Head>
       <PageLayout currentPage="HOME">
-        <Slide image="images/low-poly-mountain.png">
+        <Slide image="/images/low-poly-mountain.png" size={"large"}>
         <section>
                 <div>
                   <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
@@ -53,9 +53,9 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
 
         <BlogPosts
           posts={posts.map(mapBlogPostRawToMeta)}
-          className="w-full px-32"
+          className="bg-black-800 w-full px-32"
         />
-        <section className="w-full flex justify-center">
+        <section className="w-full bg-black-800 flex justify-center">
           <div
             className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64"
           >
