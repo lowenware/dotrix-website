@@ -14,7 +14,9 @@ export const Slide: React.FC<SlideProps> = ({image, children,size = "small"}) =>
     return (
        <>
             {size === "large" &&( <div
-             className="h-screen overflow-hidden bg-no-repeat bg-cover bg-fixed relative top-72"
+             className="h-80vh sm:h-screen overflow-hidden
+              bg-no-repeat sm:bg-cover bg-fixed relative
+              top-80 bg-auto"
              style={{backgroundImage: `url(${image})`}}
              ><div className={classNames(stretch, "h-screen bg-dark opacity-75")}></div>
             <div className={
@@ -27,7 +29,7 @@ export const Slide: React.FC<SlideProps> = ({image, children,size = "small"}) =>
 
 
         {size === "small" &&(<div className="relative h-30vh overflow-hidden bg-fixed
-         bg-no-repeat bg-cover top-80"
+         bg-no-repeat sm:bg-cover top-80 bg-auto"
         style={{backgroundImage: `url(${image})`}}>
             <div className={classNames(stretch, "h-screen bg-dark opacity-75")}></div>
             <div className={

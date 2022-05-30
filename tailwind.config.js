@@ -1,7 +1,7 @@
 const sizes = {
   8: "8px",
-  "20vh":"20vh",
-  "30vh":"30vh",
+  "20vh": "20vh",
+  "30vh": "30vh",
   16: "16px",
   "40vh": "40vh",
   "60vh": "60vh",
@@ -9,7 +9,6 @@ const sizes = {
   28: "28px",
   32: "32px",
   36: "36px",
-  40:"40px",
   48: "48px",
   54: "54px",
   60: "60px",
@@ -37,13 +36,10 @@ const sizes = {
   em: "1em",
 
   200: "200px", // footer-lines
-  400: "400px"  // footer
+  400: "400px", // footer
 };
 module.exports = {
-  content: [
-    "./src/pages/**/*.{ts,tsx}",
-    "./src/components/**/*.{ts,tsx}",
-  ],
+  content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -83,14 +79,12 @@ module.exports = {
         DEFAULT: "#11131A",
       },
       gray: {
-        DEFAULT: "#1A1C22"
+        DEFAULT: "#1A1C22",
       },
 
-      
       pink: {
         DEFAULT: "#FC71FF",
       },
-      
 
       white: {
         DEFAULT: "#fff",

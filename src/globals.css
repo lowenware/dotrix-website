@@ -118,8 +118,9 @@ opacity: 100%;
     display: flex;
     flex-direction: column;
     transform: translateY(-250px);
-    transition: all 1.2s ease;
+    transition: all 0.8s ease;
     width: 100%;
+    left: 0;
     height: 250px;
     opacity: 0;
   }
