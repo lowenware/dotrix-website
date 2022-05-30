@@ -13,22 +13,13 @@ const Community: NextPage = () => {
         <title>{PAGES.COMMUNITY.title}</title>
       </Head>
       <PageLayout currentPage="COMMUNITY">
-        <div
-          className={
-            "home__image w-full h-60vh sm:h-screen lg:h-40vh bg-fixed items-center justify-center bg-no-repeat lg:bg-contain bg-cover bg-center md:bg-top lg:bg-top"
-          }
-        >
-          <div
-            className={
-              "bg-opacity-70 flex flex-col h-60vh sm:h-screen lg:h-40vh bg-fixed w-full"
-            }
-          >
-            <p className="text-white text-48 lg:text-72 self-center my-auto">
+      <Slide image="/images/low-poly-mountain.png" size={"small"}>
+            <p className="text-white text-48 font-bold">
               Community
             </p>
-          </div>
-        </div>
-        <section className="w-full p-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32">
+            </Slide>
+        <section className="w-full relative z-50">
+          <div className="p-32 pt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 -mt-32">
           <CommunityCard
             className=""
             title="GitHub"

@@ -13,7 +13,7 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({className, posts}) => {
   return (
     <section
       className={classNames(
-        "px-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32",
+        "px-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 z-30",
         className
       )}
     >
