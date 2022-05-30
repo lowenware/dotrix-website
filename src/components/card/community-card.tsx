@@ -11,6 +11,7 @@ interface CommunityCardProps {
   icon?: ReactNode,
   children?: ReactNode,
   link: string,
+  buttonText:string,
 }
 
 export const CommunityCard: React.FC<CommunityCardProps> = ({
@@ -19,6 +20,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
   icon,
   children,
   link,
+  buttonText
 }) => {
   return (
     <>
@@ -31,7 +33,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
           {children}
         </div>
           <Button className="" href={link}>
-            Open {title}
+            {buttonText}
           </Button>
       </Card>
     </>
