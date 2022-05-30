@@ -6,7 +6,7 @@ import {Icon, Logo} from "~/assets";
 import {HOME_URL_ROOT, PageEnum,PAGES} from "~/utils/pages";
 
 interface HeaderProps {
-  currentPage: PageEnum,
+  currentPage?: PageEnum,
 }
 
 export const Header: React.FC<HeaderProps> = ({currentPage}) => {
