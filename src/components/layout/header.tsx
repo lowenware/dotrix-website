@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
         <button
           onClick={handleClick}
           id="menu"
-          className="block sm:hidden mr-32"
+          className="block sm:hidden"
         >
           <Icon.Menu />
         </button>

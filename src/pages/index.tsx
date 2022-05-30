@@ -53,7 +53,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
 
         <BlogPosts
           posts={posts.map(mapBlogPostRawToMeta)}
-          className="bg-black-800 w-full px-32"
+          className="bg-black-800 w-full px-32 mt-32"
         />
         <section className="w-full bg-black-800 flex justify-center">
           <div
