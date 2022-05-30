@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import {Logo} from "~/assets";
 import {CommunityCard} from "~/components/card";
-import {PageLayout} from "~/components/layout";
+import {PageLayout, Slide} from "~/components/layout";
 import {PAGES} from "~/utils/pages";
 
 const Community: NextPage = () => {
@@ -61,6 +61,7 @@ const Community: NextPage = () => {
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>
+          </div>
         </section>
       </PageLayout>
     </>

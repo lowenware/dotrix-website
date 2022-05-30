@@ -1,4 +1,4 @@
-import {PageLayout} from "~/components/layout";
+import {PageLayout, Slide} from "~/components/layout";
 import {Paginator} from "~/components/paginator";
 import {BLOG_URL_ROOT, BlogPostMeta, Tag} from "~/utils/blog";
 
