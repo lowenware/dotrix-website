@@ -28,53 +28,47 @@ const Community: NextPage = () => {
             </p>
           </div>
         </div>
-        <section
-          className="w-full px-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32"
-        >
+        <section className="w-full p-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32">
           <CommunityCard
-            className="-top-32 relative"
+            className=""
             title="GitHub"
             icon={<Logo.Github />}
             link=""
           >
-            Ask a question, share your success, discuss anything
-            about 3D development with our community
+            Ask a question, share your success, discuss anything about 3D
+            development with our community
           </CommunityCard>
           <CommunityCard
-            className="-top-32 relative"
+            className=""
             title="Twitter"
             icon={<Logo.Twitter />}
             link=""
           >
-            Ask a question, share your success, discuss anything
-            about 3D development with our community
+            Ask a question, share your success, discuss anything about 3D
+            development with our community
           </CommunityCard>
           <CommunityCard
-            className="-top-32 relative"
+            className=""
             title="Patreon"
             icon={<Logo.Patreon />}
             link=""
           >
-            Ask a question, share your success, discuss anything
-            about 3D development with our community
+            Ask a question, share your success, discuss anything about 3D
+            development with our community
           </CommunityCard>
           <CommunityCard
-            className="-top-32 relative"
+            className=""
             title="YouTube"
             icon={<Logo.Youtube />}
             link=""
           >
-            Ask a question, share your success, discuss anything
-            about 3D development with our community
+            Ask a question, share your success, discuss anything about 3D
+            development with our community
           </CommunityCard>
 
-          <CommunityCard
-            title="Discord"
-            icon={<Logo.Discord />}
-            link=""
-          >
-            Ask a question, share your success, discuss anything
-            about 3D development with our community
+          <CommunityCard title="Discord" icon={<Logo.Discord />} link="">
+            Ask a question, share your success, discuss anything about 3D
+            development with our community
           </CommunityCard>
         </section>
       </PageLayout>

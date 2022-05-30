@@ -29,11 +29,9 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
         <div className="text-white text-14 self-center text-left mt-64">
           {children}
         </div>
-        <Link href={link}>
-          <div className="mt-64 flex text-white md:text-24 text-center px-4 py-16 text-18 uppercase bg-blue-light font-bold justify-center cursor-pointer rounded-xl hover:bg-opacity-25 duration-500">
+          <Button className=""  href={""}>
             Open {title}
-          </div>
-        </Link>
+          </Button>
       </Card>
     </>
   );
