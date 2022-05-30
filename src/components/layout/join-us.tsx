@@ -27,27 +27,27 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
       </div>
       <div className="flex gap-16 mb-16 lg:mb-0">
         <Link href={"/"}>
-          <span>
+          <span className="cursor-pointer">
             <Logo.Github />
           </span>
         </Link>
         <Link href={"/"}>
-          <span>
+          <span className="cursor-pointer">
             <Logo.Patreon />
           </span>
         </Link>
         <Link href={"/"}>
-          <span>
+          <span className="cursor-pointer">
             <Logo.Discord />
           </span>
         </Link>
         <Link href={"/"}>
-          <span>
+          <span className="cursor-pointer">
             <Logo.Youtube />
           </span>
         </Link>
         <Link href={"/"}>
-          <span>
+          <span className="cursor-pointer">
             <Logo.Twitter />
           </span>
         </Link>

@@ -21,43 +21,47 @@ const Community: NextPage = () => {
         <section className="w-full relative z-40">
           <div className="p-32 pt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 mt-48">
           <CommunityCard
-            className=""
-            title="GitHub"
-            icon={<Logo.Github />}
-            link=""
-          >
+              className=""
+              title="Contribute"
+              icon={<Logo.Github />}
+              link=""
+              buttonText={"OPEN GITHUB"}>
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>
           <CommunityCard
-            className=""
-            title="Twitter"
-            icon={<Logo.Twitter />}
-            link=""
-          >
+              className=""
+              title="Follow"
+              icon={<Logo.Twitter />}
+              link=""
+              buttonText={"OPEN FEED"}>
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>
           <CommunityCard
-            className=""
-            title="Patreon"
-            icon={<Logo.Patreon />}
-            link=""
-          >
+              className=""
+              title="Donate"
+              icon={<Logo.Patreon />}
+              link=""
+              buttonText={"BECOME A PATRON"}>
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>
           <CommunityCard
-            className=""
-            title="YouTube"
-            icon={<Logo.Youtube />}
-            link=""
-          >
+              className=""
+              title="Watch"
+              icon={<Logo.Youtube />}
+              link=""
+              buttonText={"WATCH YOUTUBE"} >
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>
 
-          <CommunityCard title="Discord" icon={<Logo.Discord />} link="">
+          <CommunityCard
+          title="Communicate"
+          icon={<Logo.Discord />}
+          link=""
+          buttonText={"DISCORD"}>
             Ask a question, share your success, discuss anything about 3D
             development with our community
           </CommunityCard>

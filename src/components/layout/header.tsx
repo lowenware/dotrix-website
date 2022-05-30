@@ -36,16 +36,15 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
             .map(id => ({...PAGES[id as PageEnum], id}))
             .map(page => (
               <Link key={page.id} href={page.url}>
-                <a
+                <span
                   id={page.id.toLowerCase()}
                   className={classNames(
-                    "navbar-link",
+                    "navbar-link cursor-pointer",
                     currentPage === page.id ? "active_link" : ""
                   )}
-                  href="#"
                 >
                   {page.menu}
-                </a>
+                </span>
               </Link>
             ))}
         </div>
