@@ -9,7 +9,7 @@ import {Header} from "./header";
 
 interface PageProps {
   children: ReactNode,
-  currentPage: PageEnum,
+  currentPage?: PageEnum,
 }
 
 export const PageLayout: NextPage<PageProps> = ({
