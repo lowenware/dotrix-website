@@ -16,15 +16,15 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
   posts,
   totalPages,
   page,
-//  tags TODO: implement tags,
+  //  tags TODO: implement tags,
   tag,
 }) => {
   return (
     <PageLayout currentPage={"BLOG"}>
-     <Slide image="/images/low-poly-mountain.png" size="small">
-       <p className="text-48 text-white font-bold">
-            Blog {tag && <span className="text-14">{tag}</span>}
-          </p>
+      <Slide className="mt-80" image="/images/low-poly-mountain.png" size="small">
+        <h1>
+          Blog {tag && <span className="text-14">{tag}</span>}
+        </h1>
       </Slide>
 
       <BlogPosts posts={posts} className="w-full min-h-min mt-48" />

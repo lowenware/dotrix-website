@@ -20,11 +20,11 @@ export const Button: React.FC<ButtonProps> = ({
   const getVariantClassNames = (variant: ButtonVariantEnum) => {
     switch (variant) {
       case "primary":
-        return "bg-blue";
+        return "bg-blue border-blue hover:bg-blue hover:border-blue";
       case "secondary":
-        return "bg-green";
+        return "bg-green border-green";
       case "outline":
-        return "border-white border-2";
+        return "border-white hover:bg-blue hover:border-blue";
     }
   };
 
@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
     <Link href={href}>
       <a
         className={classNames(
-          "button text-18 sm:text-24 py-16 px-32 hover:bg-gray hover:bg-opacity-70",
+          "button border-2 py-24 px-32 hover:bg-opacity-20 ",
           getVariantClassNames(variant),
           className
         )}

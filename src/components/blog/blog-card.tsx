@@ -15,7 +15,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
       <>
         {post.image && (
           <Image
-            src={`/${BLOG_POSTS_ROOT}/${post.image}`}
+            src={`//${BLOG_POSTS_ROOT}/${post.image}`}
             alt={""}
             height={200}
             width={100}

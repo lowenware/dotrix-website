@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-white font-normal text-h1;
+  }
+}
+
+.slide--large h1 {
+  @apply text-h3;
+}
+
 @tailwind components;
-@tailwind utilities;
 
 @layer components {
   html,
@@ -13,7 +23,10 @@
   #__next {
     @apply relative h-full;
   }
+
 }
+
+@tailwind utilities;
 
 a {
   color: inherit;
@@ -23,11 +36,7 @@ a {
 * {
   box-sizing: border-box;
 }
-h1{
-  font-size: 1.6em;
-  line-height: 1.6em;
-  color: #fff;
-}
+
 
 pre{
   margin-top: 16px;
@@ -52,14 +61,15 @@ pre{
 .active_trans{
   transform: translateY(20%);
 }
+
+.nav {
+  @apply text-large font-bold uppercase text-white;
+}
+
 .navbar-link{
   display: flex;
   padding: 16px;
-  font-size: 20px;
-  font-weight:700;
-  color: #fff;
   align-self: center;
-  text-transform: uppercase;
 }
 .navbar-link:hover{
   color: #4CC900;
@@ -137,14 +147,8 @@ opacity: 100%;
 }
 }
 .button{
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.75rem;
-  color: #fff;
-  font-weight: 700;
+  border-radius: 0.25rem;
   transition-duration:700ms;
-  text-align: center; 
+  @apply font-bold flex justify-center items-center cursor-pointer text-large uppercase text-white;
 }
 
