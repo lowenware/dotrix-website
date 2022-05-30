@@ -34,13 +34,12 @@ const sizes = {
   960: "960px",
   1280: "1280px",
   em: "1em",
-
-  200: "200px", // footer-lines
   400: "400px", // footer
 };
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
+    fontFamily: { jura: ["Jura"] },
     container: {
       center: true,
       padding: {
@@ -93,8 +92,8 @@ module.exports = {
         DEFAULT: "#ff0000",
       },
       blue: {
-        light: "#0FB7FF",
-        50: "#92ddfc",
+        DEFAULT: "#0FB7FF",
+        light: "#B8CBD0",
         100: "#E6EFF9",
       },
       green: {

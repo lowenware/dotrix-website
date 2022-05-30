@@ -47,7 +47,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             <div className="flex justify-between mt-32">
               {prevPost && (
                 <Link href={`${BLOG_URL_ROOT}/${prevPost.slug}`}>
-                  <a className="flex gap-8 text-blue-light">
+                  <a className="flex gap-8 text-blue">
                     <Arrow.Left />
                     {prevPost.title}
                   </a>
@@ -56,7 +56,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               <span></span>
               {nextPost && (
                 <Link href={`${BLOG_URL_ROOT}/${nextPost.slug}`}>
-                  <a className="flex gap-8 justify-self-end text-blue-light">
+                  <a className="flex gap-8 justify-self-end text-blue">
                     {nextPost.title}
                     <Arrow.Right />
                   </a>

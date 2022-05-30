@@ -21,9 +21,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
             width={100}
           />
         )}
-        <div className="flex m-16 flex-col justify-center">
+        <div className="flex m-16 flex-col  justify-center">
           <p className="text-32 text-white font-bold">{post.title}</p>
-          <p className="text-14 mr-25 mt-16 font-normal text-gray-font ">
+          <p className="text-14 text-blue-light mr-25 mt-16 font-normal text-gray-font ">
             {post.summary}
           </p>
         </div>

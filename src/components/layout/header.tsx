@@ -21,11 +21,12 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
     <>
       <nav className="flex w-full px-32 h-80 justify-between bg-dark fixed z-50">
         <Link href={HOME_URL_ROOT}>
-          <div className="flex items-center text-white duration-700 cursor-pointer">
+          <div className="flex items-center text-white
+           duration-700 cursor-pointer">
             <span className="">
               <Logo.Dotrix />
             </span>
-            <p className="hover:text-green ml-16 text-24 font-bold py-32 ">
+            <p className="hover:text-green duration-1000 ml-16 text-24 font-bold py-32 ">
               DOTRIX
             </p>
           </div>
