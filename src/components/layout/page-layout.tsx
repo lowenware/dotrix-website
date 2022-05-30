@@ -18,11 +18,13 @@ export const PageLayout: NextPage<PageProps> = ({
 }) => {
   return (
     <>
-      <Header currentPage={currentPage} />
-      <div className="pt-80">
-        {children}
+      <div className="flex flex-col h-full">
+        <Header currentPage={currentPage} />
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

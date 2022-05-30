@@ -20,7 +20,7 @@ const Community: NextPage = () => {
         >
           <div
             className={
-              "bg-opacity-70 flex flex-col bg-black-100 h-60vh sm:h-screen lg:h-40vh bg-fixed w-full"
+              "bg-opacity-70 flex flex-col h-60vh sm:h-screen lg:h-40vh bg-fixed w-full"
             }
           >
             <p className="text-white text-48 lg:text-72 self-center my-auto">

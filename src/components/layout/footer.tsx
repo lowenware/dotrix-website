@@ -4,9 +4,9 @@ import {JoinUs} from "./join-us";
 
 export const Footer: React.FC = () => {
   return (
-    <>
+    <div id="footer">
       <JoinUs />
-      <section className="w-full text-gray flex flex-col text-12 sm:text-18 sm:flex-row items-center justify-evenly py-32 px-64 bg-black-800">
+      <div className="mh-200">
         <div className="w-1/3 hidden sm:block">
           © 2022 Löwenware s.r.o. All rights reserved
         </div>
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
         <div className="w-1/3 ml-8 justify-center flex sm:hidden">
           <Logo.Lowenware />
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };

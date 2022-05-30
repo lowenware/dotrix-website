@@ -19,7 +19,7 @@ export const Slide: React.FC<SlideProps> = ({image, children}) => {
             <div className={classNames(stretch, "z-10")}>
                 <Image src={image} layout="responsive" width={1440} height={700} />
             </div>
-            <div className={classNames(stretch, "z-20 bg-black opacity-75")}></div>
+            <div className={classNames(stretch, "z-20 bg-dark opacity-75")}></div>
         </div>
     );
 };

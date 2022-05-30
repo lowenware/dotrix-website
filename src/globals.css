@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family:  Jura;
-  background-color: #1a1c22;
+@layer components {
+  html,
+  body {
+    @apply h-full p-0 m-0 bg-gray;
+  }
+
+  #__next {
+    @apply relative h-full;
+  }
 }
 
 a {
@@ -35,7 +40,7 @@ pre{
 
 
 
-@tailwind components;
+
 
 .slide {
   
@@ -151,4 +156,4 @@ opacity: 100%;
 }
 
 
-@tailwind utilities;
+
