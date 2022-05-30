@@ -53,9 +53,9 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
 
         <BlogPosts
           posts={posts.map(mapBlogPostRawToMeta)}
-          className="bg-black-800 w-full px-32"
+          className="w-full px-32"
         />
-        <section className="w-full bg-black-800 flex justify-center">
+        <section className="w-full flex justify-center">
           <div
             className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64"
           >

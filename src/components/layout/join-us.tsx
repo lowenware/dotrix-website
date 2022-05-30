@@ -12,7 +12,7 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
   return (
     <section
       className={classNames(
-        "w-full bg-black sm:p-32 flex items-center justify-between flex-col lg:flex-row",
+        "w-full bg-dark mh-200 sm:p-32 flex items-center justify-between flex-col lg:flex-row ",
         className
       )}
     >

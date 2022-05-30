@@ -32,6 +32,9 @@ const sizes = {
   960: "960px",
   1280: "1280px",
   em: "1em",
+
+  200: "200px", // footer-lines
+  400: "400px"  // footer
 };
 module.exports = {
   content: [
@@ -73,18 +76,19 @@ module.exports = {
       72: ["72px", 1.3],
     },
     colors: {
+      dark: {
+        DEFAULT: "#11131A",
+      },
+      gray: {
+        DEFAULT: "#1A1C22"
+      },
+
+      
       pink: {
         DEFAULT: "#FC71FF",
       },
-      black: {
-        DEFAULT: "#11131A",
-        darker: "#00101C",
-        dark: "#60717E",
-      },
-      gray: {
-        DEFAULT: "#919191",
-        font: "#B8CBD0",
-      },
+      
+
       white: {
         DEFAULT: "#fff",
       },

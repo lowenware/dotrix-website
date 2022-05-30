@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
   };
   return (
     <>
-      <nav className="flex w-full px-32 h-80 justify-between bg-black fixed z-50">
+      <nav className="flex w-full px-32 h-80 justify-between bg-dark fixed z-50">
         <Link href={HOME_URL_ROOT}>
           <div className="flex items-center text-white duration-700 cursor-pointer">
             <span className="">

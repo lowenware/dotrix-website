@@ -30,7 +30,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
           {children}
         </div>
         <Link href={link}>
-          <div className="mt-64 flex text-white md:text-24 text-center px-4 py-16 text-18 uppercase bg-blue-light font-bold justify-center cursor-pointer rounded-xl hover:bg-black-200 hover:bg-opacity-25 duration-500">
+          <div className="mt-64 flex text-white md:text-24 text-center px-4 py-16 text-18 uppercase bg-blue-light font-bold justify-center cursor-pointer rounded-xl hover:bg-opacity-25 duration-500">
             Open {title}
           </div>
         </Link>

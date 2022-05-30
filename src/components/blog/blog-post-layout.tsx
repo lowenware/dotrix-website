@@ -26,7 +26,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
     <div className="flex flex-col">
       <PageLayout currentPage="BLOG">
         <section
-          className={classNames("w-full h-screen mt-80 bg-black", className)}
+          className={classNames("w-full h-screen mt-80 bg-dark", className)}
         >
           <div className="mx-auto w-3/4">
             {meta.title && <h1 className="text-56">{meta.title}</h1>}

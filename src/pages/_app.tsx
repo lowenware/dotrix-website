@@ -9,7 +9,7 @@ const website = ({Component, pageProps}: AppProps) => {
       <Head>
         <title>PAGES.HOME.title</title>
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 };
