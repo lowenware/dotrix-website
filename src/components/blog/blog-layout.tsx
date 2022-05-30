@@ -27,7 +27,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
           </p>
       </Slide>
 
-      <BlogPosts posts={posts} className="w-full min-h-min -mt-32" />
+      <BlogPosts posts={posts} className="w-full min-h-min mt-48" />
 
       <Paginator
         className="my-16"
