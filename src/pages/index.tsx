@@ -53,17 +53,18 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
 
         <BlogPosts
           posts={posts.map(mapBlogPostRawToMeta)}
-          className="bg-black-800 w-full px-32 mt-32"
+          className="bg-black-800 w-full px-32 -mt-32"
         />
         <section className="w-full bg-black-800 flex justify-center">
           <div
-            className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 mb-64"
+            className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2
+            sm:grid-cols-2 mb-64 font-bold"
           >
             <div className="flex flex-col pt-64 px-32 sm:pl-32">
-              <p className="text-white font-bold text-24 mb-12">
+              <p className="text-white text-24 mb-12">
                 Performance and Safety
               </p>
-              <p className="text-white">
+              <p className="text-blue-light">
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don&apos;t look even
@@ -72,10 +73,10 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
             </div>
 
             <div className="flex flex-col pt-64 px-32 sm:pr-32">
-              <p className="text-white font-bold text-24 mb-12">
+              <p className="text-white text-24 mb-12">
                 ECS Programming pattern
               </p>
-              <p className="text-white">
+              <p className="text-blue-light">
                 If you are going to use a passage of Lorem Ipsum, you need to be
                 sure there isn&apos;t anything embarrassing hidden in the middle
                 of text. All the Lorem Ipsum generators on the Internet tend to
@@ -84,10 +85,10 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
               </p>
             </div>
             <div className="flex flex-col pt-8 px-32 sm:pl-32">
-              <p className="text-white font-bold text-24 mb-12">
+              <p className="text-white text-24 mb-12">
                 Crossplatform
               </p>
-              <p className="text-white">
+              <p className="text-blue-light">
                 It uses a dictionary of over 200 Latin words, combined with a
                 handful of model sentence structures, to generate Lorem Ipsum
                 which looks reasonable. The generated Lorem Ipsum is therefore
@@ -96,8 +97,8 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
               </p>
             </div>
             <div className="flex flex-col pt-8 px-32 sm:pr-32">
-              <p className="text-white font-bold text-24 mb-12">OpenSource </p>
-              <p className="text-white">
+              <p className="text-white text-24 mb-12">OpenSource </p>
+              <p className="text-blue-light ">
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old. Richard McClintock, a

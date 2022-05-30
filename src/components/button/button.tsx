@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   const getVariantClassNames = (variant: ButtonVariantEnum) => {
     switch (variant) {
       case "primary":
-        return "bg-blue-light";
+        return "bg-blue";
       case "secondary":
         return "bg-green";
       case "outline":
