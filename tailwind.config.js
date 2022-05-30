@@ -16,7 +16,7 @@ const sizes = {
   70: "70px",
   72: "72px",
   80: "80px",
-  "80vh": "80vh",
+  "90vh": "90vh",
   90: "90px",
   100: "100px",
   120: "120px",
@@ -72,6 +72,12 @@ module.exports = {
       48: ["48px", 1.3],
       56: ["56px", 1.3],
       72: ["72px", 1.3],
+      "h1": ["4rem", 1],
+      "h2": ["3rem", 1],
+      "h3": ["2rem", 1],
+      "small": [".8rem", 1],
+      "medium": ["1rem", 1],
+      "large": ["1.2rem", 1]
     },
     colors: {
       dark: {
@@ -86,7 +92,7 @@ module.exports = {
       },
 
       white: {
-        DEFAULT: "#fff",
+        DEFAULT: "#efefef",
       },
       red: {
         DEFAULT: "#ff0000",

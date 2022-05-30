@@ -21,34 +21,32 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
         <title>{PAGES.HOME.title}</title>
       </Head>
       <PageLayout currentPage="HOME">
-        <Slide image="/images/low-poly-mountain.png" size={"large"}>
-        <section>
-                <div>
-                  <p className="text-white text-48 md:text-72 mb-24 text-center mt-64 lg:mt-0">
-                    Program your world
-                  </p>
-                  <p className="text-white text-18 md:text-24 mb-64 text-center">
-                    OpenSource 3D engine for Rust developers
-                  </p>
-                </div>
-                <div className={
-                  "flex flex-col sm:flex-row self-center w-2/3 mx-auto justify-center mb-64"
-                }>
-                  <Button
-                    href={`${HANDBOOK_URL_ROOT}/get-started`}
-                    className="mb-4 sm:mb-0 sm:mr-36"
-                    variant="primary"
-                  >
-                    GET STARTED
-                  </Button>
-                  <Button href="/" variant="outline" className="mb-10 sm:mb-0">
-                    <Logo.Github />
-                    <p className="text-white text-18 ml-16 sm:text-24 font-bold">
-                      GITHUB
-                    </p>
-                  </Button>
-                </div>
-              </section>
+        <Slide image="/images/low-poly-mountain.png" size="large">
+          <section className="flex flex-col space-y-64">
+            <div className="flex flex-col space-y-64 text-center text-white">
+              <p className="text-h1">
+                Program Your World
+              </p>
+              <h1>
+                OpenSource 3D Engine for Rust Developers
+              </h1>
+            </div>
+            <div className={
+              "flex flex-col sm:flex-row self-center mx-auto justify-center"
+            }>
+              <Button
+                href={`${HANDBOOK_URL_ROOT}`}
+                className="mb-4 sm:mb-0 sm:mr-36"
+                variant="primary"
+              >
+                Get Started
+              </Button>
+              <Button href="/" variant="outline" className="flex space-x-16 mb-10 sm:mb-0">
+                <Logo.Github />
+                <span>GitHub</span>
+              </Button>
+            </div>
+          </section>
         </Slide>
 
         <BlogPosts

@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import Link from "next/link";
 import React, {useState} from "react";
 
 import {Icon, Logo} from "~/assets";
-import {HOME_URL_ROOT, PageEnum,PAGES} from "~/utils/pages";
+import {HOME_URL_ROOT, PageEnum, PAGES} from "~/utils/pages";
 
 interface HeaderProps {
   currentPage?: PageEnum,
@@ -18,44 +17,34 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
     return;
   };
   return (
-    <>
-      <nav className="flex w-full px-32 h-80 justify-between bg-dark fixed z-50">
-        <Link href={HOME_URL_ROOT}>
-          <div className="flex items-center text-white
-           duration-700 cursor-pointer">
-            <span className="">
-              <Logo.Dotrix />
-            </span>
-            <p className="hover:text-green duration-1000 ml-16 text-24 font-bold py-32 ">
-              DOTRIX
-            </p>
-          </div>
-        </Link>
-        <div className="navbar flex">
-          {Object.keys(PAGES)
-            .map(id => ({...PAGES[id as PageEnum], id}))
-            .map(page => (
-              <Link key={page.id} href={page.url}>
-                <span
-                  id={page.id.toLowerCase()}
-                  className={classNames(
-                    "navbar-link cursor-pointer",
-                    currentPage === page.id ? "active_link" : ""
-                  )}
-                >
-                  {page.menu}
-                </span>
-              </Link>
-            ))}
-        </div>
-        <button
-          onClick={handleClick}
-          id="menu"
-          className="block sm:hidden"
-        >
-          <Icon.Menu />
-        </button>
-      </nav>
-    </>
+    <nav className="nav flex w-full px-24 h-80 justify-between bg-dark fixed z-50">
+      <a href={HOME_URL_ROOT} className="flex items-center duration-700 space-x-16">
+        <Logo.Dotrix /><span>Dotrix</span>
+      </a>
+      <div className="navbar flex">
+        {Object.keys(PAGES)
+          .map(id => ({...PAGES[id as PageEnum], id}))
+          .map(page => (
+            <a
+              key={page.id}
+              id={page.id.toLowerCase()}
+              href={page.url}
+              className={classNames(
+                "navbar-link cursor-pointer",
+                currentPage === page.id ? "active_link" : ""
+              )}
+            >
+              {page.menu}
+            </a>
+          ))}
+      </div>
+      <button
+        onClick={handleClick}
+        id="menu"
+        className="block sm:hidden"
+      >
+        <Icon.Menu />
+      </button>
+    </nav>
   );
 };

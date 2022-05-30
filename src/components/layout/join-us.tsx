@@ -17,8 +17,8 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
       )}
     >
       <div className="flex flex-col lg:flex-row">
-        <Button href="/" variant="secondary" className="mb-16 mt-16 sm:mb-0">
-          JOIN US
+        <Button href="/" variant="secondary">
+          Join Us
         </Button>
 
         <span className="text-white text-12 sm:text-18 mb-16 lg:mb-0 lg:text-24 self-center ml-16">
