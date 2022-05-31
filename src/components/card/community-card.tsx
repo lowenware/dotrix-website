@@ -26,10 +26,12 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
 }) => {
   return (
     <Card className={classNames("", className)}>
-      <CardBody className="flex flex-col text-center space-y-64 h-full">
+      <CardBody className="text-center h-full">
         <CardTitle title={title}/>
-        <div className="flex items-center justify-center h-80">
-          <span className="scale-400">{icon}</span>
+        <div className="py-24">
+          <div className="flex items-center justify-center h-80">
+            <span className="scale-300">{icon}</span>
+          </div>
         </div>
         <p className="text-left flex-grow">
           {summary}

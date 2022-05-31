@@ -31,7 +31,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               </span>
             )}
             {meta.tags.length > 0 && (
-              <div className="flex space-x-8">
+              <div className="flex space-x-8 font-bold">
                 {meta.tags.map(
                   tag => (
                     <Link key={tag} href={`${BLOG_URL_ROOT}/${tag}`}>

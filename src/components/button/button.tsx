@@ -36,7 +36,6 @@ export const Button: React.FC<ButtonProps> = ({
           getVariantClassNames(variant),
           className
         )}
-        href="#"
       >
         {children}
       </a>
