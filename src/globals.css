@@ -12,8 +12,8 @@
   h3{
     @apply text-white font-normal text-h3;
   }
-  p{
-    @apply text-blue-light text-large
+  p {
+    @apply text-blue-light text-medium;
   }
 }
 
@@ -23,6 +23,18 @@
 
 .card h1 {
   @apply text-h3;
+}
+
+main h1 {
+  @apply mt-32 mb-16;
+}
+
+main h2 {
+  @apply mt-32 mb-16;
+}
+
+main p {
+  @apply pt-8 pb-4;
 }
 
 @tailwind components;
@@ -72,7 +84,11 @@ pre{
 
 }
 .nav {
-  @apply text-large font-bold uppercase text-white;
+  @apply text-large font-bold uppercase text-white hover:no-underline;
+}
+
+.nav a {
+  @apply hover:no-underline;
 }
 
 .navbar-link{

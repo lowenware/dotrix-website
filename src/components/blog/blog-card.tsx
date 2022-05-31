@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import {Card} from "~/components/card";
+import {Card, CardBody} from "~/components/card";
 import {BLOG_POSTS_ROOT, BlogPostMeta} from "~/utils/blog";
 import {formatDate} from "~/utils/format";
 
@@ -20,18 +20,20 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
           width={100}
         />
       )}
-      <div className="flex m-16 flex-col justify-center">
-        <h1>{post.title}</h1>
-        <p className="mt-16 text-gray-font">
-          {post.summary}
-        </p>
-      </div>
-      <div className="flex mt-auto justify-between m-16 flex-0">
-        <p className="text-blue-date">{formatDate(post.date)}</p>
-        {post.tags && (
-          <p className="text-pink mr-8">{post.tags.map(t => `#${t}`).join(", ")}</p>
-        )}
-      </div>
+      <CardBody>
+        <article className="flex space-y-24 flex-col">
+          <h1>{post.title}</h1>
+          <p className="text-gray-font">
+            {post.summary}
+          </p>
+        </article>
+        <div className="flex justify-between text-small">
+          <div className="text-blue-dark">{formatDate(post.date)}</div>
+          {post.tags.length > 0 && (
+            <div className="text-purple">{`#${post.tags[0]}`}</div>
+          )}
+        </div>
+      </CardBody>
     </Card>
   );
 };
