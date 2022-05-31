@@ -42,7 +42,7 @@ main p {
 @layer components {
   html,
   body {
-    @apply h-full p-0 m-0 bg-gray font-jura;
+    @apply h-full p-0 m-0 bg-gray text-white font-jura;
   }
 
   #__next {
@@ -130,11 +130,22 @@ nav div a.active_link::before {
 .active_link{
   color: #4CC900;
 }
-.active-handbook-link{
-  @apply text-blue duration-700
+
+.menu__chapter li::before {
+  content: '•';
+  @apply mr-8;
 }
-.active-handbook-sublink{
-  @apply text-blue duration-700
+
+.menu__chapter li.active::before {
+  content: '›';
+}
+
+.menu__chapter li.active>a {
+  @apply font-bold text-blue;
+}
+
+.menu__section li {
+
 }
 
 @media (max-width:670px) {
