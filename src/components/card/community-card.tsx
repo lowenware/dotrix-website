@@ -4,6 +4,8 @@ import {ReactNode} from "react";
 import {Button} from "~/components/button";
 
 import {Card} from "./card";
+import {CardBody} from "./cardBody";
+import {CardTitle} from "./cardTitle";
 
 interface CommunityCardProps {
   className?: string,
@@ -23,17 +25,17 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
   buttonText
 }) => {
   return (
-    <Card className={classNames("p-32", className)}>
-      <p className="text-white text-24 self-center font-bold mb-32">
-        {title}
-      </p>
-      <div className="self-center mt-64 scale-400"> {icon}</div>
-      <div className="text-white text-14 self-center text-left mt-64 mb-16">
+    <Card className={classNames("", className)}>
+      <CardBody className="flex flex-col text-center space-y-64">
+      <CardTitle title={title}/>
+      <div className="w-5 h-5 m-auto scale-400 self-center">{icon}</div>
+      <p className="text-small self-center text-left">
         {children}
-      </div>
+      </p>
       <Button href={link}>
         {buttonText}
       </Button>
+      </CardBody>
     </Card>
   );
 };

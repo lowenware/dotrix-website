@@ -6,12 +6,12 @@ interface CardProps {
   children: ReactNode,
 }
 
-export const Card: React.FC<CardProps> = ({className, children}) => {
+export const CardBody: React.FC<CardProps> = ({className, children}) => {
   return (
     <>
       <div
         className={classNames(
-          "bg-dark min-w-200 flex flex-col",
+          "space-x-16  p-32",
           className
         )}
       >
