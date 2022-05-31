@@ -29,7 +29,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
           className={classNames("w-full h-screen mt-80 bg-dark", className)}
         >
           <div className="mx-auto w-3/4">
-            {meta.title && <h1 className="text-56">{meta.title}</h1>}
+            {meta.title && <h1>{meta.title}</h1>}
             <div className="flex justify-between mb-16">
               {meta.date && (
                 <span className="text-blue-date">
@@ -40,7 +40,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             </div>
             {content && (
               <div
-                className="text-black-gray text-14"
+                className="text-black-gray text-small"
                 dangerouslySetInnerHTML={{__html: md().render(content)}}
               />
             )}

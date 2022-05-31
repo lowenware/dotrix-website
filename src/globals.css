@@ -17,8 +17,11 @@
   }
 }
 
-
 .slide--large h1 {
+  @apply text-h3;
+}
+
+.card h1 {
   @apply text-h3;
 }
 
