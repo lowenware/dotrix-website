@@ -10,7 +10,7 @@ export const CardTitle: React.FC<CardTitleProps> = ({className, title}) => {
     <>
       <div
         className={classNames(
-          "text-h2 text-white",
+          "text-h3 text-white",
           className
         )}
       >

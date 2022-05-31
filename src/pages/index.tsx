@@ -24,7 +24,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
         <Slide image="/images/low-poly-mountain.png" size="large">
           <section className="flex flex-col space-y-64">
             <div className="flex flex-col space-y-64 text-center text-white">
-              <p className="text-h1">
+              <p className="text-h1 text-white">
                 Program Your World
               </p>
               <h1>
