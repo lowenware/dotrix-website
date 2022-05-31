@@ -264,6 +264,8 @@ export const mapBlogPostMetaToRaw = (meta: BlogPostMeta): BlogPostRaw => ({
 export const mapBlogPostRawToMeta = (raw: BlogPostRaw): BlogPostMeta => ({
   ...raw,
   date: new Date(raw.date),
-  tags: raw.tags ? `${raw.tags}`.split(",").map(t => t.trim()) : [],
+  tags: raw.tags
+    ? `${raw.tags}`.split(",").map(t => t.trim().toLowerCase())
+    : [],
   image: raw.image || null,
 });

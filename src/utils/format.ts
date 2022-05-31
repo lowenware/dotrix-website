@@ -20,7 +20,7 @@ export const formatDate = (date: Date) => {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
-  return`${months[month]}. ${day}, ${year}`;
+  return`${months[month]} ${day}, ${year}`;
 };
 
 export const formatTime = (date: Date) => {

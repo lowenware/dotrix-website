@@ -34,7 +34,6 @@ const sizes = {
   960: "960px",
   1280: "1280px",
   em: "1em",
-  400: "400px", // footer
 };
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
@@ -73,11 +72,11 @@ module.exports = {
       56: ["56px", 1.3],
       72: ["72px", 1.3],
       h1: ["4rem", 1],
-      h2: ["3rem", 1],
+      h2: ["2.5rem", 1],
       h3: ["2rem", 1],
-      small: [".8rem", 1],
-      medium: ["1rem", 1],
-      large: ["1.2rem", 1],
+      small: [".9rem", 1],
+      medium: ["1.2rem", 1.5],
+      large: ["1.4rem", 1],
     },
     colors: {
       dark: {
@@ -86,11 +85,9 @@ module.exports = {
       gray: {
         DEFAULT: "#1A1C22",
       },
-
-      pink: {
+      purple: {
         DEFAULT: "#FC71FF",
       },
-
       white: {
         DEFAULT: "#efefef",
       },
