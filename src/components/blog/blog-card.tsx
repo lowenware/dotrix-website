@@ -12,28 +12,26 @@ interface BlogCardProps {
 export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
   return (
     <Card className={className}>
-      <>
-        {post.image && (
-          <Image
-            src={`//${BLOG_POSTS_ROOT}/${post.image}`}
-            alt={""}
-            height={200}
-            width={100}
-          />
+      {post.image && (
+        <Image
+          src={`//${BLOG_POSTS_ROOT}/${post.image}`}
+          alt={""}
+          height={200}
+          width={100}
+        />
+      )}
+      <div className="flex m-16 flex-col justify-center">
+        <h1>{post.title}</h1>
+        <p className="mt-16 text-gray-font">
+          {post.summary}
+        </p>
+      </div>
+      <div className="flex mt-auto justify-between m-16 flex-0">
+        <p className="text-blue-date">{formatDate(post.date)}</p>
+        {post.tags && (
+          <p className="text-pink mr-8">{post.tags.map(t => `#${t}`).join(", ")}</p>
         )}
-        <div className="flex m-16 flex-col justify-center">
-          <h1>{post.title}</h1>
-          <p className="mt-16 text-gray-font">
-            {post.summary}
-          </p>
-        </div>
-        <div className="flex mt-auto justify-between m-16 flex-0">
-          <p className="text-blue-date">{formatDate(post.date)}</p>
-          {post.tags && (
-            <p className="text-pink mr-8">{post.tags.map(t => `#${t}`).join(", ")}</p>
-          )}
-        </div>
-      </>
+      </div>
     </Card>
   );
 };

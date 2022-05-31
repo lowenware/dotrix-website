@@ -14,7 +14,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
     const slugsToCompare = slug.length;
     return page.meta.slug.slice(0, slugsToCompare).join(".") === slug.join(".");
   };
-//TODO Make active subtitle list when active one link
+  //TODO Make active subtitle list when active one link
   return (
     <>
       <PageLayout currentPage="HANDBOOK" className="pt-80">
@@ -31,10 +31,10 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                     }
                   >
                     <Link href={getLink(chapter.meta.slug)} >
-                          <a href={getLink(chapter.meta.slug)}
-                           className={isActive(chapter.meta.slug)
-                        ? "active-handbook-link"
-                        : undefined}>
+                      <a href={getLink(chapter.meta.slug)}
+                        className={isActive(chapter.meta.slug)
+                          ? "active-handbook-link"
+                          : undefined}>
                         {chapter.meta.title}</a>
                     </Link>
                     {chapter.sections && (
@@ -46,15 +46,15 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                           >
                             <Link href={
                               getLink(section.slug)}>
-                                <a
+                              <a
                                 className={classNames(
-                              "menu_sublink text-medium",
-                              isActive(section.slug)
-                                ? "active-handbook-sublink"
-                                : undefined
-                            )}
+                                  "menu_sublink text-medium",
+                                  isActive(section.slug)
+                                    ? "active-handbook-sublink"
+                                    : undefined
+                                )}
                                 href={getLink(section.slug)}>
-                              {section.title}</a>
+                                {section.title}</a>
                             </Link>
                           </li>
                         ))}

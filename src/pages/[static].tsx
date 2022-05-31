@@ -18,18 +18,18 @@ const StaticSlugPage: NextPage<StaticPageProps> = ({page}) => {
   const {meta, content} = page;
 
   return (<>
-  <Head>
-    <title>{meta.title}</title>
-  </Head>
-  <PageLayout>
-    <main className="pt-80">
-      <h1>{meta.title}</h1>
-      <div
-        className="text-blue-light text-large"
-        dangerouslySetInnerHTML={{__html: md().render(content)}}
+    <Head>
+      <title>{meta.title}</title>
+    </Head>
+    <PageLayout>
+      <main className="pt-80">
+        <h1>{meta.title}</h1>
+        <div
+          className="text-blue-light text-large"
+          dangerouslySetInnerHTML={{__html: md().render(content)}}
         />
-    </main>
-  </PageLayout>
+      </main>
+    </PageLayout>
   </>);
 };
 
