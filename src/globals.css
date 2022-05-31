@@ -13,7 +13,7 @@
     @apply text-white font-normal text-h3;
   }
   p{
-    @apply text-blue-light font-bold text-medium
+    @apply text-blue-light
   }
 }
 
@@ -111,10 +111,10 @@ nav div a.active_link::before {
 .active_link{
   color: #4CC900;
 }
-.active_handlink{
+.active-handbook-link{
   @apply text-blue duration-700
 }
-.active_menu_sublink{
+.active-handbook-sublink{
   @apply text-blue duration-700
 }
 
