@@ -1,5 +1,5 @@
-import { BLOG_URL_ROOT } from "./blog";
-import { HANDBOOK_URL_ROOT } from "./handbook";
+import {BLOG_URL_ROOT} from "./blog";
+import {HANDBOOK_URL_ROOT} from "./handbook";
 
 export const HOME_URL_ROOT = "/";
 export const COMMUNITY_URL_ROOT = "/community";

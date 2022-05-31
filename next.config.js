@@ -1,8 +1,8 @@
 const optimizedImages = require("next-optimized-images");
 const withPlugins = require("next-compose-plugins");
 /** @type {import('next').NextConfig} */
-const GIT_REVISION = require('child_process')
-.execSync('git rev-parse HEAD')
+const GIT_REVISION = require("child_process")
+.execSync("git rev-parse HEAD")
 .toString().trim().substring(0,8);
 module.exports = withPlugins(
   [
@@ -19,13 +19,13 @@ module.exports = withPlugins(
   ],
   {
     webpack: (config, options) => {
-      config.resolve.fallback = { fs: false };
+      config.resolve.fallback = {fs: false};
 
       return config;
     },
     images: {
-      loader: 'akamai',
-      path: ''
+      loader: "akamai",
+      path: ""
     },
     trailingSlash: true,
     env: {

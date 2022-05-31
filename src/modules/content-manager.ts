@@ -1,8 +1,9 @@
-import { BLOG_URL_ROOT } from "~/utils/blog";
-import { HANDBOOK_URL_ROOT } from "~/utils/handbook";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+
+import {BLOG_URL_ROOT} from "~/utils/blog";
+import {HANDBOOK_URL_ROOT} from "~/utils/handbook";
 
 export const HOME_URL_ROOT = "/";
 export const COMMUNITY_URL_ROOT = "/community";
@@ -11,17 +12,17 @@ export const CONTENT_FILES_ROOT = "content";
 export const CONTENT_FILES_EXTENSION = ".md";
 
 export interface StaticPageMeta {
-  slug: string;
-  title: string;
+  slug: string,
+  title: string,
 }
 
 export interface StaticPage {
-  meta: StaticPageMeta;
-  content: string;
+  meta: StaticPageMeta,
+  content: string,
 }
 
 export interface StaticPageProps {
-  page: StaticPage
+  page: StaticPage,
 }
 
 export class ContentManager {
@@ -62,7 +63,7 @@ export class ContentManager {
   }
 
   getPageTitle(url: string) {
-    return this.menu.find((i) => i.url === url)?.title;
+    return this.menu.find(i => i.url === url)?.title;
   }
 
   getStaticPaths() {
@@ -82,8 +83,8 @@ export class ContentManager {
   private getPages(): StaticPageMeta[] {
     return fs
       .readdirSync(this.root)
-      .filter((fileName) => fileName.endsWith(this.extension))
-      .map((fileName) => this.readPage(fileName).meta);
+      .filter(fileName => fileName.endsWith(this.extension))
+      .map(fileName => this.readPage(fileName).meta);
   }
 
   private getPage(slug: string): StaticPage {
@@ -92,15 +93,15 @@ export class ContentManager {
 
   private readPage(fileName: string): StaticPage {
     const filePath = path.join(this.root, fileName);
-    const { data, content } = matter(fs.readFileSync(filePath, "utf-8"));
+    const {data, content} = matter(fs.readFileSync(filePath, "utf-8"));
 
-    this.metaFields.forEach((field) => {
+    this.metaFields.forEach(field => {
       if (!data[field]) {
         throw `File '${filePath}' has not '${field}' meta data`;
       }
     });
 
-    const { title } = data;
+    const {title} = data;
 
     return {
       meta: {
