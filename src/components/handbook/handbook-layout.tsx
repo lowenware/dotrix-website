@@ -3,10 +3,10 @@ import {NextPage} from "next";
 import Link from "next/link";
 
 import {Card, CardBody, CardTitle} from "~/components/card";
-import {PageLayout} from "~/components/layout";
+import {LeafOver,PageLayout} from "~/components/layout";
 import {HANDBOOK_URL_ROOT, HandbookProps} from "~/utils/handbook";
 
-export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
+export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}) => {
   const getLink = (slug: string[]) => `${HANDBOOK_URL_ROOT}/${slug.join("/")}`;
 
   const getLinkClass = (slug: string[]) => {
@@ -52,11 +52,21 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
             </ul>
           </CardBody>
         </Card>
-        <div className="max-w-screen-lg">
-          <main className="w-10/12">
-            <h1>{page.meta.title}</h1>
-            <div dangerouslySetInnerHTML={{__html: md().render(page.content)}} />
-          </main>
+        <div className="flex-grow">
+          <div className="max-w-screen-lg">
+            <main>
+              <h1>{page.meta.title}</h1>
+              <div dangerouslySetInnerHTML={{__html: md().render(page.content)}} />
+            </main>
+            <LeafOver className="my-32"
+              prev={prev && ({
+                url: `${HANDBOOK_URL_ROOT}/${prev.slug.join("/")}`, title: prev.title
+              })}
+              next={next && ({
+                url: `${HANDBOOK_URL_ROOT}/${next.slug.join("/")}`, title: next.title
+              })}
+            />
+          </div>
         </div>
       </div>
     </PageLayout>

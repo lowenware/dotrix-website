@@ -1,8 +1,7 @@
 import md from "markdown-it";
 import Link from "next/link";
 
-import {Arrow} from "~/assets";
-import {PageLayout} from "~/components/layout";
+import {LeafOver,PageLayout} from "~/components/layout";
 import {BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw} from "~/utils/blog";
 import {formatDateTime} from "~/utils/format";
 
@@ -49,25 +48,12 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             />
           )}
         </main>
-        <div className="flex text-medium border-t-1 justify-between my-32">
-          {prevPost && (
-            <Link href={`${BLOG_URL_ROOT}/${prevPost.slug}`}>
-              <a className="flex flex-grow gap-x-8">
-                <Arrow.Left />
-                {prevPost.title}
-              </a>
-            </Link>
-          )}
-          {nextPost && (
-            <Link href={`${BLOG_URL_ROOT}/${nextPost.slug}`}>
-              <a className="flex flex-grow justify-end gap-x-8">
-                {nextPost.title}
-                <Arrow.Right />
-              </a>
-            </Link>
-          )}
-        </div>
+        <LeafOver className="my-32"
+          prev={prevPost && ({url: `${BLOG_URL_ROOT}/${prevPost.slug}`, title: prevPost.title})}
+          next={nextPost && ({url: `${BLOG_URL_ROOT}/${nextPost.slug}`, title: nextPost.title})}
+        />
       </div>
     </PageLayout>
   );
 };
+

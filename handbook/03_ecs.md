@@ -1,8 +1,5 @@
 ---
-name: DD
-route: /Hello
-title: DD
-date: "2022-05-22T15:50:00"
+title: Entity Component System
 order: 1
 ---
 
