@@ -14,7 +14,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
     const slugsToCompare = slug.length;
     return page.meta.slug.slice(0, slugsToCompare).join(".") === slug.join(".");
   };
-  //TODO Make active subtitle list when active one link
+
   return (
     <>
       <PageLayout currentPage="HANDBOOK" className="pt-80">
@@ -23,7 +23,8 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
             <CardBody className="space-y-8">
               <CardTitle title="HandBook" />
               <ul className="text-white text-medium">
-                {menu.map((chapter, key) => (
+                {menu.map((chapter, key) => {
+                  const isActiveChapter = isActive(chapter.meta.slug);
                   <li
                     key={key}
                     className={classNames(
@@ -32,12 +33,12 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                   >
                     <Link href={getLink(chapter.meta.slug)} >
                       <a href={getLink(chapter.meta.slug)}
-                        className={isActive(chapter.meta.slug)
-                          ? "active-handbook-link"
-                          : undefined}>
-                        {chapter.meta.title}</a>
+                        className={isActiveChapter ? "active-handbook-link" : undefined}
+                      >
+                        {chapter.meta.title}
+                      </a>
                     </Link>
-                    {chapter.sections && (
+                    {isActiveChapter && chapter.sections && (
                       <ul className="ml-16">
                         {chapter.sections.map((section, key) => (
                           <li
@@ -47,21 +48,23 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                             <Link href={
                               getLink(section.slug)}>
                               <a
-                                className={classNames(
-                                  "menu_sublink text-medium",
-                                  isActive(section.slug)
-                                    ? "active-handbook-sublink"
-                                    : undefined
-                                )}
-                                href={getLink(section.slug)}>
-                                {section.title}</a>
+                                className={
+                                  classNames(
+                                    "menu_sublink text-medium",
+                                    isActive(section.slug) ? "active-handbook-sublink" : undefined
+                                  )
+                                }
+                                href={getLink(section.slug)}
+                              >
+                                {section.title}
+                              </a>
                             </Link>
                           </li>
                         ))}
                       </ul>
                     )}
-                  </li>
-                ))}
+                  </li>;
+                })}
               </ul>
             </CardBody>
           </Card>
