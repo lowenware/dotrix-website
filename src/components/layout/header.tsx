@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 import React, {useState} from "react";
 
 import {Icon, Logo} from "~/assets";
@@ -28,17 +29,17 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
         {Object.keys(PAGES)
           .map(id => ({...PAGES[id as PageEnum], id}))
           .map(page => (
-            <a
-              key={page.id}
-              id={page.id.toLowerCase()}
-              href={page.url}
-              className={classNames(
-                "navbar-link cursor-pointer",
-                currentPage === page.id ? "active_link" : ""
-              )}
-            >
-              {page.menu}
-            </a>
+            <Link key={page.id} href={page.url}>
+              <a
+                id={page.id.toLowerCase()}
+                className={classNames(
+                  "navbar-link cursor-pointer",
+                  currentPage === page.id ? "active_link" : ""
+                )}
+              >
+                {page.menu}
+              </a>
+            </Link>
           ))}
       </div>
       <button
