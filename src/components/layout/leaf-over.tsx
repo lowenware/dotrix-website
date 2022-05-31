@@ -8,8 +8,8 @@ export interface Leaf {
 
 interface LeafOverProps {
   className?: string,
-  prev: Leaf,
-  next: Leaf,
+  prev: Leaf | null,
+  next: Leaf | null,
 };
 
 export const LeafOver: React.FC<LeafOverProps> = ({className, prev, next}) => {

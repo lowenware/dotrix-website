@@ -13,40 +13,39 @@ const Community: NextPage = () => {
       title: "Contribute",
       link: "",
       buttonText: "Open GitHub",
-      summary:
-      "Join the development process, contribute to the codebase, share your ideas and report bugs",
+      summary: "Join the development process, contribute to the codebase, "
+        + "share your ideas and report bugs",
     },
     {
       icon: <Logo.Twitter />,
       title: "Follow",
       link: "",
       buttonText: "Open Feed",
-      summary:
-      "Get updates about releases and interesting projects powered by Dotrix",
+      summary: "Get updates about releases and interesting projects powered by Dotrix",
     },
     {
       icon: <Logo.Patreon />,
       title: "Donate",
       link: "",
       buttonText: "Become a Patron",
-      summary:
-      "Your sponsorship helps us to allocate more time on Dotrix development to deliver more features and improve our engine",
+      summary: "Your sponsorship helps us to allocate more time on Dotrix development to "
+        + "deliver more features and improve our engine",
     },
     {
       icon: <Logo.Youtube />,
       title: "Watch",
       link: "",
       buttonText: "Watch YouTube",
-      summary:
-      "On our YouTube channel you will find Dotrix tutorials and demos, that may help you to learn more about the engine",
+      summary: "On our YouTube channel you will find Dotrix tutorials and demos, that "
+        + "may help you to learn more about the engine",
     },
     {
       icon: <Logo.Discord />,
       title: "Communicate",
       link: "",
       buttonText: "Join Discord",
-      summary:
-      "Ask a question, share your success, discuss anything about 3D development with our community",
+      summary: "Ask a question, share your success, discuss anything about 3D "
+        + "development with our community",
     },
   ];
   return (
