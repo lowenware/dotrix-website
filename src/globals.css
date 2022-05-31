@@ -42,7 +42,7 @@
 @tailwind utilities;
 
 a {
-  color: inherit;
+  @apply no-underline text-white hover:underline;
   text-decoration: none;
 }
 
