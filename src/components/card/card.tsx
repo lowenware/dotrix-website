@@ -11,7 +11,7 @@ export const Card: React.FC<CardProps> = ({className, children}) => {
     <>
       <div
         className={classNames(
-          "bg-dark min-w-200 flex flex-col",
+          "bg-dark flex flex-col",
           className
         )}
       >

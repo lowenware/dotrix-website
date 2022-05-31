@@ -33,7 +33,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                     <Link href={getLink(chapter.meta.slug)} >
                           <a href={getLink(chapter.meta.slug)}
                            className={isActive(chapter.meta.slug)
-                        ? "active_handlink"
+                        ? "active-handbook-link"
                         : undefined}>
                         {chapter.meta.title}</a>
                     </Link>
@@ -50,7 +50,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
                                 className={classNames(
                               "menu_sublink text-medium",
                               isActive(section.slug)
-                                ? "active_menu_sublink"
+                                ? "active-handbook-sublink"
                                 : undefined
                             )}
                                 href={getLink(section.slug)}>
