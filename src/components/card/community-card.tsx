@@ -27,16 +27,16 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
   return (
     <Card className={classNames("", className)}>
       <CardBody className="flex flex-col text-center space-y-64 h-full">
-      <CardTitle title={title}/>
-      <div className="flex items-center justify-center h-80">
-        <span className="scale-400">{icon}</span>
-      </div>
-      <p className="text-left flex-grow">
-        {summary}
-      </p>
-      <Button href={link}>
-        {buttonText}
-      </Button>
+        <CardTitle title={title}/>
+        <div className="flex items-center justify-center h-80">
+          <span className="scale-400">{icon}</span>
+        </div>
+        <p className="text-left flex-grow">
+          {summary}
+        </p>
+        <Button href={link}>
+          {buttonText}
+        </Button>
       </CardBody>
     </Card>
   );

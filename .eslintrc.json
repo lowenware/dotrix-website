@@ -26,6 +26,8 @@
     ],
     "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "indent": ["error", 2],
+        "no-multi-spaces": "error",
         "eol-last": "error",
         "max-len": ["warn", { "code": 100 }],
         "no-multi-spaces": "error",
