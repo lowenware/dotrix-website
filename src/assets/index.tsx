@@ -10,23 +10,24 @@ import LogoTwitter from "assets/logo-twitter.svg";
 import LogoYoutube from "assets/logo-youtube.svg";
 import MenuIcon from "assets/menu-icon.svg";
 /* eslint-enable no-restricted-imports */
-import Image from "next/image";
+
+/* eslint-disable @next/next/no-img-element */
 
 export const Arrow = {
-  Left: () => <Image src={ArrowLeft} alt="" />,
-  Right: () => <Image src={ArrowRight} alt="" />,
+  Left: () => <img src={ArrowLeft} alt="Back" />,
+  Right: () => <img src={ArrowRight} alt="Next" />,
 };
 
 export const Logo = {
-  Discord: () => <Image src={LogoDiscord} alt="" />,
-  Dotrix: () => <Image src={LogoDotrix} alt="" />,
-  Github: () => <Image src={LogoGithub} alt="" />,
-  Lowenware: () => <Image src={LogoLowenware} alt="" />,
-  Patreon: () => <Image src={LogoPatreon} alt="" />,
-  Twitter: () => <Image src={LogoTwitter} alt="" />,
-  Youtube: () => <Image src={LogoYoutube} alt="" />,
+  Discord: () => <img src={LogoDiscord} alt="Discord" />,
+  Dotrix: () => <img src={LogoDotrix} alt="Dotrix" />,
+  Github: () => <img src={LogoGithub} alt="GitHub" />,
+  Lowenware: () => <img src={LogoLowenware} alt="Löwenware" />,
+  Patreon: () => <img src={LogoPatreon} alt="Patreon" />,
+  Twitter: () => <img src={LogoTwitter} alt="Twitter" />,
+  Youtube: () => <img src={LogoYoutube} alt="YouTube" />,
 };
 
 export const Icon = {
-  Menu: () => <Image src={MenuIcon} alt="" />,
+  Menu: () => <img src={MenuIcon} alt="Menu" />,
 };
