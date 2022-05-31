@@ -59,7 +59,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
             sm:grid-cols-2 mb-64 font-bold"
           >
             <div className="flex flex-col pt-64 px-32 sm:pl-32">
-              <p className="text-white text-24 mb-12">
+              <p className="text-white text-h3 mb-12">
                 Performance and Safety
               </p>
               <p className="text-blue-light">
@@ -71,7 +71,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
             </div>
 
             <div className="flex flex-col pt-64 px-32 sm:pr-32">
-              <p className="text-white text-24 mb-12">
+              <p className="text-white text-h3 mb-12">
                 ECS Programming pattern
               </p>
               <p className="text-blue-light">
@@ -83,7 +83,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
               </p>
             </div>
             <div className="flex flex-col pt-8 px-32 sm:pl-32">
-              <p className="text-white text-24 mb-12">
+              <p className="text-white text-h3 mb-12">
                 Crossplatform
               </p>
               <p className="text-blue-light">
@@ -95,7 +95,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
               </p>
             </div>
             <div className="flex flex-col pt-8 px-32 sm:pr-32">
-              <p className="text-white text-24 mb-12">OpenSource </p>
+              <p className="text-white text-h3 mb-12">OpenSource </p>
               <p className="text-blue-light ">
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from

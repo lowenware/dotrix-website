@@ -21,7 +21,7 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
           Join Us
         </Button>
 
-        <span className="text-white text-12 sm:text-18 mb-16 lg:mb-0 lg:text-24 self-center ml-16">
+        <span className="text-white text-small sm:text-large mb-16 lg:mb-0 lg:text-large self-center ml-16">
           Become a sponsor or contributor to enlarge your experience
         </span>
       </div>

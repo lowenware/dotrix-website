@@ -23,7 +23,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
     <PageLayout currentPage={"BLOG"}>
       <Slide className="mt-80" image="/images/low-poly-mountain.png" size="small">
         <h1>
-          Blog {tag && <span className="text-14">{tag}</span>}
+          Blog {tag && <span className="text-small">{tag}</span>}
         </h1>
       </Slide>
 
