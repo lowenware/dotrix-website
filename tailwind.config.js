@@ -39,7 +39,7 @@ const sizes = {
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
-    fontFamily: { jura: ["Jura"] },
+    fontFamily: {jura: ["Jura"]},
     container: {
       center: true,
       padding: {
@@ -107,7 +107,7 @@ module.exports = {
       },
     },
     extend: {
-      fill: (theme) => theme("colors"),
+      fill: theme => theme("colors"),
       spacing: sizes,
       maxWidth: {
         300: "300px",
