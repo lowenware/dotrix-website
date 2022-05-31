@@ -9,9 +9,9 @@ import {CardTitle} from "./card-title";
 
 interface CommunityCardProps {
   className?: string,
-  title?: string,
+  title: string,
   icon?: ReactNode,
-  children?: ReactNode,
+  summary?: string,
   link: string,
   buttonText: string,
 }
@@ -20,17 +20,19 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
   className,
   title,
   icon,
-  children,
+  summary,
   link,
   buttonText
 }) => {
   return (
     <Card className={classNames("", className)}>
-      <CardBody className="flex flex-col text-center space-y-64">
+      <CardBody className="flex flex-col text-center space-y-64 h-full">
       <CardTitle title={title}/>
-      <div className="w-5 h-5 m-auto scale-400 self-center">{icon}</div>
-      <p className="text-medium self-center text-left">
-        {children}
+      <div className="flex items-center justify-center h-80">
+        <span className="scale-400">{icon}</span>
+      </div>
+      <p className="text-left flex-grow">
+        {summary}
       </p>
       <Button href={link}>
         {buttonText}

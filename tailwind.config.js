@@ -72,12 +72,12 @@ module.exports = {
       48: ["48px", 1.3],
       56: ["56px", 1.3],
       72: ["72px", 1.3],
-      "h1": ["4rem", 1],
-      "h2": ["3rem", 1],
-      "h3": ["2rem", 1],
-      "small": [".8rem", 1],
-      "medium": ["1rem", 1],
-      "large": ["1.2rem", 1]
+      h1: ["4rem", 1],
+      h2: ["3rem", 1],
+      h3: ["2rem", 1],
+      small: [".8rem", 1],
+      medium: ["1rem", 1],
+      large: ["1.2rem", 1],
     },
     colors: {
       dark: {
@@ -100,7 +100,7 @@ module.exports = {
       blue: {
         DEFAULT: "#0FB7FF",
         light: "#B8CBD0",
-        100: "#E6EFF9",
+        dark: "#60717E",
       },
       green: {
         DEFAULT: "#4CC900",

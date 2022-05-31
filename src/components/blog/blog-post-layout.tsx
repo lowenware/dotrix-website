@@ -32,7 +32,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
             {meta.title && <h1 className="text-56">{meta.title}</h1>}
             <div className="flex justify-between mb-16">
               {meta.date && (
-                <span className="text-black-700">
+                <span className="text-blue-date">
                   {formatDateTime(meta.date)}
                 </span>
               )}

@@ -67,7 +67,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page}) => {
           </Card>
           <div className="w-3/4 mb-32">
             <main className="w-10/12">
-              <h1 className="mb-32">{page.meta.title}</h1>
+              <h2 className="mb-32">{page.meta.title}</h2>
               <div
                 dangerouslySetInnerHTML={{__html: md().render(page.content)}}
               />

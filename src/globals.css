@@ -13,7 +13,7 @@
     @apply text-white font-normal text-h3;
   }
   p{
-    @apply text-blue-light
+    @apply text-blue-light text-large
   }
 }
 
