@@ -40,13 +40,13 @@ export class Handbook {
   }
 
   getStaticPaths() {
-    const paths = this.pages.flatMap((page) => [
+    const paths = this.pages.flatMap(page => [
       {
         params: {
           slug: page.meta.slug,
         },
       },
-      ...page.sections.map((section) => ({
+      ...page.sections.map(section => ({
         params: {
           slug: section.slug,
         },
@@ -68,9 +68,11 @@ export class Handbook {
   }
 
   private getPage(slug: string[]): HandbookPage {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const chapter = this.pages.find(
       chapter => chapter.meta.slug[0] === slug[0]
     )!;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const order = slug.length === 2 ? chapter.sections.find(
       section => section.slug[1] === slug[1]
     )!.order : chapter.meta.order;
@@ -79,7 +81,7 @@ export class Handbook {
   }
 
   private getPages(): HandbookChapter[] {
-    return this.readFolder([]).map((meta) => ({
+    return this.readFolder([]).map(meta => ({
       meta,
       sections: this.readFolder(meta.slug),
     }));
@@ -94,20 +96,21 @@ export class Handbook {
 
     return fs
       .readdirSync(folder)
-      .filter((fileName) => fileName.endsWith(this.extension))
-      .map((fileName) => this.readPage([...paths, fileName]).meta)
+      .filter(fileName => fileName.endsWith(this.extension))
+      .map(fileName => this.readPage([...paths, fileName]).meta)
       .sort((p1, p2) => p1.order - p2.order);
   }
 
   private readPage(paths: string[]): HandbookPage {
     const filePath = path.join(this.root, ...paths);
-    const { data, content } = matter(fs.readFileSync(filePath, "utf-8"));
-    this.metaFields.forEach((field) => {
+    const {data, content} = matter(fs.readFileSync(filePath, "utf-8"));
+    this.metaFields.forEach(field => {
       if (!data[field]) {
         throw `File '${filePath}' has not '${field}' meta data`;
       }
     });
-    const { title } = data;
+    const {title} = data;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [order, slug] = paths.pop()!.split("_", 2);
 
     return {

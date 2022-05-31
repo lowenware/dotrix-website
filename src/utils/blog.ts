@@ -71,22 +71,22 @@ export class Blog {
         },
       },
       // posts
-      ...this.posts.map((post) => ({
+      ...this.posts.map(post => ({
         params: {
           slug: [post.slug],
         },
       })),
       // pages
-      ...Array.from(Array(pagesCount).keys()).map((pageNum) => ({
+      ...Array.from(Array(pagesCount).keys()).map(pageNum => ({
         params: {
           slug: [`${pageNum + 1}`],
         },
       })),
       // tags
-      ...this.tags.flatMap((tag) => [
+      ...this.tags.flatMap(tag => [
         ...Array.from(
           Array(this.countPages(tag.count, BLOG_POSTS_PER_PAGE)).keys()
-        ).map((pageNum) => ({
+        ).map(pageNum => ({
           params: {
             slug: [tag.label, `${pageNum + 1}`],
           },
@@ -101,7 +101,7 @@ export class Blog {
   }
 
   getBlogPageStaticProps(pageNumber: number): BlogStaticProps {
-    const { posts, totalPages, page } = this.paginate(
+    const {posts, totalPages, page} = this.paginate(
       this.posts,
       pageNumber,
       BLOG_POSTS_PER_PAGE
@@ -117,8 +117,8 @@ export class Blog {
   }
 
   getBlogTagStaticProps(tag: string, pageNumber: number): BlogStaticProps {
-    const { posts, totalPages, page } = this.paginate(
-      this.posts.filter((p) => p.tags.includes(tag)),
+    const {posts, totalPages, page} = this.paginate(
+      this.posts.filter(p => p.tags.includes(tag)),
       pageNumber,
       BLOG_POSTS_PER_PAGE
     );
@@ -154,8 +154,9 @@ export class Blog {
   }
 
   getBlogPostStaticProps(slug: string): BlogPostStaticProps {
-    const { meta, content } = this.readBlogPost(`${slug}.md`);
-    const index = this.posts.findIndex((p) => p.slug === slug)!;
+    const {meta, content} = this.readBlogPost(`${slug}.md`);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const index = this.posts.findIndex(p => p.slug === slug)!;
 
     let prevPost = null,
       nextPost = null;
@@ -182,7 +183,7 @@ export class Blog {
     const re = /^\d+$/;
 
     // slug is tag
-    if (this.tags.find((t) => t.label === slug)) {
+    if (this.tags.find(t => t.label === slug)) {
       return this.getBlogTagStaticProps(
         slug,
         re.test(page) ? parseInt(page) : 1
@@ -200,8 +201,8 @@ export class Blog {
   getBlogPosts(): BlogPostMeta[] {
     return fs
       .readdirSync(BLOG_POSTS_ROOT)
-      .filter((fileName) => fileName.endsWith(BLOG_FILES_EXTENSION))
-      .map((fileName) => this.readBlogPost(fileName).meta)
+      .filter(fileName => fileName.endsWith(BLOG_FILES_EXTENSION))
+      .map(fileName => this.readBlogPost(fileName).meta)
       .sort((post1, post2) => post1.date.getTime() - post2.date.getTime());
   }
 
@@ -211,14 +212,14 @@ export class Blog {
 
   private readBlogPost(fileName: string): BlogPost {
     const filePath = `${BLOG_POSTS_ROOT}/${fileName}`;
-    const { data, content } = matter(fs.readFileSync(filePath));
-    ["title", "summary", "date"].forEach((field) => {
+    const {data, content} = matter(fs.readFileSync(filePath));
+    ["title", "summary", "date"].forEach(field => {
       if (!data[field]) {
         throw `File '${filePath}' has not '${field}' meta data`;
       }
     });
 
-    const { title, summary, date, tags, image } = data;
+    const {title, summary, date, tags, image} = data;
 
     return {
       meta: mapBlogPostRawToMeta({
@@ -235,10 +236,10 @@ export class Blog {
 
   private getTagsFromPosts(posts: BlogPostMeta[]) {
     const tags: Tag[] = [];
-    posts.forEach((post) =>
-      post.tags.forEach((t) => {
+    posts.forEach(post =>
+      post.tags.forEach(t => {
         const label = t.trim();
-        const tag = tags.find((t) => t.label === label);
+        const tag = tags.find(t => t.label === label);
 
         if (tag) {
           tag.count += 1;
@@ -263,6 +264,6 @@ export const mapBlogPostMetaToRaw = (meta: BlogPostMeta): BlogPostRaw => ({
 export const mapBlogPostRawToMeta = (raw: BlogPostRaw): BlogPostMeta => ({
   ...raw,
   date: new Date(raw.date),
-  tags: raw.tags ? `${raw.tags}`.split(",").map((t) => t.trim()) : [],
+  tags: raw.tags ? `${raw.tags}`.split(",").map(t => t.trim()) : [],
   image: raw.image || null,
 });
