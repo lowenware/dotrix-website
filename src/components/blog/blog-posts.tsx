@@ -19,7 +19,11 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({className, posts}) => {
     >
       {posts &&
         posts.map(post => (
-          <a key={post.slug} href={`${BLOG_URL_ROOT}/${post.slug}`}>
+          <a
+            key={post.slug}
+            href={`${BLOG_URL_ROOT}/${post.slug}`}
+            className="hover:no-underline hover:-translate-y-32 transition ease-out"
+          >
             <BlogCard post={post} />
           </a>
         ))}
