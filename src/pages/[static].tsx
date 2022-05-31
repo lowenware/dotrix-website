@@ -21,11 +21,10 @@ const StaticSlugPage: NextPage<StaticPageProps> = ({page}) => {
     <Head>
       <title>{meta.title}</title>
     </Head>
-    <PageLayout>
-      <main className="pt-80">
+    <PageLayout className="pt-80">
+      <main className="mx-auto max-w-screen-lg">
         <h1>{meta.title}</h1>
         <div
-          className="text-blue-light text-large"
           dangerouslySetInnerHTML={{__html: md().render(content)}}
         />
       </main>

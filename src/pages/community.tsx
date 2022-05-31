@@ -36,7 +36,7 @@ const Community: NextPage = () => {
       icon: <Logo.Youtube />,
       title: "Watch",
       link: "",
-      buttonText: "Watch YoutTube",
+      buttonText: "Watch YouTube",
       summary:
       "On our YouTube channel you will find Dotrix tutorials and demos, that may help you to learn more about the engine",
     },
@@ -62,7 +62,7 @@ const Community: NextPage = () => {
         >
           <h1>Community</h1>
         </Slide>
-        <section className="w-full relative z-40 -mt-32 pb-32 px-32">
+        <div className="w-full relative z-40 -mt-32 pb-32 px-32">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32">
             {CommunityCardList.map((card, key) => {
               return (
@@ -77,7 +77,7 @@ const Community: NextPage = () => {
               );
             })}
           </div>
-        </section>
+        </div>
       </PageLayout>
     </>
   );

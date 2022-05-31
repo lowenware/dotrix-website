@@ -1,13 +1,21 @@
 import Link from "next/link";
 
 import {Logo} from "~/assets";
+import {PageEnum} from "~/utils/pages";
 
 import {JoinUs} from "./join-us";
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  currentPage?: PageEnum,
+}
+
+export const Footer: React.FC<FooterProps> = ({currentPage}) => {
   return (
     <div id="footer">
-      <JoinUs />
+      {currentPage !== "COMMUNITY" && (<JoinUs />)}
+      {currentPage === "COMMUNITY" && (
+        <div className="bg-dark drop-shadow text-large text-white text-center p-2"></div>
+      )}
       <div className="flex sm:flex-row flex-col text-blue-dark sm:h-140 min-h-min
         sm:justify-between items-center"
       >

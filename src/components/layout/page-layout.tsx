@@ -26,7 +26,7 @@ export const PageLayout: NextPage<PageProps> = ({
         <div className={classNames(className, "flex-grow")}>
           {children}
         </div>
-        <Footer />
+        <Footer currentPage={currentPage} />
       </div>
     </>
   );

@@ -30,7 +30,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
         <div className="flex justify-between text-small">
           <div className="text-blue-dark">{formatDate(post.date)}</div>
           {post.tags.length > 0 && (
-            <div className="text-purple">{`#${post.tags[0]}`}</div>
+            <div className="text-purple font-bold">{`#${post.tags[0]}`}</div>
           )}
         </div>
       </CardBody>

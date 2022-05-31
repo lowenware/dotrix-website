@@ -120,7 +120,7 @@ module.exports = {
       },
       scale: {
         200: "2",
-        400: "4",
+        300: "3",
       },
       minWidth: {
         200: "200px",
