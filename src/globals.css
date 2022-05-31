@@ -6,7 +6,17 @@
   h1 {
     @apply text-white font-normal text-h1;
   }
+  h2{
+    @apply text-white font-normal text-h2;
+  }
+  h3{
+    @apply text-white font-normal text-h3;
+  }
+  p{
+    @apply text-blue-light font-bold text-medium
+  }
 }
+
 
 .slide--large h1 {
   @apply text-h3;
@@ -58,10 +68,6 @@ pre{
   z-index: 10;
 
 }
-.active_trans{
-  transform: translateY(20%);
-}
-
 .nav {
   @apply text-large font-bold uppercase text-white;
 }
@@ -105,21 +111,11 @@ nav div a.active_link::before {
 .active_link{
   color: #4CC900;
 }
-.menu_link{
-  opacity: 0%;
-  transition: opacity 3.8s ease;
-}
-.active_menu_link{
-  opacity: 100;
-}
-.menu_sublink{
-transform: translateY(-100px);
-opacity: 0%;
-transition: opacity 3s,transform 1.2s ease-out;
+.active_handlink{
+  @apply text-blue duration-700
 }
 .active_menu_sublink{
-transform: translateY(0px);
-opacity: 100%;
+  @apply text-blue duration-700
 }
 
 @media (max-width:670px) {

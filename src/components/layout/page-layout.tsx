@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import {NextPage} from "next";
 import {ReactNode} from "react";
 
@@ -8,11 +9,13 @@ import {Header} from "./header";
 
 
 interface PageProps {
+  className?: string,
   children: ReactNode,
   currentPage?: PageEnum,
 }
 
 export const PageLayout: NextPage<PageProps> = ({
+  className,
   children,
   currentPage,
 }) => {
@@ -20,7 +23,7 @@ export const PageLayout: NextPage<PageProps> = ({
     <>
       <div className="flex flex-col h-full">
         <Header currentPage={currentPage} />
-        <div className="flex-grow">
+        <div className={classNames(className, "flex-grow")}>
           {children}
         </div>
         <Footer />
