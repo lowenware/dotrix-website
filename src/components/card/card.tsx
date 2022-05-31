@@ -9,12 +9,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({className, children}) => {
   return (
     <>
-      <div
-        className={classNames(
-          "card bg-dark flex flex-col",
-          className
-        )}
-      >
+      <div className={classNames("card flex flex-col bg-dark drop-shadow", className)}>
         {children}
       </div>
     </>

@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({currentPage}) => {
     return;
   };
   return (
-    <nav className="nav flex w-full px-24 h-80 justify-between bg-dark fixed z-50">
+    <nav className="nav flex w-full px-24 h-80 justify-between bg-dark drop-shadow fixed z-50">
       <a href={HOME_URL_ROOT} className="flex items-center duration-700 space-x-16">
         <Logo.Dotrix /><span>Dotrix</span>
       </a>

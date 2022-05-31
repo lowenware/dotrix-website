@@ -12,7 +12,8 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
   return (
     <section
       className={classNames(
-        "w-full bg-dark mh-200 sm:p-32 flex items-center justify-between flex-col lg:flex-row ",
+        "flex flex-col items-center justify-between w-full bg-dark drop-shadow mh-200",
+        "sm:p-32 lg:flex-row",
         className
       )}
     >
@@ -21,7 +22,10 @@ export const JoinUs: React.FC<JoinUsProps> = ({className}) => {
           Join Us
         </Button>
 
-        <span className="text-white text-small sm:text-large mb-16 lg:mb-0 lg:text-large self-center ml-16">
+        <span
+          className="text-white text-small sm:text-large mb-16 lg:mb-0 lg:text-large self-center
+            ml-16"
+        >
           Become a sponsor or contributor to enlarge your experience
         </span>
       </div>
