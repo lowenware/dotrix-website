@@ -9,6 +9,8 @@ import {PAGES} from "~/utils/pages";
 const DocsPage: NextPage<HandbookProps> = ({
   menu,
   page,
+  prev,
+  next
 }) => {
   return (
     <>
@@ -18,6 +20,8 @@ const DocsPage: NextPage<HandbookProps> = ({
       <HandbookLayout
         menu={menu}
         page={page}
+        prev={prev}
+        next={next}
       ></HandbookLayout>
     </>
   );

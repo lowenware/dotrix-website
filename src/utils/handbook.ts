@@ -25,6 +25,8 @@ export interface HandbookChapter {
 export interface HandbookProps {
   menu: HandbookChapter[],
   page: HandbookPage,
+  prev: HandbookMeta | null,
+  next: HandbookMeta | null,
 }
 
 export class Handbook {
@@ -61,9 +63,28 @@ export class Handbook {
   }
 
   getStaticProps(slug: string[]): HandbookProps {
+    const path = slug.join(".");
+    const flat = this.pages.flatMap(p => [
+      p.meta,
+      ...p.sections.map(s => ({...s, title: `${p.meta.title}: ${s.title}`}))
+    ]);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const index = flat.findIndex(p => p.slug.join(".") === path)!;
+
+    let prev = null,
+      next = null;
+
+    if (index > 0) {
+      prev = flat[index - 1];
+    }
+    if (index < flat.length - 1) {
+      next = flat[index + 1];
+    }
     return {
       menu: this.pages,
       page: this.getPage(slug),
+      prev,
+      next,
     };
   }
 
