@@ -25,7 +25,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}
         <Card>
           <CardBody className="space-y-24">
             <CardTitle title="Table of Contents" />
-            <ul className="menu__chapter text-medium">
+            <ul className="aside text-medium">
               {menu.map((chapter, key) => {
                 const chapterClass = getLinkClass(chapter.meta.slug);
 
@@ -36,7 +36,7 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}
                     </Link>
 
                     {chapterClass && chapter.sections.length > 0 && (
-                      <ul className="menu__section ml-24 my-8">
+                      <ul className="ml-24 my-8">
                         {chapter.sections.map((section, key) => (
                           <li key={key} className={getLinkClass(section.slug)}>
                             <Link href={getLink(section.slug)}>
