@@ -11,7 +11,7 @@ export const CardBody: React.FC<CardProps> = ({className, children}) => {
     <>
       <div
         className={classNames(
-          "flex flex-col space-y-24 p-24",
+          "flex flex-col p-24",
           className
         )}
       >

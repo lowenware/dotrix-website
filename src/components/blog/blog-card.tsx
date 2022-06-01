@@ -16,18 +16,18 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
         <Image
           src={`//${BLOG_POSTS_ROOT}/${post.image}`}
           alt={""}
-          height={200}
-          width={100}
+          height={400}
+          width={200}
         />
       )}
-      <CardBody>
-        <article className="flex space-y-24 flex-col">
+      <CardBody className="h-full">
+        <article className="flex flex-col space-y-24">
           <h1>{post.title}</h1>
           <p className="text-gray-font">
             {post.summary}
           </p>
         </article>
-        <div className="flex justify-between text-small">
+        <div className="flex justify-between text-small mt-auto">
           <div className="text-blue-dark">{formatDate(post.date)}</div>
           {post.tags.length > 0 && (
             <div className="text-purple font-bold">{`#${post.tags[0]}`}</div>

@@ -24,7 +24,7 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({className, posts}) => {
             href={`${BLOG_URL_ROOT}/${post.slug}`}
             className="hover:no-underline hover:-translate-y-32 transition ease-out"
           >
-            <BlogCard post={post} />
+            <BlogCard className="h-450" post={post} />
           </a>
         ))}
     </section>

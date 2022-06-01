@@ -26,7 +26,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
 }) => {
   return (
     <Card className={classNames("", className)}>
-      <CardBody className="text-center h-full">
+      <CardBody className="text-center h-full space-y-32">
         <CardTitle title={title}/>
         <div className="py-24">
           <div className="flex items-center justify-center h-80">
