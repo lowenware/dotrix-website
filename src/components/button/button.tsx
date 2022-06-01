@@ -9,6 +9,7 @@ interface ButtonProps {
   children: ReactNode,
   className?: string,
   href: string,
+  softLink?: boolean,
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   children,
   href,
+  softLink = false
 }) => {
   const getVariantClassNames = (variant: ButtonVariantEnum) => {
     switch (variant) {
@@ -28,17 +30,19 @@ export const Button: React.FC<ButtonProps> = ({
     }
   };
 
+  const classes = classNames(
+    "button border-2 py-24 px-32 hover:bg-opacity-20",
+    getVariantClassNames(variant),
+    className
+  );
+
   return (
     <Link href={href}>
-      <a
-        className={classNames(
-          "button border-2 py-24 px-32 hover:bg-opacity-20 ",
-          getVariantClassNames(variant),
-          className
-        )}
-      >
-        {children}
-      </a>
+      {softLink ? (
+        <button className={classes}>{children}</button>
+      ) : (
+        <a className={classes}>{children}</a>
+      )}
     </Link>
   );
 };

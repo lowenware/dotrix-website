@@ -4,10 +4,20 @@ import Link from "next/link";
 
 import {Card, CardBody, CardTitle} from "~/components/card";
 import {LeafOver,PageLayout} from "~/components/layout";
-import {HANDBOOK_URL_ROOT, HandbookProps} from "~/utils/handbook";
+import cfg from "~/modules/config";
+import {SocialMeta, StaticPageMeta} from "~/modules/content-manager";
+import {HandbookProps} from "~/modules/handbook";
 
-export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}) => {
-  const getLink = (slug: string[]) => `${HANDBOOK_URL_ROOT}/${slug.join("/")}`;
+interface HandbookLayoutProps {
+  handbook: HandbookProps,
+  social: SocialMeta[],
+  menu: StaticPageMeta[],
+}
+
+export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, social}) => {
+  const root = menu.find(l => cfg.handbook.slug === l.slug)!;
+  const getLink = (slug: string[]) => `${root.url}/${slug.join("/")}`;
+  const {chapters, page, prev, next} = handbook;
 
   const getLinkClass = (slug: string[]) => {
     const classes = [];
@@ -20,13 +30,13 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}
   };
 
   return (
-    <PageLayout currentPage="HANDBOOK" className="pt-80">
+    <PageLayout className="pt-80" slug={page.meta.slug} menu={menu} social={social}>
       <div className="flex space-x-32 p-32 items-start">
         <Card>
           <CardBody className="space-y-24">
             <CardTitle title="Table of Contents" />
             <ul className="aside text-medium">
-              {menu.map((chapter, key) => {
+              {chapters.map((chapter, key) => {
                 const chapterClass = getLinkClass(chapter.meta.slug);
 
                 return (
@@ -60,10 +70,10 @@ export const HandbookLayout: NextPage<HandbookProps> = ({menu, page, prev, next}
             </main>
             <LeafOver className="my-32"
               prev={prev && ({
-                url: `${HANDBOOK_URL_ROOT}/${prev.slug.join("/")}`, title: prev.title
+                url: `${root.url}/${prev.slug.join("/")}`, title: prev.title
               })}
               next={next && ({
-                url: `${HANDBOOK_URL_ROOT}/${next.slug.join("/")}`, title: next.title
+                url: `${root.url}/${next.slug.join("/")}`, title: next.title
               })}
             />
           </div>

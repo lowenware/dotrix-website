@@ -1,25 +1,35 @@
 import md from "markdown-it";
 import Link from "next/link";
 
-import {LeafOver,PageLayout} from "~/components/layout";
-import {BLOG_URL_ROOT, BlogPostMeta, BlogPostRaw} from "~/utils/blog";
+import {LeafOver, PageLayout} from "~/components/layout";
+import {BlogPostMeta, BlogPostRaw} from "~/modules/blog";
+import cfg from "~/modules/config";
+import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 import {formatDateTime} from "~/utils/format";
 
-interface BlogPostLayoutProps {
+interface BlogPostProps {
   meta: BlogPostMeta,
   content: string,
-  prevPost: BlogPostRaw | null,
-  nextPost: BlogPostRaw | null,
+  prev: BlogPostRaw | null,
+  next: BlogPostRaw | null,
+}
+
+interface BlogPostLayoutProps {
+  post: BlogPostProps,
+  menu: StaticPageMeta[],
+  social: SocialMeta[],
 }
 
 export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
-  meta,
-  content,
-  prevPost,
-  nextPost,
+  post,
+  menu,
+  social,
+
 }) => {
+  const {meta, content, prev, next} = post;
+  const root = ContentManager.root(menu, cfg.blog.slug);
   return (
-    <PageLayout currentPage="BLOG" className="pt-80">
+    <PageLayout className="pt-80" slug={[meta.slug]} menu={menu} social={social}>
       <div className="max-w-screen-lg mx-auto">
         <main>
           <h1>{meta.title}</h1>
@@ -33,7 +43,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               <div className="flex space-x-8 font-bold">
                 {meta.tags.map(
                   tag => (
-                    <Link key={tag} href={`${BLOG_URL_ROOT}/${tag}`}>
+                    <Link key={tag} href={`${root.url}/${tag}`}>
                       <a className="text-purple">#{tag}</a>
                     </Link>
                   )
@@ -49,8 +59,8 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
           )}
         </main>
         <LeafOver className="my-32"
-          prev={prevPost && ({url: `${BLOG_URL_ROOT}/${prevPost.slug}`, title: prevPost.title})}
-          next={nextPost && ({url: `${BLOG_URL_ROOT}/${nextPost.slug}`, title: nextPost.title})}
+          prev={prev && ({url: `${root.url}/${prev.slug}`, title: prev.title})}
+          next={next && ({url: `${root.url}/${next.slug}`, title: next.title})}
         />
       </div>
     </PageLayout>

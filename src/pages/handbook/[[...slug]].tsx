@@ -3,25 +3,22 @@ import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import Head from "next/head";
 
 import {HandbookLayout} from "~/components/handbook";
-import {Handbook, HandbookProps} from "~/utils/handbook";
-import {PAGES} from "~/utils/pages";
+import cfg from "~/modules/config";
+import {ContentManager, PageProps} from "~/modules/content-manager";
+import {Handbook, HandbookProps} from "~/modules/handbook";
 
-const DocsPage: NextPage<HandbookProps> = ({
-  menu,
-  page,
-  prev,
-  next
-}) => {
+
+const DocsPage: NextPage<PageProps<HandbookProps>> = ({menu, social, data}) => {
+  const handbook = ContentManager.root(menu, cfg.handbook.slug);
   return (
     <>
       <Head>
-        <title>{page.meta.title} :: {PAGES.HANDBOOK.title}</title>
+        <title>{data.page.meta.title} :: {handbook.title}</title>
       </Head>
       <HandbookLayout
         menu={menu}
-        page={page}
-        prev={prev}
-        next={next}
+        social={social}
+        handbook={data}
       ></HandbookLayout>
     </>
   );
@@ -37,9 +34,10 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = ({params}) => {
   const slug = (params?.slug && Array.isArray(params.slug)) ? params.slug : ["get-started"];
-
+  const manager = new ContentManager();
+  const handbook = new Handbook();
   return {
-    props: (new Handbook()).getStaticProps(slug)
+    props: manager.getPageProps(handbook.getStaticProps(slug)),
   };
 };
 

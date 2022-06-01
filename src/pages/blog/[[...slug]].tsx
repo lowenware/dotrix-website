@@ -7,7 +7,9 @@ import {
   BlogPostStaticProps,
   BlogStaticProps,
   mapBlogPostRawToMeta,
-} from "~/utils/blog";
+} from "~/modules/blog";
+import cfg from "~/modules/config";
+import {ContentManager, PageProps} from "~/modules/content-manager";
 
 export async function getStaticPaths() {
   const blog = new Blog();
@@ -19,38 +21,45 @@ export async function getStaticPaths() {
   };
 }
 
-const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
-  if (props.mode === "POST") {
-    const {meta, content, prevPost, nextPost} = props;
+const BlogSlugPage: NextPage<PageProps<BlogStaticProps | BlogPostStaticProps>> = ({
+  menu,
+  social,
+  data,
+}) => {
+
+  if (data.mode === "POST") {
     return (
       <>
         <Head>
-          <title>{meta.title}</title>
+          <title>{data.meta.title}</title>
         </Head>
         <BlogPostLayout
-          meta={mapBlogPostRawToMeta(meta)}
-          content={content}
-          prevPost={prevPost}
-          nextPost={nextPost}
+          post={{
+            ...data,
+            meta: mapBlogPostRawToMeta(data.meta)
+          }}
+          menu={menu}
+          social={social}
         />
       </>
     );
   }
 
-  const {posts, tag, tags, page, totalPages} = props;
-  const pageTitle = "Dotrix Blog";
+  const root = ContentManager.root(menu, cfg.blog.slug);
+  const tag = data.tag;
 
   return (
     <>
       <Head>
-        <title>{tag ? `${pageTitle} | Tag #${tag}` : pageTitle}</title>
+        <title>{tag ? `${root.title} | Tag #${tag}` : root.title}</title>
       </Head>
       <BlogLayout
-        tag={tag}
-        posts={posts.map(mapBlogPostRawToMeta)}
-        tags={tags}
-        page={page}
-        totalPages={totalPages}
+        blog={{
+          ...data,
+          posts: data.posts.map(mapBlogPostRawToMeta)
+        }}
+        menu={menu}
+        social={social}
       />
     </>
   );
@@ -60,8 +69,9 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   const slug = (params?.slug && Array.isArray(params.slug)) ? params.slug : ["1"];
 
   const blog = new Blog();
+  const manager = new ContentManager();
   return {
-    props: blog.getBlogStaticProps(slug)
+    props: manager.getPageProps(blog.getBlogStaticProps(slug))
   };
 };
 

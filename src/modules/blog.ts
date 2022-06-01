@@ -1,10 +1,8 @@
 import fs from "fs";
 import matter from "gray-matter";
+import path from "path";
 
-export const BLOG_POSTS_PER_PAGE = 16;
-export const BLOG_FILES_EXTENSION = ".md";
-export const BLOG_POSTS_ROOT = "blog";
-export const BLOG_URL_ROOT = "/blog";
+import cfg from "~/modules/config";
 
 export interface BlogPostRaw {
   slug: string,
@@ -48,22 +46,27 @@ export interface BlogPostStaticProps {
   meta: BlogPostRaw,
   content: string,
   tags: Tag[],
-  prevPost: BlogPostRaw | null,
-  nextPost: BlogPostRaw | null,
+  prev: BlogPostRaw | null,
+  next: BlogPostRaw | null,
 }
 
 export class Blog {
+  private root: string;
   posts: BlogPostMeta[];
   tags: Tag[];
 
-  constructor() {
-    const posts = this.getBlogPosts();
-    this.posts = posts;
-    this.tags = this.getTagsFromPosts(posts);
+  constructor(
+    private extension: string = cfg.content.extension,
+    private postsPerPage: number = cfg.blog.postsPerPage,
+  ) {
+
+    this.root = path.join(cfg.content.root, cfg.blog.slug);
+    this.posts = this.getBlogPosts();
+    this.tags = this.getTagsFromPosts(this.posts);
   }
 
   getStaticPaths() {
-    const pagesCount = this.countPages(this.posts.length, BLOG_POSTS_PER_PAGE);
+    const pagesCount = this.countPages(this.posts.length, this.postsPerPage);
     return [
       {
         params: {
@@ -85,7 +88,7 @@ export class Blog {
       // tags
       ...this.tags.flatMap(tag => [
         ...Array.from(
-          Array(this.countPages(tag.count, BLOG_POSTS_PER_PAGE)).keys()
+          Array(this.countPages(tag.count, this.postsPerPage)).keys()
         ).map(pageNum => ({
           params: {
             slug: [tag.label, `${pageNum + 1}`],
@@ -104,7 +107,7 @@ export class Blog {
     const {posts, totalPages, page} = this.paginate(
       this.posts,
       pageNumber,
-      BLOG_POSTS_PER_PAGE
+      this.postsPerPage
     );
 
     return {
@@ -120,7 +123,7 @@ export class Blog {
     const {posts, totalPages, page} = this.paginate(
       this.posts.filter(p => p.tags.includes(tag)),
       pageNumber,
-      BLOG_POSTS_PER_PAGE
+      this.postsPerPage
     );
 
     return {
@@ -158,22 +161,22 @@ export class Blog {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const index = this.posts.findIndex(p => p.slug === slug)!;
 
-    let prevPost = null,
-      nextPost = null;
+    let prev = null,
+      next = null;
 
     if (index > 0) {
-      prevPost = mapBlogPostMetaToRaw(this.posts[index - 1]);
+      prev = mapBlogPostMetaToRaw(this.posts[index - 1]);
     }
     if (index < this.posts.length - 1) {
-      nextPost = mapBlogPostMetaToRaw(this.posts[index + 1]);
+      next = mapBlogPostMetaToRaw(this.posts[index + 1]);
     }
 
     return {
       mode: "POST",
       meta: mapBlogPostMetaToRaw(meta),
       content,
-      prevPost,
-      nextPost,
+      prev,
+      next,
       tags: this.tags,
     };
   }
@@ -200,8 +203,8 @@ export class Blog {
 
   getBlogPosts(): BlogPostMeta[] {
     return fs
-      .readdirSync(BLOG_POSTS_ROOT)
-      .filter(fileName => fileName.endsWith(BLOG_FILES_EXTENSION))
+      .readdirSync(this.root)
+      .filter(fileName => fileName.endsWith(this.extension))
       .map(fileName => this.readBlogPost(fileName).meta)
       .sort((post1, post2) => post1.date.getTime() - post2.date.getTime());
   }
@@ -211,7 +214,7 @@ export class Blog {
   }
 
   private readBlogPost(fileName: string): BlogPost {
-    const filePath = `${BLOG_POSTS_ROOT}/${fileName}`;
+    const filePath = `${this.root}/${fileName}`;
     const {data, content} = matter(fs.readFileSync(filePath));
     ["title", "summary", "date"].forEach(field => {
       if (!data[field]) {
@@ -223,7 +226,7 @@ export class Blog {
 
     return {
       meta: mapBlogPostRawToMeta({
-        slug: fileName.replace(BLOG_FILES_EXTENSION, ""),
+        slug: fileName.replace(this.extension, ""),
         title,
         summary,
         date,

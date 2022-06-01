@@ -9,6 +9,7 @@ import LogoPatreon from "assets/logo-patreon.svg";
 import LogoTwitter from "assets/logo-twitter.svg";
 import LogoYoutube from "assets/logo-youtube.svg";
 import MenuIcon from "assets/menu-icon.svg";
+import {ReactNode} from "react";
 /* eslint-enable no-restricted-imports */
 
 /* eslint-disable @next/next/no-img-element */
@@ -21,11 +22,21 @@ export const Arrow = {
 export const Logo = {
   Discord: () => <img src={LogoDiscord} alt="Discord" />,
   Dotrix: () => <img src={LogoDotrix} alt="Dotrix" />,
-  Github: () => <img src={LogoGithub} alt="GitHub" />,
+  GitHub: () => <img src={LogoGithub} alt="GitHub" />,
   Lowenware: () => <img src={LogoLowenware} alt="Löwenware" />,
   Patreon: () => <img src={LogoPatreon} alt="Patreon" />,
   Twitter: () => <img src={LogoTwitter} alt="Twitter" />,
-  Youtube: () => <img src={LogoYoutube} alt="YouTube" />,
+  YouTube: () => <img src={LogoYoutube} alt="YouTube" />,
+
+  from: (label: string): ReactNode | undefined => {
+    switch(label) {
+    case "GitHub": return <Logo.GitHub />;
+    case "Discord": return <Logo.Discord />;
+    case "Patreon": return <Logo.Patreon />;
+    case "Twitter": return <Logo.Twitter />;
+    case "YouTube": return <Logo.YouTube />;
+    }
+  },
 };
 
 export const Icon = {
