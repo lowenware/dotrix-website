@@ -2,18 +2,19 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-import {BLOG_URL_ROOT} from "~/utils/blog";
-import {HANDBOOK_URL_ROOT} from "~/utils/handbook";
-
-export const HOME_URL_ROOT = "/";
-export const COMMUNITY_URL_ROOT = "/community";
-
-export const CONTENT_FILES_ROOT = "content";
-export const CONTENT_FILES_EXTENSION = ".md";
+import cfg from "~/modules/config";
 
 export interface StaticPageMeta {
   slug: string,
   title: string,
+  menu?: string,
+  mod?: string,
+  order: number,
+}
+
+export interface Page<T> {
+  menu: StaticPageMeta[],
+  data: T
 }
 
 export interface StaticPage {
@@ -28,42 +29,12 @@ export interface StaticPageProps {
 export class ContentManager {
   private pages: StaticPageMeta[];
   private metaFields = ["title"];
-  private menu = [
-    {
-      url: HOME_URL_ROOT,
-      menu: "Home",
-      title: "Dotrix 3D Engine",
-    },
-    {
-      url: BLOG_URL_ROOT,
-      menu: "Blog",
-      title: "Blog of Dotrix 3D Engine",
-    },
-    {
-      url: HANDBOOK_URL_ROOT,
-      menu: "Handbook",
-      title: "Handbook for Dotrix 3D Engine",
-    },
-    {
-      url: COMMUNITY_URL_ROOT,
-      menu: "Community",
-      title: "Community of Dotrix 3D Engine",
-    },
-  ];
 
   constructor(
-    private root: string = CONTENT_FILES_ROOT,
-    private extension: string = CONTENT_FILES_EXTENSION
+    private root: string = cfg.content.folder,
+    private extension: string = cfg.content.extension,
   ) {
     this.pages = this.getPages();
-  }
-
-  getMenu() {
-    return this.menu;
-  }
-
-  getPageTitle(url: string) {
-    return this.menu.find(i => i.url === url)?.title;
   }
 
   getStaticPaths() {
@@ -78,6 +49,10 @@ export class ContentManager {
     return {
       page: this.getPage(slug),
     };
+  }
+
+  getMenu(): StaticPageMeta[] {
+    return this.pages.filter(p => !!p.menu);
   }
 
   private getPages(): StaticPageMeta[] {
@@ -101,12 +76,16 @@ export class ContentManager {
       }
     });
 
-    const {title} = data;
+    const {title, menu, mod } = data;
+    const order = parseInt(data.order);
 
     return {
       meta: {
         slug: fileName.replace(this.extension, ""),
         title,
+        menu,
+        mod,
+        order: isNaN(order) ? 0 : order, 
       },
       content: this.preprocess(content),
     };
