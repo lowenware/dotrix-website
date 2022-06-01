@@ -1,4 +1,5 @@
 import {GetStaticProps, NextPage} from "next";
+import Head from "next/head";
 
 import {BlogLayout, BlogPostLayout} from "~/components/blog";
 import {
@@ -22,25 +23,36 @@ const BlogSlugPage: NextPage<BlogStaticProps | BlogPostStaticProps> = props => {
   if (props.mode === "POST") {
     const {meta, content, prevPost, nextPost} = props;
     return (
-      <BlogPostLayout
-        meta={mapBlogPostRawToMeta(meta)}
-        content={content}
-        prevPost={prevPost}
-        nextPost={nextPost}
-      />
+      <>
+        <Head>
+          <title>{meta.title}</title>
+        </Head>
+        <BlogPostLayout
+          meta={mapBlogPostRawToMeta(meta)}
+          content={content}
+          prevPost={prevPost}
+          nextPost={nextPost}
+        />
+      </>
     );
   }
 
   const {posts, tag, tags, page, totalPages} = props;
+  const pageTitle = "Dotrix Blog";
 
   return (
-    <BlogLayout
-      tag={tag}
-      posts={posts.map(mapBlogPostRawToMeta)}
-      tags={tags}
-      page={page}
-      totalPages={totalPages}
-    />
+    <>
+      <Head>
+        <title>{tag ? `${pageTitle} | Tag #${tag}` : pageTitle}</title>
+      </Head>
+      <BlogLayout
+        tag={tag}
+        posts={posts.map(mapBlogPostRawToMeta)}
+        tags={tags}
+        page={page}
+        totalPages={totalPages}
+      />
+    </>
   );
 };
 
