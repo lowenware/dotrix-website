@@ -37,6 +37,10 @@ main p {
   @apply pt-8 pb-4;
 }
 
+article h1 {
+  @apply text-h3;
+}
+
 @tailwind components;
 
 @layer components {

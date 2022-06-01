@@ -31,9 +31,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
                 OpenSource 3D Engine for Rust Developers
               </h1>
             </div>
-            <div className={
-              "flex flex-col sm:flex-row self-center mx-auto justify-center"
-            }>
+            <div className="flex flex-col sm:flex-row self-center mx-auto justify-center">
               <Button
                 href={`${HANDBOOK_URL_ROOT}`}
                 className="mb-4 sm:mb-0 sm:mr-36"
@@ -53,50 +51,45 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
           posts={posts.map(mapBlogPostRawToMeta)}
           className="bg-black-800 w-full px-32 -mt-32"
         />
-        <section className="w-full bg-black-800 flex justify-center">
+
+        <section className="flex">
           <div
-            className="max-w-7xl grid md:gap-32 grid-cols-1 sm:grid-rows-2
-            sm:grid-cols-2 mb-64 font-bold"
+            className="grid max-w-screen-xl mx-auto gap-64 px-32 grid-cols-1 lg:grid-rows-2
+              lg:grid-cols-2 my-64"
           >
-            <div className="flex flex-col pt-64 px-32 sm:pl-32">
-              <p className="text-white text-h3 mb-12">
-                Performance and Safety
-              </p>
-              <p className="text-blue-light">
+            <article className="flex flex-col space-y-24">
+              <h1>Performance and Safety</h1>
+              <p>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don&apos;t look even
                 slightly believable.
               </p>
-            </div>
+            </article>
 
-            <div className="flex flex-col pt-64 px-32 sm:pr-32">
-              <p className="text-white text-h3 mb-12">
-                ECS Programming pattern
-              </p>
-              <p className="text-blue-light">
+            <article className="flex flex-col space-y-24">
+              <h1>ECS Programming pattern</h1>
+              <p>
                 If you are going to use a passage of Lorem Ipsum, you need to be
                 sure there isn&apos;t anything embarrassing hidden in the middle
                 of text. All the Lorem Ipsum generators on the Internet tend to
                 repeat predefined chunks as necessary, making this the first
                 true generator on the Internet
               </p>
-            </div>
-            <div className="flex flex-col pt-8 px-32 sm:pl-32">
-              <p className="text-white text-h3 mb-12">
-                Crossplatform
-              </p>
-              <p className="text-blue-light">
+            </article>
+            <article className="flex flex-col space-y-24">
+              <h1>Crossplatform</h1>
+              <p>
                 It uses a dictionary of over 200 Latin words, combined with a
                 handful of model sentence structures, to generate Lorem Ipsum
                 which looks reasonable. The generated Lorem Ipsum is therefore
                 always free from repetition, injected humour, or
                 non-characteristic words etc.
               </p>
-            </div>
-            <div className="flex flex-col pt-8 px-32 sm:pr-32">
-              <p className="text-white text-h3 mb-12">OpenSource </p>
-              <p className="text-blue-light ">
+            </article>
+            <article className="flex flex-col space-y-24">
+              <h1>OpenSource</h1>
+              <p>
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old. Richard McClintock, a
@@ -105,7 +98,7 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
                 Ipsum passage, and going through the cites of the word in
                 classical literature, discovered the undoubtable source.
               </p>
-            </div>
+            </article>
           </div>
         </section>
       </PageLayout>
