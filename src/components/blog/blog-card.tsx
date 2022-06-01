@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Image from "next/image";
 
 import {Card, CardBody} from "~/components/card";
@@ -11,7 +12,7 @@ interface BlogCardProps {
 
 export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
   return (
-    <Card className={className}>
+    <Card className={classNames("flex-grow", className)}>
       {post.image && (
         <Image
           src={`//${BLOG_POSTS_ROOT}/${post.image}`}
@@ -20,8 +21,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
           width={100}
         />
       )}
-      <CardBody>
-        <article className="flex space-y-24 flex-col">
+      <CardBody className="flex flex-grow">
+        <article className="flex flex-grow space-y-24 flex-col">
           <h1>{post.title}</h1>
           <p className="text-gray-font">
             {post.summary}
