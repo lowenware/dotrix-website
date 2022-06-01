@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import {PageLayout} from "~/components/layout";
 import {
-  ContentManager, StaticPageProps
+  ContentManager, PageProps, StaticPage
 } from "~/modules/content-manager";
 
 export async function getStaticPaths() {
@@ -14,14 +14,14 @@ export async function getStaticPaths() {
   };
 }
 
-const StaticSlugPage: NextPage<StaticPageProps> = ({page}) => {
-  const {meta, content} = page;
+const StaticSlugPage: NextPage<PageProps<StaticPage>> = ({menu, social, data}) => {
+  const {meta, content} = data;
 
   return (<>
     <Head>
       <title>{meta.title}</title>
     </Head>
-    <PageLayout className="pt-80">
+    <PageLayout className="pt-80" slug={[meta.slug]} menu={menu} social={social}>
       <main className="mx-auto max-w-screen-lg">
         <h1>{meta.title}</h1>
         <div
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   const manager = new ContentManager();
 
   return {
-    props: manager.getStaticProps(slug)
+    props: manager.getPageProps(manager.getStaticPage(slug))
   };
 };
 

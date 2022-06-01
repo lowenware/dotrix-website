@@ -1,10 +1,12 @@
 import {PageLayout, Slide} from "~/components/layout";
 import {Paginator} from "~/components/paginator";
-import {BLOG_URL_ROOT, BlogPostMeta, Tag} from "~/utils/blog";
+import {BlogPostMeta, Tag} from "~/modules/blog";
+import cfg from "~/modules/config";
+import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 
 import {BlogPosts} from "./blog-posts";
 
-interface BlogLayoutProps {
+interface BlogProps {
   posts: BlogPostMeta[],
   totalPages: number,
   page: number,
@@ -12,15 +14,21 @@ interface BlogLayoutProps {
   tag?: string,
 }
 
+interface BlogLayoutProps {
+  menu: StaticPageMeta[],
+  social: SocialMeta[],
+  blog: BlogProps,
+}
+
 export const BlogLayout: React.FC<BlogLayoutProps> = ({
-  posts,
-  totalPages,
-  page,
-  //  tags TODO: implement tags,
-  tag,
+  menu,
+  social,
+  blog,
 }) => {
+  const root = ContentManager.root(menu, cfg.blog.slug);
+  const {posts, totalPages, page, tag} = blog;
   return (
-    <PageLayout currentPage={"BLOG"}>
+    <PageLayout slug={[root.slug]} menu={menu} social={social}>
       <Slide className="mt-80" image="/images/low-poly-mountain.png" size="small">
         <h1>
           Blog{tag && (
@@ -38,7 +46,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
         className="my-16"
         page={page}
         totalPages={totalPages}
-        root={tag ? `${BLOG_URL_ROOT}/${tag}` : BLOG_URL_ROOT}
+        root={tag ? `${root.url}/${tag}` : root.url}
       />
     </PageLayout>
   );

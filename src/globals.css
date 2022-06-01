@@ -41,6 +41,10 @@ article h1 {
   @apply text-h3;
 }
 
+button {
+  @apply: cursor-pointer;
+}
+
 @tailwind components;
 
 @layer components {

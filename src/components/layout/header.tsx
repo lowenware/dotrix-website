@@ -1,49 +1,38 @@
-import classNames from "classnames";
 import Link from "next/link";
-import React, {useState} from "react";
+import React from "react";
 
 import {Icon, Logo} from "~/assets";
-import {HOME_URL_ROOT, PageEnum, PAGES} from "~/utils/pages";
+import {StaticPageMeta} from "~/modules/content-manager";
 
 interface HeaderProps {
-  currentPage?: PageEnum,
+  slug: string[],
+  menu: StaticPageMeta[],
 }
 
-export const Header: React.FC<HeaderProps> = ({currentPage}) => {
-  const [active, setActive] = useState(false);
+export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
+  const slugString = slug.join(".");
 
-  const handleClick = () => {
-    setActive(!active);
-    document.querySelector(".navbar")?.classList.toggle("active_menu");
-    return;
-  };
+  //  const handleClick = () => {};
+
   return (
-    <nav
-      className="nav flex justify-between fixed w-full bg-dark drop-shadow
-        px-24 h-80 z-50"
+    <nav className="nav flex justify-between items-center fixed w-full bg-dark drop-shadow
+      px-24 h-80 z-50"
     >
-      <a href={HOME_URL_ROOT} className="flex items-center duration-700 space-x-16">
+      <a href={menu[0].url} className="flex items-center space-x-16">
         <Logo.Dotrix /><span>Dotrix</span>
       </a>
-      <div className="navbar flex">
-        {Object.keys(PAGES)
-          .map(id => ({...PAGES[id as PageEnum], id}))
-          .map(page => (
-            <Link key={page.id} href={page.url}>
-              <a
-                id={page.id.toLowerCase()}
-                className={classNames(
-                  "navbar-link cursor-pointer",
-                  currentPage === page.id ? "active_link" : ""
-                )}
-              >
-                {page.menu}
-              </a>
-            </Link>
+      <ul className="flex space-x-24">
+        {menu
+          .map((link, i) => (
+            <li key={i}>
+              <Link href={link.url}>
+                <a className={slugString === link.slug ? "active" : undefined}>{link.menu}</a>
+              </Link>
+            </li>
           ))}
-      </div>
+      </ul>
       <button
-        onClick={handleClick}
+        //        onClick={handleClick}
         id="menu"
         className="block sm:hidden"
       >

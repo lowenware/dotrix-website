@@ -1,16 +1,17 @@
 export default {
   content: {
     extension: process.env.CONTENT_EXTENSION || ".md",
-    folder: process.env.CONTENT_FOLDER || "content",
+    root: process.env.CONTENT_FOLDER || "content",
   },
   blog: {
-    folder: process.env.BLOG_FOLDER || "blog",
+    slug: process.env.BLOG_FOLDER || "blog",
+    postsPerPage: 16,
   },
   handbook: {
-    folder: process.env.HANDBOOK_FOLDER || "handbook",
+    slug: process.env.HANDBOOK_FOLDER || "handbook",
   },
   community: {
-    folder: process.env.COMMUNITY_FOLDER || "community",
+    slug: process.env.COMMUNITY_FOLDER || "community",
   },
 };
 

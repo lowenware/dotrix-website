@@ -2,7 +2,8 @@ import classNames from "classnames";
 import Image from "next/image";
 
 import {Card, CardBody} from "~/components/card";
-import {BLOG_POSTS_ROOT, BlogPostMeta} from "~/utils/blog";
+import {BlogPostMeta} from "~/modules/blog";
+import cfg from "~/modules/config";
 import {formatDate} from "~/utils/format";
 
 interface BlogCardProps {
@@ -15,7 +16,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
     <Card className={classNames("flex-grow", className)}>
       {post.image && (
         <Image
-          src={`//${BLOG_POSTS_ROOT}/${post.image}`}
+          src={`//${cfg.blog.slug}/${post.image}`}
           alt={""}
           height={200}
           width={100}

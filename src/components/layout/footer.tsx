@@ -1,25 +1,29 @@
 import Link from "next/link";
 
 import {Logo} from "~/assets";
-import {PageEnum} from "~/utils/pages";
+import cfg from "~/modules/config";
+import {SocialMeta} from "~/modules/content-manager";
 
 import {JoinUs} from "./join-us";
 
 interface FooterProps {
-  currentPage?: PageEnum,
+  slug: string[],
+  social: SocialMeta[],
 }
 
-export const Footer: React.FC<FooterProps> = ({currentPage}) => {
+export const Footer: React.FC<FooterProps> = ({slug, social}) => {
+  const isCommunityPage = slug[0] === cfg.community.slug;
   return (
     <div id="footer">
-      {currentPage !== "COMMUNITY" && (<JoinUs />)}
-      {currentPage === "COMMUNITY" && (
+      {isCommunityPage ? (
         <div className="bg-dark drop-shadow text-large text-white text-center p-2"></div>
-      )}
+      ) : (
+        <JoinUs social={social}/>)
+      }
       <div className="flex sm:flex-row flex-col text-blue-dark sm:h-140 min-h-min
         sm:justify-between items-center"
       >
-        <div className="flex flex-grow flex-col flex-grow my-auto
+        <div className="flex flex-grow flex-col my-auto
           sm:order-1 sm:pl-32 md:text-left text-center"
         >
           &copy; 2022 Löwenware s.r.o. All rights reserved.

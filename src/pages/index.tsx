@@ -5,44 +5,49 @@ import {Logo} from "~/assets";
 import {BlogPosts} from "~/components/blog";
 import {Button} from "~/components/button";
 import {PageLayout, Slide} from "~/components/layout";
-import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/utils/blog";
-import {HANDBOOK_URL_ROOT} from "~/utils/handbook";
-import {PAGES} from "~/utils/pages";
-
-interface HomepageProps {
+import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/modules/blog";
+import cfg from "~/modules/config";
+import {ContentManager, PageProps, StaticPageMeta} from "~/modules/content-manager";
+interface Home {
+  meta: StaticPageMeta,
   posts: BlogPostRaw[],
 }
 const MAX_BLOG_POSTS = 8;
 
-const Home: NextPage<HomepageProps> = ({posts}) => {
+const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
+  const {meta, posts} = data;
+  const handbook = ContentManager.root(menu, cfg.handbook.slug);
+  const github = social.find(l => l.slug === "github");
   return (
     <>
       <Head>
-        <title>{PAGES.HOME.title}</title>
+        <title>{meta.title}</title>
       </Head>
-      <PageLayout currentPage="HOME">
+      <PageLayout slug={[meta.slug]} menu={menu} social={social}>
         <Slide image="/images/low-poly-mountain.png" size="large">
           <section className="flex flex-col space-y-64">
             <div className="flex flex-col space-y-64 text-center text-white">
-              <p className="text-h1 text-white">
+              <div className="text-h1 text-white">
                 Program Your World
-              </p>
+              </div>
               <h1>
-                OpenSource 3D Engine for Rust Developers
+                {meta.title}
               </h1>
             </div>
             <div className="flex flex-col sm:flex-row self-center mx-auto justify-center">
               <Button
-                href={`${HANDBOOK_URL_ROOT}`}
+                href={handbook.url}
                 className="mb-4 sm:mb-0 sm:mr-36"
                 variant="primary"
               >
                 Get Started
               </Button>
-              <Button href="/" variant="outline" className="flex space-x-16 mb-10 sm:mb-0">
-                <Logo.Github />
-                <span>GitHub</span>
-              </Button>
+              {github && (
+                <Button href={github.url} variant="outline" className="flex space-x-16 mb-10 sm:mb-0" softLink>
+                  <Logo.GitHub />
+                  <span>GitHub</span>
+                </Button>
+              )}
             </div>
           </section>
         </Slide>
@@ -106,10 +111,14 @@ const Home: NextPage<HomepageProps> = ({posts}) => {
   );
 };
 
-export const getStaticProps = async () => ({
-  props: {
-    posts: new Blog().getRawBlogPosts(MAX_BLOG_POSTS),
-  },
-});
+export const getStaticProps = async () => {
+  const manager = new ContentManager();
+  return {
+    props: manager.getPageProps({
+      meta: manager.page("home"),
+      posts: new Blog().getRawBlogPosts(MAX_BLOG_POSTS),
+    }),
+  };
+};
 
 export default Home;

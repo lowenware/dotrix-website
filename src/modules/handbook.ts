@@ -2,9 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-export const HANDBOOK_FILES_ROOT = "handbook";
-export const HANDBOOK_URL_ROOT = "/handbook";
-export const HANDBOOK_FILES_EXTENSION = ".md";
+import cfg from "~/modules/config";
 
 export interface HandbookMeta {
   slug: string[],
@@ -23,7 +21,7 @@ export interface HandbookChapter {
 }
 
 export interface HandbookProps {
-  menu: HandbookChapter[],
+  chapters: HandbookChapter[],
   page: HandbookPage,
   prev: HandbookMeta | null,
   next: HandbookMeta | null,
@@ -34,9 +32,8 @@ export class Handbook {
   private metaFields = ["title"];
 
   constructor(
-    private root: string = HANDBOOK_FILES_ROOT,
-    private url: string = HANDBOOK_URL_ROOT,
-    private extension: string = HANDBOOK_FILES_EXTENSION
+    private root: string = path.join(cfg.content.root, cfg.handbook.slug),
+    private extension: string = cfg.content.extension,
   ) {
     this.pages = this.getPages();
   }
@@ -81,7 +78,7 @@ export class Handbook {
       next = flat[index + 1];
     }
     return {
-      menu: this.pages,
+      chapters: this.pages,
       page: this.getPage(slug),
       prev,
       next,
