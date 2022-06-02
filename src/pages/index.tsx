@@ -35,10 +35,12 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
                 {meta.title}
               </h1>
             </div>
-            <div className="flex flex-col sm:flex-row self-center mx-auto justify-center">
+            <div
+              className="flex flex-col sm:flex-row space-y-24 sm:space-y-0 space-x-0 sm:space-x-24
+                self-center mx-auto justify-center"
+            >
               <Button
                 href={handbook.url}
-                className="mb-4 sm:mb-0 sm:mr-36"
                 variant="primary"
               >
                 Get Started
@@ -47,7 +49,7 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
                 <Button
                   href={github.url}
                   variant="outline"
-                  className="flex space-x-16 mb-10 sm:mb-0"
+                  className="flex space-x-16"
                   softLink
                 >
                   <Logo.GitHub />
@@ -72,6 +74,7 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
               feature => (
                 <Markdown
                   key={feature.slug}
+                  tag="article"
                   className="flex flex-col space-y-24"
                   content={feature.content}
                 />
