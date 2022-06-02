@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({slug, social}) => {
         </div>
 
         <div
-          className="flex flex-grow items-center justify-center my-16 md:m-0 md:order-2"
+          className="flex flex-grow items-center justify-center md:m-0 md:order-2"
         >
           <Link href="https://lowenware.com/"><a><Logo.Lowenware /></a></Link>
         </div>
