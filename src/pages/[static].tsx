@@ -23,7 +23,7 @@ const StaticSlugPage: NextPage<PageProps<StaticPage>> = ({menu, social, data}) =
       <title>{meta.title} - {site.name}</title>
     </Head>
     <PageLayout className="pt-80" slug={meta.slug} menu={menu} social={social}>
-      <main className="mx-auto max-w-screen-lg">
+      <main className="mx-auto max-w-screen-lg p-24">
         <h1>{meta.title}</h1>
         <div
           dangerouslySetInnerHTML={{__html: md().render(content)}}

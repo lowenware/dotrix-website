@@ -30,7 +30,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
   const root = ContentManager.root(menu, site.blog.slug);
   return (
     <PageLayout className="pt-80" slug={site.blog.slug} menu={menu} social={social}>
-      <div className="max-w-screen-lg mx-auto">
+      <div className="max-w-screen-lg mx-auto p-24 lg:p-0">
         <main>
           <h1>{meta.title}</h1>
           <div className="flex justify-between mb-32">

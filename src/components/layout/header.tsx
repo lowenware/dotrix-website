@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, {useState} from "react";
 
 import {Icon, Logo} from "~/assets";
+import {site} from "~/config";
 import {StaticPageMeta} from "~/modules/content-manager";
 
 interface HeaderProps {
@@ -15,11 +16,15 @@ export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
   const handleClick = () => setOpen(!open);
 
   return (
-    <nav className="nav flex justify-between items-center fixed w-full bg-dark drop-shadow
+    <nav className="nav flex items-stretch fixed w-full bg-dark drop-shadow
       px-24 h-80 z-50"
     >
-      <a href={menu[0].url} className="flex items-center space-x-16">
-        <Logo.Dotrix /><span>Dotrix</span>
+      <a
+        href={menu[0].url}
+        className="flex flex-grow justify-start items-center text-right space-x-16"
+      >
+        <Logo.Dotrix />
+        <span>Dotrix</span>
       </a>
       <ul className={
         classNames(
@@ -31,8 +36,11 @@ export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
         )
       }>
         {menu
-          .map((link, i) => (
-            <li key={i}>
+          .map(link => (
+            <li
+              key={link.slug}
+              className={link.slug === site.home.slug ? "block sm:hidden md:block" : undefined}
+            >
               <Link href={link.url}>
                 <a className={slug === link.slug ? "active" : undefined}>{link.menu}</a>
               </Link>

@@ -56,7 +56,6 @@ button {
   #__next {
     @apply relative h-full;
   }
-
 }
 
 @tailwind utilities;
@@ -73,7 +72,7 @@ a {
   @apply hover:no-underline;
 }
 
-pre{
+pre {
   margin-top: 16px;
   margin-bottom: 16px;
   overflow-x: auto;
@@ -107,13 +106,13 @@ pre{
   @apply text-green;
 }
 
-nav a::before {
+nav ul a::before {
   content: "";
   @apply absolute hidden sm:block bg-white transition h-0 w-0.5  ml-1 left-1/2 -top-24;
 }
 
-nav a:hover::before,
-nav a.active::before {
+nav ul a:hover::before,
+nav ul a.active::before {
   height: 20px;
 }
 

@@ -14,7 +14,7 @@ interface LeafOverProps {
 
 export const LeafOver: React.FC<LeafOverProps> = ({className, prev, next}) => {
   return (
-    <div className={classNames("flex text-medium justify-between", className)}>
+    <div className={classNames("flex flex-col sm:flex-row text-medium justify-between", className)}>
       {prev && (
         <div className="flex flex-grow">
           <div className="flex flex-col">
