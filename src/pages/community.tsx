@@ -4,6 +4,7 @@ import Head from "next/head";
 import {Logo} from "~/assets";
 import {CommunityCard} from "~/components/card";
 import {PageLayout, Slide} from "~/components/layout";
+import {site} from "~/config";
 import {ContentManager, PageProps, StaticPageMeta} from "~/modules/content-manager";
 
 const CommunityPage: NextPage<PageProps<StaticPageMeta>> = ({menu, social, data}) => {
@@ -12,7 +13,7 @@ const CommunityPage: NextPage<PageProps<StaticPageMeta>> = ({menu, social, data}
   return (
     <>
       <Head>
-        <title>{root.title}</title>
+        <title>{root.title} - {site.name}</title>
       </Head>
       <PageLayout slug={root.slug} menu={menu} social={social}>
         <Slide

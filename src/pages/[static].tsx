@@ -3,6 +3,7 @@ import {GetStaticProps, NextPage} from "next";
 import Head from "next/head";
 
 import {PageLayout} from "~/components/layout";
+import {site} from "~/config";
 import {
   ContentManager, PageProps, StaticPage
 } from "~/modules/content-manager";
@@ -19,7 +20,7 @@ const StaticSlugPage: NextPage<PageProps<StaticPage>> = ({menu, social, data}) =
 
   return (<>
     <Head>
-      <title>{meta.title}</title>
+      <title>{meta.title} - {site.name}</title>
     </Head>
     <PageLayout className="pt-80" slug={meta.slug} menu={menu} social={social}>
       <main className="mx-auto max-w-screen-lg">

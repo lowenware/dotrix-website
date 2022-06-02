@@ -13,7 +13,7 @@ const DocsPage: NextPage<PageProps<HandbookProps>> = ({menu, social, data}) => {
   return (
     <>
       <Head>
-        <title>{data.page.meta.title} :: {handbook.title}</title>
+        <title>{data.page.meta.title} - {handbook.title} - {site.name}</title>
       </Head>
       <HandbookLayout
         menu={menu}
