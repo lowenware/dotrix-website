@@ -1,9 +1,8 @@
-import md from "markdown-it";
 import {NextPage} from "next";
 import Link from "next/link";
 
 import {Card, CardBody, CardTitle} from "~/components/card";
-import {LeafOver,PageLayout} from "~/components/layout";
+import {LeafOver, Markdown,PageLayout} from "~/components/layout";
 import {site} from "~/config";
 import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 import {HandbookProps} from "~/modules/handbook";
@@ -67,10 +66,13 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
         </Card>
         <div className="flex-grow">
           <div className="max-w-screen-lg">
-            <main>
-              <h1>{page.meta.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: md().render(page.content)}} />
-            </main>
+
+            <Markdown
+              tag="main"
+              patchHtml={html => `<h1>${page.meta.title}</h1>${html}`}
+              content={page.content}
+            />
+
             <LeafOver className="my-32"
               prev={prev && ({
                 url: `${root.url}/${prev.slug.join("/")}`, title: prev.title

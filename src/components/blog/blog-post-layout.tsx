@@ -1,7 +1,6 @@
-import md from "markdown-it";
 import Link from "next/link";
 
-import {LeafOver, PageLayout} from "~/components/layout";
+import {LeafOver, Markdown,PageLayout} from "~/components/layout";
 import {site} from "~/config";
 import {BlogPostMeta, BlogPostRaw} from "~/modules/blog";
 import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
@@ -51,12 +50,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               </div>
             )}
           </div>
-          {content && (
-            <div
-              className="text-black-gray text-small"
-              dangerouslySetInnerHTML={{__html: md().render(content)}}
-            />
-          )}
+          <Markdown className="text-black-gray text-small" content={content}></Markdown>
         </main>
         <LeafOver className="my-32"
           prev={prev && ({url: `${root.url}/${prev.slug}`, title: prev.title})}

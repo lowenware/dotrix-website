@@ -1,11 +1,10 @@
-import md from "markdown-it";
 import {NextPage} from "next";
 import Head from "next/head";
 
 import {Logo} from "~/assets";
 import {BlogPosts} from "~/components/blog";
 import {Button} from "~/components/button";
-import {PageLayout, Slide} from "~/components/layout";
+import {Markdown, PageLayout, Slide} from "~/components/layout";
 import {site} from "~/config";
 import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/modules/blog";
 import {ContentManager, PageProps, StaticContent, StaticPageMeta} from "~/modules/content-manager";
@@ -71,12 +70,11 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
           >
             {features.map(
               feature => (
-                <article
+                <Markdown
                   key={feature.slug}
                   className="flex flex-col space-y-24"
-                  dangerouslySetInnerHTML={{__html: md().render(feature.content)}}
-                >
-                </article>
+                  content={feature.content}
+                />
               )
             )}
           </div>
