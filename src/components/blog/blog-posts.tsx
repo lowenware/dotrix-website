@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
+import {site} from "~/config";
 import {BlogPostMeta} from "~/modules/blog";
-import cfg from "~/modules/config";
 
 import {BlogCard} from "./blog-card";
 
@@ -22,7 +22,7 @@ export const BlogPosts: React.FC<BlogPostsProps> = ({className, posts}) => {
         posts.map(post => (
           <a
             key={post.slug}
-            href={`/${cfg.blog.slug}/${post.slug}`}
+            href={`/${site.blog.slug}/${post.slug}`}
             className="flex flex-col hover:no-underline hover:-translate-y-32 transition ease-out"
           >
             <BlogCard className="flex-grow" post={post} />

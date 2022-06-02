@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-import cfg from "~/modules/config";
+import {site} from "~/config";
 
 export interface StaticPageMeta {
   slug: string,
@@ -44,12 +44,12 @@ export class ContentManager {
   };
 
   constructor(
-    private root: string = cfg.content.root,
-    private extension: string = cfg.content.extension
+    private root: string = site.content.root,
+    private extension: string = site.content.extension
   ) {
     this.pages = this.getPages();
     this.social = this.getSocial(
-      path.join(cfg.content.root, cfg.community.slug)
+      path.join(site.content.root, site.community.slug)
     );
   }
 

@@ -5,8 +5,8 @@ import {Logo} from "~/assets";
 import {BlogPosts} from "~/components/blog";
 import {Button} from "~/components/button";
 import {PageLayout, Slide} from "~/components/layout";
+import {site} from "~/config";
 import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/modules/blog";
-import cfg from "~/modules/config";
 import {ContentManager, PageProps, StaticPageMeta} from "~/modules/content-manager";
 interface Home {
   meta: StaticPageMeta,
@@ -16,7 +16,7 @@ const MAX_BLOG_POSTS = 8;
 
 const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
   const {meta, posts} = data;
-  const handbook = ContentManager.root(menu, cfg.handbook.slug);
+  const handbook = ContentManager.root(menu, site.handbook.slug);
   const github = social.find(l => l.slug === "github");
   return (
     <>

@@ -1,7 +1,7 @@
 import {PageLayout, Slide} from "~/components/layout";
 import {Paginator} from "~/components/paginator";
+import {site} from "~/config";
 import {BlogPostMeta, Tag} from "~/modules/blog";
-import cfg from "~/modules/config";
 import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 
 import {BlogPosts} from "./blog-posts";
@@ -25,10 +25,10 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
   social,
   blog,
 }) => {
-  const root = ContentManager.root(menu, cfg.blog.slug);
+  const root = ContentManager.root(menu, site.blog.slug);
   const {posts, totalPages, page, tag} = blog;
   return (
-    <PageLayout slug={cfg.blog.slug} menu={menu} social={social}>
+    <PageLayout slug={site.blog.slug} menu={menu} social={social}>
       <Slide className="mt-80" image="/images/low-poly-mountain.png" size="small">
         <h1>
           Blog{tag && (

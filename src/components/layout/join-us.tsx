@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import {Logo} from "~/assets";
 import {Button} from "~/components/button";
-import cfg from "~/modules/config";
+import {site} from "~/config";
 import {SocialMeta} from "~/modules/content-manager";
 
 interface JoinUsProps {
@@ -21,7 +21,7 @@ export const JoinUs: React.FC<JoinUsProps> = ({className, social}) => {
       )}
     >
       <div className="flex flex-col lg:flex-row space-x-24">
-        <Button href={`/${cfg.community.slug}`} variant="secondary">
+        <Button href={`/${site.community.slug}`} variant="secondary">
           Join Us
         </Button>
 
