@@ -7,12 +7,12 @@ import {SocialMeta} from "~/modules/content-manager";
 import {JoinUs} from "./join-us";
 
 interface FooterProps {
-  slug: string[],
+  slug: string,
   social: SocialMeta[],
 }
 
 export const Footer: React.FC<FooterProps> = ({slug, social}) => {
-  const isCommunityPage = slug[0] === cfg.community.slug;
+  const isCommunityPage = slug === cfg.community.slug;
   return (
     <div id="footer">
       {isCommunityPage ? (

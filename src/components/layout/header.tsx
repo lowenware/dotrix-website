@@ -1,18 +1,18 @@
+import classNames from "classnames";
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
 
 import {Icon, Logo} from "~/assets";
 import {StaticPageMeta} from "~/modules/content-manager";
 
 interface HeaderProps {
-  slug: string[],
+  slug: string,
   menu: StaticPageMeta[],
 }
 
 export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
-  const slugString = slug.join(".");
-
-  //  const handleClick = () => {};
+  const [open, setOpen] = useState(false);
+  const handleClick = () => setOpen(!open);
 
   return (
     <nav className="nav flex justify-between items-center fixed w-full bg-dark drop-shadow
@@ -21,18 +21,26 @@ export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
       <a href={menu[0].url} className="flex items-center space-x-16">
         <Logo.Dotrix /><span>Dotrix</span>
       </a>
-      <ul className="flex space-x-24">
+      <ul className={
+        classNames(
+          "flex flex-col items-center space-x-0 space-y-24 absolute p-24 transition",
+          "-translate-y-full bg-dark z-40 w-full left-0",
+          open ? "drop-shadow top-80  translate-y-0" : undefined,
+          "sm:flex-row sm:static sm:translate-y-0 sm:p-0 sm:space-x-24 sm:space-y-0",
+          "sm:top-auto sm:left-auto sm:w-auto",
+        )
+      }>
         {menu
           .map((link, i) => (
             <li key={i}>
               <Link href={link.url}>
-                <a className={slugString === link.slug ? "active" : undefined}>{link.menu}</a>
+                <a className={slug === link.slug ? "active" : undefined}>{link.menu}</a>
               </Link>
             </li>
           ))}
       </ul>
       <button
-        //        onClick={handleClick}
+        onClick={handleClick}
         id="menu"
         className="block sm:hidden"
       >

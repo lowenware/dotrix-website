@@ -21,7 +21,7 @@ const StaticSlugPage: NextPage<PageProps<StaticPage>> = ({menu, social, data}) =
     <Head>
       <title>{meta.title}</title>
     </Head>
-    <PageLayout className="pt-80" slug={[meta.slug]} menu={menu} social={social}>
+    <PageLayout className="pt-80" slug={meta.slug} menu={menu} social={social}>
       <main className="mx-auto max-w-screen-lg">
         <h1>{meta.title}</h1>
         <div
