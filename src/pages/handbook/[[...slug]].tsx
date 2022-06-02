@@ -3,13 +3,13 @@ import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import Head from "next/head";
 
 import {HandbookLayout} from "~/components/handbook";
-import cfg from "~/modules/config";
+import {site} from "~/config";
 import {ContentManager, PageProps} from "~/modules/content-manager";
 import {Handbook, HandbookProps} from "~/modules/handbook";
 
 
 const DocsPage: NextPage<PageProps<HandbookProps>> = ({menu, social, data}) => {
-  const handbook = ContentManager.root(menu, cfg.handbook.slug);
+  const handbook = ContentManager.root(menu, site.handbook.slug);
   return (
     <>
       <Head>

@@ -1,4 +1,4 @@
-export default {
+export const site = {
   content: {
     extension: process.env.CONTENT_EXTENSION || ".md",
     root: process.env.CONTENT_FOLDER || "content",
@@ -14,4 +14,3 @@ export default {
     slug: process.env.COMMUNITY_FOLDER || "community",
   },
 };
-

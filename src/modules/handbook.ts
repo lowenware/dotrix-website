@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-import cfg from "~/modules/config";
+import {site} from "~/config";
 
 export interface HandbookMeta {
   slug: string[],
@@ -32,8 +32,8 @@ export class Handbook {
   private metaFields = ["title"];
 
   constructor(
-    private root: string = path.join(cfg.content.root, cfg.handbook.slug),
-    private extension: string = cfg.content.extension,
+    private root: string = path.join(site.content.root, site.handbook.slug),
+    private extension: string = site.content.extension,
   ) {
     this.pages = this.getPages();
   }

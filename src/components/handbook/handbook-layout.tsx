@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import {Card, CardBody, CardTitle} from "~/components/card";
 import {LeafOver,PageLayout} from "~/components/layout";
-import cfg from "~/modules/config";
+import {site} from "~/config";
 import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 import {HandbookProps} from "~/modules/handbook";
 
@@ -15,7 +15,7 @@ interface HandbookLayoutProps {
 }
 
 export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, social}) => {
-  const root = ContentManager.root(menu, cfg.handbook.slug);
+  const root = ContentManager.root(menu, site.handbook.slug);
   const getLink = (slug: string[]) => `${root.url}/${slug.join("/")}`;
   const {chapters, page, prev, next} = handbook;
 
@@ -30,7 +30,7 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
   };
 
   return (
-    <PageLayout className="pt-80" slug={cfg.handbook.slug} menu={menu} social={social}>
+    <PageLayout className="pt-80" slug={site.handbook.slug} menu={menu} social={social}>
       <div className="flex space-x-32 p-32 items-start">
         <Card>
           <CardBody className="space-y-24">

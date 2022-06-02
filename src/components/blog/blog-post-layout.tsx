@@ -2,8 +2,8 @@ import md from "markdown-it";
 import Link from "next/link";
 
 import {LeafOver, PageLayout} from "~/components/layout";
+import {site} from "~/config";
 import {BlogPostMeta, BlogPostRaw} from "~/modules/blog";
-import cfg from "~/modules/config";
 import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 import {formatDateTime} from "~/utils/format";
 
@@ -27,9 +27,9 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
 
 }) => {
   const {meta, content, prev, next} = post;
-  const root = ContentManager.root(menu, cfg.blog.slug);
+  const root = ContentManager.root(menu, site.blog.slug);
   return (
-    <PageLayout className="pt-80" slug={cfg.blog.slug} menu={menu} social={social}>
+    <PageLayout className="pt-80" slug={site.blog.slug} menu={menu} social={social}>
       <div className="max-w-screen-lg mx-auto">
         <main>
           <h1>{meta.title}</h1>

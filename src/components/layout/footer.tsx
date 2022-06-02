@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import {Logo} from "~/assets";
-import cfg from "~/modules/config";
+import {site} from "~/config";
 import {SocialMeta} from "~/modules/content-manager";
 
 import {JoinUs} from "./join-us";
@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({slug, social}) => {
-  const isCommunityPage = slug === cfg.community.slug;
+  const isCommunityPage = slug === site.community.slug;
   return (
     <div id="footer">
       {isCommunityPage ? (

@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-import cfg from "~/modules/config";
+import {site} from "~/config";
 
 export interface BlogPostRaw {
   slug: string,
@@ -56,11 +56,11 @@ export class Blog {
   tags: Tag[];
 
   constructor(
-    private extension: string = cfg.content.extension,
-    private postsPerPage: number = cfg.blog.postsPerPage,
+    private extension: string = site.content.extension,
+    private postsPerPage: number = site.blog.postsPerPage,
   ) {
 
-    this.root = path.join(cfg.content.root, cfg.blog.slug);
+    this.root = path.join(site.content.root, site.blog.slug);
     this.posts = this.getBlogPosts();
     this.tags = this.getTagsFromPosts(this.posts);
   }
