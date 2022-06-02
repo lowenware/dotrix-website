@@ -21,7 +21,7 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
   return (
     <>
       <Head>
-        <title>{meta.title}</title>
+        <title>{meta.title} - {site.name}</title>
       </Head>
       <PageLayout slug={meta.slug} menu={menu} social={social}>
         <Slide image="/images/low-poly-mountain.png" size="large">
@@ -43,7 +43,12 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
                 Get Started
               </Button>
               {github && (
-                <Button href={github.url} variant="outline" className="flex space-x-16 mb-10 sm:mb-0" softLink>
+                <Button
+                  href={github.url}
+                  variant="outline"
+                  className="flex space-x-16 mb-10 sm:mb-0"
+                  softLink
+                >
                   <Logo.GitHub />
                   <span>GitHub</span>
                 </Button>

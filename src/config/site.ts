@@ -1,4 +1,5 @@
 export const site = {
+  name: "Dotrix",
   content: {
     extension: process.env.CONTENT_EXTENSION || ".md",
     root: process.env.CONTENT_FOLDER || "content",
