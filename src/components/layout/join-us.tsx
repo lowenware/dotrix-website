@@ -15,22 +15,21 @@ export const JoinUs: React.FC<JoinUsProps> = ({className, social}) => {
   return (
     <section
       className={classNames(
-        "flex flex-col items-center justify-between w-full bg-dark drop-shadow mh-200",
-        "sm:p-32 lg:flex-row",
+        "flex flex-col items-center justify-between w-full bg-dark drop-shadow p-24",
+        "space-y-24 lg:space-y-0 space-x-0 lg:space-x-24 space-p-24 lg:flex-row",
         className
       )}
     >
-      <div className="flex flex-col lg:flex-row space-x-24">
-        <Button href={`/${site.community.slug}`} variant="secondary">
-          Join Us
-        </Button>
+      <Button
+        className=""
+        href={`/${site.community.slug}`} variant="secondary">Join Us</Button>
 
-        <span
-          className="text-white text-small sm:text-large mb-16 lg:mb-0 lg:text-large self-center"
-        >
-          Become a sponsor or contributor to enlarge your experience
-        </span>
+      <div
+        className="flex-grow text-white text-medium text-center lg:text-left sm:text-large"
+      >
+        Become a sponsor or contributor to enlarge your experience
       </div>
+
       <div className="flex items-center space-x-24">
         {social.map(link => (
           <Link key={link.slug} href={link.url}>

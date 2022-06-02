@@ -31,7 +31,10 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
 
   return (
     <PageLayout className="pt-80" slug={site.handbook.slug} menu={menu} social={social}>
-      <div className="flex space-x-32 p-32 items-start">
+      <div
+        className="flex flex-col lg:flex-row space-y-24 lg:space-y-0 space-x-0
+          lg:space-x-32 p-32 lg:items-start"
+      >
         <Card>
           <CardBody className="space-y-24">
             <CardTitle title="Table of Contents" />
