@@ -29,7 +29,7 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
   const {meta, content, prev, next} = post;
   const root = ContentManager.root(menu, cfg.blog.slug);
   return (
-    <PageLayout className="pt-80" slug={[meta.slug]} menu={menu} social={social}>
+    <PageLayout className="pt-80" slug={cfg.blog.slug} menu={menu} social={social}>
       <div className="max-w-screen-lg mx-auto">
         <main>
           <h1>{meta.title}</h1>

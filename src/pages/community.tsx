@@ -14,7 +14,7 @@ const CommunityPage: NextPage<PageProps<StaticPageMeta>> = ({menu, social, data}
       <Head>
         <title>{root.title}</title>
       </Head>
-      <PageLayout slug={[root.slug]} menu={menu} social={social}>
+      <PageLayout slug={root.slug} menu={menu} social={social}>
         <Slide
           image="/images/low-poly-mountain.png"
           size="small"

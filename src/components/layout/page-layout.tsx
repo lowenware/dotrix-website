@@ -10,7 +10,7 @@ import {SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 interface PageProps {
   className?: string,
   children: ReactNode,
-  slug: string[],
+  slug: string,
   menu: StaticPageMeta[],
   social: SocialMeta[],
 }

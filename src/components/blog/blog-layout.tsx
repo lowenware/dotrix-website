@@ -28,7 +28,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
   const root = ContentManager.root(menu, cfg.blog.slug);
   const {posts, totalPages, page, tag} = blog;
   return (
-    <PageLayout slug={[root.slug]} menu={menu} social={social}>
+    <PageLayout slug={cfg.blog.slug} menu={menu} social={social}>
       <Slide className="mt-80" image="/images/low-poly-mountain.png" size="small">
         <h1>
           Blog{tag && (
