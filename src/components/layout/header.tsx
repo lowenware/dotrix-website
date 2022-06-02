@@ -16,12 +16,12 @@ export const Header: React.FC<HeaderProps> = ({slug, menu}) => {
   const handleClick = () => setOpen(!open);
 
   return (
-    <nav className="nav flex items-stretch fixed w-full bg-dark drop-shadow
+    <nav className="nav flex justify-between items-stretch fixed w-full bg-dark drop-shadow
       px-24 h-80 z-50"
     >
       <a
         href={menu[0].url}
-        className="flex flex-grow justify-start items-center text-right space-x-16"
+        className="flex items-center space-x-16"
       >
         <Logo.Dotrix />
         <span>Dotrix</span>
