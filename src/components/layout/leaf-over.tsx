@@ -14,10 +14,15 @@ interface LeafOverProps {
 
 export const LeafOver: React.FC<LeafOverProps> = ({className, prev, next}) => {
   return (
-    <div className={classNames("flex flex-col sm:flex-row text-medium justify-between", className)}>
+    <div className={
+      classNames(
+        "flex flex-col space-y-24 sm:space-y-0 sm:flex-row text-medium justify-between",
+        className
+      )
+    }>
       {prev && (
-        <div className="flex flex-grow">
-          <div className="flex flex-col">
+        <div className="flex flex-grow justify-center sm:justify-start">
+          <div className="flex flex-col items-center sm:items-start">
             <span className="flex items-center uppercase text-blue-dark text-small">
               <span>&lsaquo; Back to</span>
             </span>
@@ -30,8 +35,8 @@ export const LeafOver: React.FC<LeafOverProps> = ({className, prev, next}) => {
         </div>
       )}
       {next && (
-        <div className="flex flex-grow justify-end">
-          <div className="flex flex-col justify-end items-end">
+        <div className="flex flex-grow justify-center sm:justify-end">
+          <div className="flex flex-col items-center sm:items-end">
             <span className="flex items-center uppercase text-blue-dark text-small">
               <span>Read next &rsaquo;</span>
             </span>
