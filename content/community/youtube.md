@@ -1,7 +1,7 @@
 ---
 title: Watch
 label: YouTube
-url: https://youtube.com/lowenware
+url: https://www.youtube.com/channel/UCdriNXRizbBFQhqZefaw44A
 action: Watch YouTube
 order: 30
 ---

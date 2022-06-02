@@ -1,7 +1,7 @@
 ---
 title: Communicate
 label: Discord
-url: https://discord.org/lowenware/dotrix
+url: https://discord.com/invite/DrzwBysNRd
 action: Join Discord
 order: 30
 ---
