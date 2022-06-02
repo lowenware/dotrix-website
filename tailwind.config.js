@@ -43,7 +43,7 @@ module.exports = {
         DEFAULT: "#efefef",
       },
       red: {
-        DEFAULT: "#ff0000",
+        DEFAULT: "#438543",
       },
       blue: {
         DEFAULT: "#0FB7FF",
