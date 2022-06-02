@@ -77,7 +77,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
   return (
     <div
       className={classNames(
-        "mx-auto max-w-400 lg:max-w-none font-bold flex items-center justify-center space-x-8",
+        "mx-auto font-bold flex items-center justify-center space-x-8",
         className
       )}
     >

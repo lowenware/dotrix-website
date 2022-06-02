@@ -30,7 +30,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
         <CardTitle title={title}/>
         <div className="py-24">
           <div className="flex items-center justify-center h-80">
-            <span className="scale-300">{icon}</span>
+            <span className="scale-logo">{icon}</span>
           </div>
         </div>
         <p className="text-left flex-grow">
