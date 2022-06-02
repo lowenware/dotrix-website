@@ -69,7 +69,7 @@ a {
 .button{
   border-radius: 0.25rem;
   transition-duration:700ms;
-  @apply font-bold flex justify-center items-center cursor-pointer text-large uppercase text-white;
+  @apply font-bold flex justify-center items-center cursor-pointer uppercase text-white;
   @apply hover:no-underline;
 }
 

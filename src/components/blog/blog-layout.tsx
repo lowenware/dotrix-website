@@ -43,7 +43,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
       <BlogPosts posts={posts} className="w-full min-h-min -mt-32" />
 
       <Paginator
-        className="my-16"
+        className="my-24"
         page={page}
         totalPages={totalPages}
         root={tag ? `${root.url}/${tag}` : root.url}
