@@ -5,7 +5,7 @@ import Link from "next/link";
 import {Card, CardBody, CardTitle} from "~/components/card";
 import {LeafOver,PageLayout} from "~/components/layout";
 import cfg from "~/modules/config";
-import {SocialMeta, StaticPageMeta} from "~/modules/content-manager";
+import {ContentManager, SocialMeta, StaticPageMeta} from "~/modules/content-manager";
 import {HandbookProps} from "~/modules/handbook";
 
 interface HandbookLayoutProps {
@@ -15,7 +15,7 @@ interface HandbookLayoutProps {
 }
 
 export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, social}) => {
-  const root = menu.find(l => cfg.handbook.slug === l.slug)!;
+  const root = ContentManager.root(menu, cfg.handbook.slug);
   const getLink = (slug: string[]) => `${root.url}/${slug.join("/")}`;
   const {chapters, page, prev, next} = handbook;
 
