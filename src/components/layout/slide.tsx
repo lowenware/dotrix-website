@@ -21,7 +21,7 @@ export const Slide: React.FC<SlideProps> = ({
   const sizeClassNames = (() => {
     switch (size) {
     case "small": return "h-30vh";
-    case "large": return "h-80vh sm:h-screen pt-80";
+    case "large": return "h-80vh h-screen pt-80";
     }
   })();
 
