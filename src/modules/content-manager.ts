@@ -33,6 +33,18 @@ export interface PageProps<T> {
   data: T,
 }
 
+export type Meta = {[key: string]: string};
+
+export interface StaticContent {
+  meta: Meta,
+  slug: string,
+  order: number,
+  content: string,
+}
+
+// TODO: consider using this class right inside of the Blog and Handbook
+// as a generic reader of file contents. Verifiers of meta can be
+// also moved here
 export class ContentManager {
   private social: SocialMeta[];
   private pages: StaticPageMeta[];
@@ -144,6 +156,29 @@ export class ContentManager {
 
       content,
     };
+  }
+
+  // TODO: this function is a quite generic reader, that can be reused in handbook for example
+  readFolderOrdered(slug: string[]): StaticContent[] {
+    const root = path.join(site.content.root, ...slug);
+    return fs
+      .readdirSync(root)
+      // TODO: use regex to match order and name
+      .filter(fileName => fileName.endsWith(this.extension))
+      .map(fileName => {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const [order, slug] = fileName.split("_", 2);
+        const {data, content} = matter(
+          fs.readFileSync(path.join(root, fileName), "utf-8")
+        );
+        return {
+          slug,
+          order: parseInt(order),
+          meta: data,
+          content
+        };
+      })
+      .sort((p1, p2) => p1.order - p2.order);
   }
 
   private preprocess(content: string) {

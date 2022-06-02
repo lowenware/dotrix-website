@@ -1,3 +1,4 @@
+import md from "markdown-it";
 import {NextPage} from "next";
 import Head from "next/head";
 
@@ -7,15 +8,16 @@ import {Button} from "~/components/button";
 import {PageLayout, Slide} from "~/components/layout";
 import {site} from "~/config";
 import {Blog, BlogPostRaw, mapBlogPostRawToMeta} from "~/modules/blog";
-import {ContentManager, PageProps, StaticPageMeta} from "~/modules/content-manager";
+import {ContentManager, PageProps, StaticContent, StaticPageMeta} from "~/modules/content-manager";
+
 interface Home {
   meta: StaticPageMeta,
   posts: BlogPostRaw[],
+  features: StaticContent[],
 }
-const MAX_BLOG_POSTS = 8;
 
 const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
-  const {meta, posts} = data;
+  const {meta, posts, features} = data;
   const handbook = ContentManager.root(menu, site.handbook.slug);
   const github = social.find(l => l.slug === "github");
   return (
@@ -67,48 +69,16 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
             className="grid max-w-screen-xl mx-auto gap-64 px-32 grid-cols-1 lg:grid-rows-2
               lg:grid-cols-2 my-64"
           >
-            <article className="flex flex-col space-y-24">
-              <h1>Performance and Safety</h1>
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don&apos;t look even
-                slightly believable.
-              </p>
-            </article>
-
-            <article className="flex flex-col space-y-24">
-              <h1>ECS Programming pattern</h1>
-              <p>
-                If you are going to use a passage of Lorem Ipsum, you need to be
-                sure there isn&apos;t anything embarrassing hidden in the middle
-                of text. All the Lorem Ipsum generators on the Internet tend to
-                repeat predefined chunks as necessary, making this the first
-                true generator on the Internet
-              </p>
-            </article>
-            <article className="flex flex-col space-y-24">
-              <h1>Crossplatform</h1>
-              <p>
-                It uses a dictionary of over 200 Latin words, combined with a
-                handful of model sentence structures, to generate Lorem Ipsum
-                which looks reasonable. The generated Lorem Ipsum is therefore
-                always free from repetition, injected humour, or
-                non-characteristic words etc.
-              </p>
-            </article>
-            <article className="flex flex-col space-y-24">
-              <h1>OpenSource</h1>
-              <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia, looked up
-                one of the more obscure Latin words, consectetur, from a Lorem
-                Ipsum passage, and going through the cites of the word in
-                classical literature, discovered the undoubtable source.
-              </p>
-            </article>
+            {features.map(
+              feature => (
+                <article
+                  key={feature.slug}
+                  className="flex flex-col space-y-24"
+                  dangerouslySetInnerHTML={{__html: md().render(feature.content)}}
+                >
+                </article>
+              )
+            )}
           </div>
         </section>
       </PageLayout>
@@ -120,8 +90,9 @@ export const getStaticProps = async () => {
   const manager = new ContentManager();
   return {
     props: manager.getPageProps({
-      meta: manager.page("home"),
-      posts: new Blog().getRawBlogPosts(MAX_BLOG_POSTS),
+      meta: manager.page(site.home.slug),
+      features: manager.readFolderOrdered([site.home.slug, "features"]),
+      posts: new Blog().getRawBlogPosts(site.home.maxBlogPosts),
     }),
   };
 };

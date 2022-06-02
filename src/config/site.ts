@@ -2,16 +2,20 @@ export const site = {
   name: "Dotrix",
   content: {
     extension: process.env.CONTENT_EXTENSION || ".md",
-    root: process.env.CONTENT_FOLDER || "content",
+    root: process.env.CONTENT_ROOT || "content",
+  },
+  home: {
+    slug: process.env.HOME_SLUG || "home",
+    maxBlogPosts: 8,
   },
   blog: {
-    slug: process.env.BLOG_FOLDER || "blog",
+    slug: process.env.BLOG_SLUG || "blog",
     postsPerPage: 16,
   },
   handbook: {
-    slug: process.env.HANDBOOK_FOLDER || "handbook",
+    slug: process.env.HANDBOOK_SLUG || "handbook",
   },
   community: {
-    slug: process.env.COMMUNITY_FOLDER || "community",
+    slug: process.env.COMMUNITY_SLUG || "community",
   },
 };
