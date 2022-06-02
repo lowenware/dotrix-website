@@ -1,7 +1,7 @@
 ---
 title: Follow
 label: Twitter
-url: https://twitter.com/dotrix
+url: https://twitter.com/Dotrix3D
 action: Open Feed
 order: 20
 ---

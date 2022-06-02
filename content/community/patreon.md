@@ -1,7 +1,7 @@
 ---
 title: Donate
 label: Patreon
-url: https://patreon.com/lowenware/dotrix
+url: https://www.patreon.com/dotrix
 action: Become a Patron
 order: 30
 ---
