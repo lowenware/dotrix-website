@@ -1,8 +1,7 @@
-import md from "markdown-it";
 import {GetStaticProps, NextPage} from "next";
 import Head from "next/head";
 
-import {PageLayout} from "~/components/layout";
+import {Markdown,PageLayout} from "~/components/layout";
 import {site} from "~/config";
 import {
   ContentManager, PageProps, StaticPage
@@ -23,12 +22,12 @@ const StaticSlugPage: NextPage<PageProps<StaticPage>> = ({menu, social, data}) =
       <title>{meta.title} - {site.name}</title>
     </Head>
     <PageLayout className="pt-80" slug={meta.slug} menu={menu} social={social}>
-      <main className="mx-auto max-w-screen-lg p-24">
-        <h1>{meta.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{__html: md().render(content)}}
-        />
-      </main>
+      <Markdown
+        className="mx-auto max-w-screen-lg p-24"
+        tag="main"
+        patchHtml={html => `<h1>${meta.title}</h1>${html}`}
+        content={content}
+      />
     </PageLayout>
   </>);
 };

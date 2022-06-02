@@ -72,15 +72,6 @@ a {
   @apply hover:no-underline;
 }
 
-pre {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  overflow-x: auto;
-  background-color: #11131A;
-  padding: 16px 16px;
-  border-left: #4CC900 2px solid;
-}
-
 .aside li::before {
   content: '•';
   @apply mr-16;
@@ -118,4 +109,77 @@ nav ul a.active::before {
 
 nav a.active::before {
   @apply bg-green;
+}
+
+/* Code Highlighting */
+.syntax {
+  overflow-x: auto;
+  @apply relative bg-dark drop-shadow my-24 p-24 border-l-2 border-green;
+}
+
+.syntax button {
+  @apply absolute text-blue-light top-24 right-24 opacity-0 transition-opacity;
+}
+
+.syntax:hover button {
+  @apply absolute opacity-100;
+}
+
+.syntax button:hover {
+  @apply text-blue;
+}
+
+.syntax button.copied {
+  @apply text-green;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  @apply text-purple;
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-subst {
+  /* default */
+  @apply text-blue-light
+}
+
+.hljs-string,
+
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  @apply text-blue;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  @apply text-blue-dark;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }
