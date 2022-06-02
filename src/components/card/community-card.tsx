@@ -36,7 +36,7 @@ export const CommunityCard: React.FC<CommunityCardProps> = ({
         <p className="text-left flex-grow">
           {summary}
         </p>
-        <Button href={link}>
+        <Button href={link} className="mx-auto">
           {buttonText}
         </Button>
       </CardBody>
