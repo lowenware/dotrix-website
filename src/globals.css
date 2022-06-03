@@ -99,12 +99,14 @@ a {
 
 nav ul a::before {
   content: "";
-  @apply absolute hidden sm:block bg-white transition h-0 w-0.5  ml-1 left-1/2 -top-24;
+  margin-left: -0.0625rem;
+  @apply absolute hidden sm:block bg-white transition w-0.5 h-0 left-1/2 -translate-y-64;
 }
 
 nav ul a:hover::before,
 nav ul a.active::before {
   height: 20px;
+  @apply -translate-y-24;
 }
 
 nav a.active::before {
