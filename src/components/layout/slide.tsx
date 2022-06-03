@@ -16,12 +16,10 @@ export const Slide: React.FC<SlideProps> = ({
   children,
   size = "small",
 }) => {
-
-  const stretch = "absolute top-0 left-0 right-0 bottom-0";
   const sizeClassNames = (() => {
     switch (size) {
-    case "small": return "h-slide";
-    case "large": return "h-screen pt-80";
+    case "small": return "min-h-slide";
+    case "large": return "min-h-screen";
     }
   })();
 
@@ -33,12 +31,13 @@ export const Slide: React.FC<SlideProps> = ({
           `slide--${size}`,
           className,
           sizeClassNames,
-          "overflow-hidden bg-no-repeat bg-cover bg-fixed bg-center relative"
+          "flex items-stretch overflow-hidden bg-no-repeat bg-cover bg-fixed bg-center relative z-0"
         )
       }
     >
-      <div className={classNames(stretch, "bg-dark opacity-90")}></div>
-      <div className={classNames("flex justify-center items-center", stretch)}>
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-dark opacity-90 z-10">
+      </div>
+      <div className="flex-grow relative flex justify-center items-center z-20 py-20">
         {children}
       </div>
     </div>
