@@ -26,7 +26,7 @@ const Home: NextPage<PageProps<Home>> = ({menu, social, data}) => {
       </Head>
       <PageLayout slug={meta.slug} menu={menu} social={social}>
         <Slide image="/images/low-poly-mountain.png" size="large">
-          <section className="flex flex-col space-y-64">
+          <section className="flex flex-col space-y-64 p-24">
             <div className="flex flex-col space-y-64 text-center text-white">
               <div className="text-h1 text-white">
                 Program Your World
