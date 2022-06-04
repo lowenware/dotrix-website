@@ -6,5 +6,5 @@ action: Watch YouTube
 order: 30
 ---
 
-On our YouTube channel you will find Dotrix tutorials and demos, that may help you to learn
-more about the engine
+On our YouTube channel you will find Dotrix tutorials and demos, that
+may help you to learn more about the engine

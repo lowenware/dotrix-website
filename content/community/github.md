@@ -6,4 +6,5 @@ action: Open GitHub
 order: 10
 ---
 
-Join the development process, contribute to the codebase, share your ideas and report bugs
+Join the development process, contribute to the codebase, share
+your ideas and report bugs
