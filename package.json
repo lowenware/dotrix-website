@@ -8,7 +8,8 @@
     "build:export": "next build && next export",
     "start": "next start",
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix"
+    "lint:md": "markdownlint content/",
+    "lint:fix": "eslint src/ --fix "
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
@@ -36,6 +37,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "imagemin-svgo": "9.0.0",
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
     "postcss": "^8.4.13",
