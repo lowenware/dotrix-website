@@ -6,5 +6,5 @@ action: Become a Patron
 order: 30
 ---
 
-Your sponsorship helps us to allocate more time on Dotrix development to 
-deliver more features and improve our engine
+Your sponsorship helps us to allocate more time on Dotrix development
+to deliver more features and improve our engine
