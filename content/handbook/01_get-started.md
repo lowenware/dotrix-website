@@ -2,41 +2,30 @@
 title: Get Started
 ---
 
-Hello, I'm a mdx file!
+Welcome to Dotrix Handbook! The goal of this document is to
+centralize the engine documentation at one place and provide
+usefull tips and recommendations about how the engine is supposed
+to be used.
 
-```rust
-use dotrix::camera;
-use dotrix::egui::{self, Egui};
-use dotrix::input::{ActionMapper, Button, KeyCode, Mapper, Modifiers};
-use dotrix::overlay::{self, Overlay};
-use dotrix::prelude::*;
-use dotrix::renderer::Render;
-use dotrix::sky::{skybox, SkyBox};
-use dotrix::{Assets, CubeMap, Frame, Input, State, World};
+## What is Dotrix
 
-/// In main state you can rotate camera and see FPS counter
-struct MainState {
-    name: String,
-}
+Dotrix is a 3D engine with focus on GPU-driven rendering written in
+[Rust](https://www.rust-lang.org/) programming language. Dotrix is
+being distributed as a set of native Rust packages, called crates
+and available on both [crates.io](https://crates.io/crates/dotrix)
+and [GitHub](https://github.com/lowenware/dotrix/).
 
-/// In paused state you can't rotate camera
-struct PauseState {
-    name: String,
-    handled: bool,
-}
+## API Reference
 
-fn main() {
-    Dotrix::application("Dotrix: Demo Example")
-        .with(System::from(startup))
-        .with(System::from(ui_main).with(State::off::<PauseState>()))
-        .with(System::from(ui_paused).with(State::on::<PauseState>()))
-        .with(
-            // Camera control should work only in Main state
-            System::from(camera::control).with(State::on::<MainState>()),
-        )
-        .with(overlay::extension)
-        .with(egui::extension)
-        .with(skybox::extension)
-        .run();
-}
-```
+As any published Rust crate, Dotrix has public
+[API Reference](https://docs.rs/dotrix) that is very useful for
+developers.
+
+## How to use the Handbook
+
+It is highly recommended to go throw the **Get Started** sections
+one by one to get the complete understanding of Dotrix architecture,
+while other chapters can be read in any order on demand as soon as
+they cover specific aspects of the engine.
+
+Dotrix team wishes you pleasant reading and success in development!
