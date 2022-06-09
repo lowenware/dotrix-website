@@ -44,7 +44,9 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
                 return (
                   <li key={key} className={chapterClass}>
                     <Link href={getLink(chapter.meta.slug)} >
-                      <a>{chapter.meta.title}</a>
+                      <a className={chapter.meta.draft ? "text-blue-dark" : undefined}>
+                        {chapter.meta.title}
+                      </a>
                     </Link>
 
                     {chapterClass && chapter.sections.length > 0 && (
@@ -52,7 +54,9 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
                         {chapter.sections.map((section, key) => (
                           <li key={key} className={getLinkClass(section.slug)}>
                             <Link href={getLink(section.slug)}>
-                              <a>{section.title}</a>
+                              <a className={section.draft ? "text-blue-dark" : undefined}>
+                                {section.title}
+                              </a>
                             </Link>
                           </li>
                         ))}
@@ -67,11 +71,20 @@ export const HandbookLayout: NextPage<HandbookLayoutProps> = ({handbook, menu, s
         <div className="flex-grow">
           <div className="max-w-screen-lg">
 
-            <Markdown
-              tag="main"
-              patchHtml={html => `<h1>${page.meta.title}</h1>${html}`}
-              content={page.content}
-            />
+            {page.meta.draft ? (
+              <>
+                <h1>{page.meta.title}</h1>
+                <blockquote>
+                  The document is planned, but has not been prepared yet.
+                </blockquote>
+              </>
+            ) : (
+              <Markdown
+                tag="main"
+                patchHtml={html => `<h1>${page.meta.title}</h1>${html}`}
+                content={page.content}
+              />
+            )}
 
             <LeafOver className="my-32"
               prev={prev && ({
