@@ -113,10 +113,19 @@ nav a.active::before {
   @apply bg-green;
 }
 
+blockquote {
+  @apply bg-dark italic drop-shadow my-24 p-24 border-l-2 border-blue-dark;
+}
+
+p code {
+  border-radius: 0.25rem;
+  @apply bg-dark text-small px-8 py-4;
+}
+
 /* Code Highlighting */
 .syntax {
   overflow-x: auto;
-  @apply relative bg-dark drop-shadow my-24 p-24 border-l-2 border-green;
+  @apply relative bg-dark text-small drop-shadow my-24 p-24 border-l-2 border-green;
 }
 
 .syntax button {

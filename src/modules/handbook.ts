@@ -8,6 +8,7 @@ export interface HandbookMeta {
   slug: string[],
   title: string,
   order: number,
+  draft: boolean,
 }
 
 export interface HandbookPage {
@@ -127,7 +128,7 @@ export class Handbook {
         throw `File '${filePath}' has not '${field}' meta data`;
       }
     });
-    const {title} = data;
+    const {title, draft} = data;
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [order, slug] = paths.pop()!.split("_", 2);
 
@@ -135,6 +136,7 @@ export class Handbook {
       meta: {
         slug: [...paths, slug.replace(this.extension, "")],
         title,
+        draft: draft !== undefined ? !!draft : content === "\n",
         order: parseInt(order),
       },
       content: this.preprocess(content),
