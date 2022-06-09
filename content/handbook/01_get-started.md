@@ -3,8 +3,8 @@ title: Get Started
 ---
 
 Welcome to Dotrix Handbook! The goal of this document is to
-centralize the engine documentation at one place and provide
-usefull tips and recommendations about how the engine is supposed
+centralise the engine documentation at one place and provide
+useful tips and recommendations about how the engine is supposed
 to be used.
 
 ## What is Dotrix
@@ -23,7 +23,7 @@ developers.
 
 ## How to use the Handbook
 
-It is highly recommended to go throw the **Get Started** sections
+It is highly recommended to go throgh the **Get Started** sections
 one by one to get the complete understanding of Dotrix architecture,
 while other chapters can be read in any order on demand as soon as
 they cover specific aspects of the engine.

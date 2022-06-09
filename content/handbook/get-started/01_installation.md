@@ -6,7 +6,7 @@ To start working with Dotrix you need to install
 [GIT](https://git-scm.com/downloads) and
 [Rust toolchain](https://rustup.rs/)
 on your computer first. The installation process for both is OS
-dependent. Please refer the official documentation for more
+dependent. Please refer to the official documentation for more
 information.
 
 ## Getting the Code
