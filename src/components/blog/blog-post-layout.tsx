@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import {LeafOver, Markdown,PageLayout} from "~/components/layout";
@@ -50,6 +51,15 @@ export const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({
               </div>
             )}
           </div>
+          {meta.image && (
+            <Image
+              src={`//${site.blog.slug}/${meta.slug}/${meta.image}`}
+              alt={meta.title}
+              width={1920}
+              height={1080}
+              quality="100"
+            />
+          )}
           <Markdown className="text-black-gray text-small" content={content}></Markdown>
         </main>
         <LeafOver className="my-32"

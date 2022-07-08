@@ -16,10 +16,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({className, post}) => {
     <Card className={classNames("flex-grow", className)}>
       {post.image && (
         <Image
-          src={`//${site.blog.slug}/${post.image}`}
-          alt={""}
-          height={200}
-          width={100}
+          src={`//${site.blog.slug}/${post.slug}/${post.image}`}
+          alt={post.title}
+          width={1920}
+          height={1080}
+          quality="100"
         />
       )}
       <CardBody className="flex flex-grow">
