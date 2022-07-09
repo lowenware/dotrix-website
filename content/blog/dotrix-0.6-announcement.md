@@ -2,7 +2,7 @@
 title: Dotrix 0.6 Announcement
 date: 2022-05-31T17:41:00
 image: dotrix-0.6-announcement.png
-tags: release
+tags: announcement
 summary: Introducing tasks and GPU driven rendering
 ---
 
