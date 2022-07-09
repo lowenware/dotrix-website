@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-white font-normal text-h1;
+  }
+  h2{
+    @apply text-white font-normal text-h2;
+  }
+  h3{
+    @apply text-white font-normal text-h3;
+  }
+  p {
+    @apply text-blue-light text-medium;
+  }
+}
+
+.slide--large h1 {
+  @apply text-h3;
+}
+
+.card h1 {
+  @apply text-h3;
+}
+
+main h1 {
+  @apply mt-32 mb-16;
+}
+
+main h2 {
+  @apply mt-32 mb-16;
+}
+
+main p {
+  @apply pt-8 pb-4;
+}
+
+article h1 {
+  @apply text-h3;
+}
+
+button {
+  @apply: cursor-pointer;
+}
+
+@tailwind components;
+
+@layer components {
+  html,
+  body {
+    @apply h-full p-0 m-0 bg-gray text-white font-jura;
+  }
+
+  #__next {
+    @apply relative h-full;
+  }
+}
+
+@tailwind utilities;
+
+a {
+  @apply no-underline text-white hover:underline;
+  text-decoration: none;
+}
+
+.button{
+  border-radius: 0.25rem;
+  transition-duration:700ms;
+  @apply font-bold flex justify-center items-center cursor-pointer uppercase text-white;
+  @apply hover:no-underline;
+}
+
+.aside li::before {
+  content: '•';
+  @apply mr-16;
+}
+
+.aside li.active::before {
+  content: '›';
+}
+
+.aside li.active>a {
+  @apply font-bold text-blue;
+}
+
+.nav {
+  @apply text-large font-bold uppercase text-white hover:no-underline;
+}
+
+.nav a {
+  @apply relative transition hover:no-underline;
+}
+.nav a:hover,
+.nav a.active {
+  @apply text-green;
+}
+
+nav ul a::before {
+  content: "";
+  margin-left: -0.0625rem;
+  @apply absolute hidden sm:block bg-white transition w-0.5 h-0 left-1/2 -translate-y-64;
+}
+
+nav ul a:hover::before,
+nav ul a.active::before {
+  height: 20px;
+  @apply -translate-y-24;
+}
+
+nav a.active::before {
+  @apply bg-green;
+}
+
+blockquote {
+  @apply bg-dark italic drop-shadow my-24 p-24 border-l-2 border-blue-dark;
+}
+
+p code {
+  border-radius: 0.25rem;
+  @apply bg-dark text-small px-8 py-4;
+}
+
+/* Code Highlighting */
+.syntax {
+  overflow-x: auto;
+  @apply relative bg-dark text-small drop-shadow my-24 p-24 border-l-2 border-green;
+}
+
+.syntax button {
+  @apply absolute text-blue-light top-24 right-24 opacity-0 transition-opacity;
+}
+
+.syntax:hover button {
+  @apply absolute opacity-100;
+}
+
+.syntax button:hover {
+  @apply text-blue;
+}
+
+.syntax button.copied {
+  @apply text-green;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  @apply text-purple;
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-subst {
+  /* default */
+  @apply text-blue-light
+}
+
+.hljs-string,
+
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  @apply text-blue;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  @apply text-blue-dark;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
