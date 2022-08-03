@@ -23,7 +23,7 @@ developers.
 
 ## How to use the Handbook
 
-It is highly recommended to go throgh the **Get Started** sections
+It is highly recommended to go through the **Get Started** sections
 one by one to get the complete understanding of Dotrix architecture,
 while other chapters can be read in any order on demand as soon as
 they cover specific aspects of the engine.

@@ -24,7 +24,7 @@ impl dotrix::Task for MyTask {
 }
 ```
 
-Each task can be dependend on some context and can provide some data,
+Each task can be dependent on some context and can provide some data,
 that can be used by other tasks.
 
 ## Context
@@ -47,7 +47,7 @@ associated methods, these selectors only provide access to the data.
 The only role they play for task scheduling is declaration of
 possibility to run in parallel. For example, two or more tasks
 using `Ro<Camera>` in their context can run in parallel, but only
-one task dependend on `Rw<Camera>` can run at a time.
+one task dependent on `Rw<Camera>` can run at a time.
 
 The selectors implement `Deref` and `DerefMut` traits appropriately,
 so you can access methods and properties defined for enclosured `T`
@@ -80,7 +80,7 @@ they affect scheduling.
 
 A task with dependency on `Any<Data>` will be executed on each
 provision of `Data`. While `All<Data>` will wait until all
-provisions of `Data` are availbale. Selector `All<T>` does not
+provisions of `Data` are available. Selector `All<T>` does not
 implement `Deref` trait. Instead of this, it provides `.iter()`
 method returning an iterator over the data instances.
 
