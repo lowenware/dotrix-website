@@ -206,7 +206,7 @@ export class Blog {
       .readdirSync(this.root)
       .filter(fileName => fileName.endsWith(this.extension))
       .map(fileName => this.readBlogPost(fileName).meta)
-      .sort((post1, post2) => post1.date.getTime() - post2.date.getTime());
+      .sort((post1, post2) => post2.date.getTime() - post1.date.getTime());
   }
 
   getRawBlogPosts(sliceTo: number): BlogPostRaw[] {
