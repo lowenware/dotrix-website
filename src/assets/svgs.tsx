@@ -4,6 +4,7 @@ import ArrowRight from "assets/arrow-right.svg";
 import LogoDiscord from "assets/logo-discord.svg";
 import LogoDotrix from "assets/logo-dotrix.svg";
 import LogoGithub from "assets/logo-github.svg";
+import LogoInstagram from "assets/logo-instagram.svg";
 import LogoLowenware from "assets/logo-lowenware.svg";
 import LogoPatreon from "assets/logo-patreon.svg";
 import LogoTwitter from "assets/logo-twitter.svg";
@@ -23,6 +24,7 @@ export const Logo = {
   Discord: () => <img src={LogoDiscord} alt="Discord" />,
   Dotrix: () => <img src={LogoDotrix} alt="Dotrix" />,
   GitHub: () => <img src={LogoGithub} alt="GitHub" />,
+  Instagram: () => <img src={LogoInstagram} alt="Instagram" />,
   Lowenware: () => <img src={LogoLowenware} alt="Löwenware" />,
   Patreon: () => <img src={LogoPatreon} alt="Patreon" />,
   Twitter: () => <img src={LogoTwitter} alt="Twitter" />,
@@ -32,6 +34,7 @@ export const Logo = {
     switch(label) {
     case "GitHub": return <Logo.GitHub />;
     case "Discord": return <Logo.Discord />;
+    case "Instagram": return <Logo.Instagram />;
     case "Patreon": return <Logo.Patreon />;
     case "Twitter": return <Logo.Twitter />;
     case "YouTube": return <Logo.YouTube />;
